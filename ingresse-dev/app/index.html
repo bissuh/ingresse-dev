@@ -6,14 +6,17 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>API for life</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/greek-1.0.2/css/chronus.css">
+        <link rel="stylesheet" href="styles/greek-1.0.2/css/normalize.css">
         <!-- endbuild -->
+
 </head>
   <body ng-app="ingresse-devApp">
     <!--[if lt IE 7]>
@@ -24,6 +27,29 @@
       <script src="bower_components/es5-shim/es5-shim.js"></script>
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
+
+    <!-- Top Bar -->
+    <header class="background-color dark" style="margin-bottom: 0;">
+      <div class="row">
+        <nav class="top-bar">
+          <ul class="title-area">
+            <!-- Title Area -->
+            <li class="name">
+              <a href="#/home" class="home-developers"><img ng-src="img/ingresse-dev.png" style="margin-top: 2px;" alt="Ingresse developers"></a>
+            </li>
+            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+          </ul>
+
+          <section class="top-bar-section">
+
+            <!-- Right Nav Section -->
+            <ul class="right">
+              <li><a href="#/references">API</a></li>
+            </ul>
+        </nav>
+      </div>
+    </header>
 
     <!-- Add your site or application content here -->
     <div class="container" ng-view=""></div>
@@ -40,6 +66,10 @@
     </script>
 
     <script src="bower_components/angular/angular.js"></script>
+    <script src="styles/greek-1.0.2/js/vendor/zepto.js"></script>
+    <script src="styles/greek-1.0.2/js/vendor/jquery.js"></script>
+    <script src="styles/greek-1.0.2/js/vendor/custom.modernizr.js"></script>
+    <script src="styles/greek-1.0.2/js/foundation.min.js"></script>
 
         <!-- build:js scripts/modules.js -->
         <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -50,6 +80,8 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/references.js"></script>
         <!-- endbuild -->
+
 </body>
 </html>

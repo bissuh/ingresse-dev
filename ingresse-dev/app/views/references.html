@@ -1,0 +1,28 @@
+<div class="row">
+	<ul class="breadcrumbs large-12">
+		<li><a href="#/references">Referências</a></li>
+	</ul>
+	<div class="panel large-12" style="height: 800px;">
+		<div class="columns large-3">
+			<h5>Referências</h5>
+			<nav>
+				<ul>
+					<li ng-repeat="reference in references">
+						<a href="#/references/{{reference.id}}">{{reference.name}}</a>
+						<ul>
+							<li ng-repeat="method in reference.methods">
+								<a href="">{{method.name}}</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="ref-article columns large-9">
+			<article>
+				<h2>Biblioteca de referências</h2>
+				<p>Nesta página você vai encontrar a lista de referências aos métodos da Ingresse. Não esqueça que para ter uma aplicação rodando com a Ingresse você precisa antes credenciar a sua aplicação. Quaisquer dúvidas e sugestões referentes a nossa API, podem ser enviadas para contato@ingresse.com.</p>
+			</article>
+		</div>
+	</div>
+</div>
