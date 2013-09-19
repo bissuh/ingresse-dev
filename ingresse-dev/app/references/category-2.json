@@ -1,79 +1,106 @@
 {
 	"title" : "User",
-	"id" : "user",
-	"text" : "LALALALA",	
+	"id" : "category-2",
+	"description" : "User entity is the best group of methods to use when you are up to manage relationship between people and events, or promoting sales.",
 	"entity" : {
-
-				"publicInfo" : "id,<br>name,<br>lastName,<br>username<br>",
-				"privateInfo" : "email,<br>cellphone,<br>loginMoip,<br>phone,<br>termsAcceptedVersion,<br>type,<br>token,<br>fbUserId,<br>cofre,<br>street,<br>number,<br>complement,<br>district,<br>city,<br>state,<br>zip,<br>cartaoFinal,<br>cartaoBandeira,<br>private,<br>creationDate,<br>modificationDate,<br>deletionDate<br>",
-				"set" : "Default",
-				"properties" : "<em>none</em>",
-				"branches" : []
-
-				},
-	"methods" : [{
-					"name" : "GET - Retrieve a specific user",
-					"id" : "get-retrieve-a-specific-user",
-					"definition" : "URL template: /user/:id",
-					"action" : "Brings full set of specific information for the given id user",
-					"partParams" :  "<em>none</em>",
-					"examples" : [{
-									"label" : "/user/963",
-									"description" : "Brings full set of information for specified user."
-								},
-								{
-									"label" : "/user/963?fields=\"id,name\"",
-									"description" : "Brings only id, name information for specified user."
-								}]
+		"id" : "public",
+		"description": "public",
+		"status": "public",
+		"totalTicketsSold": "private"
+	},
+	"methods" : [
+		{
+			"id": "get-list-of-events",
+			"name" : "List of events",
+			"type" : "get",
+			"url" : "/event/",
+			"action" : "List all events ordered by date from past to future",
+			"params" : [
+				{
+					"name" : "lat",
+					"default" : "none",
+					"description" : "requires long (higher priority than the state*).",
+					"type" : "double"
 				},
 				{
-					"name" : "GET - Retrieve profile picture for specific user",
-					"id" : "get-retrieve-profile-picture-for-specific-user",
-					"definition" : "URL template: /user/:id/picture",
-					"action" : "Brings user profile picture from Ingresse, Facebook or default Ingresse profile picture. It never comes null.",
-					"partParams" : "<strong>size</strong>(small): options are (small[50x50],normal[160x160],big[600x600])<br><strong>width</strong> (none): width in pixels. Requires height to be specified.<br><strong>height</strong> (none): width in pixels. Requires width to be specified.",
-					"examples" : [{
-									"label" : "/user/963/picture",
-									"description" : "Brings user profile picture in small size."
-								},
-								{
-									"label" : "/user/963/picture/?size=\"normal\"",
-									"description" : "Brings user profile picture in normal size."
-								},
-								{ 
-									"label" : "/user/963/picture/?dimensions=\"30,36\"",
-									"description" : "Brings user profile picture in 30pixels for 36pixels."
-								}]
+					"name" : "long",
+					"default" : "none",
+					"description" : "requires lat (higher priority than the state*).",
+					"type" : "double"
+				}
+			],
+			"examples" : [
+				{
+					"request" : "/event/?term=Migration%20Party&state=sp",
+					"description" : "Brings all events who has term words in any context and are in São Paulo."
 				},
 				{
-					"name" : "GET - Retrieve user tickets",
-					"id" : "get-retrieve-user-tickets",
-					"definition" : "URL template: /user/:id/tickets",
-					"action" : "Brings user tickets with full set information ordered by future events for past events.",
-					"partParams" : "<strong>event</strong>(none): defines a specific event to bring tickets from",
-					"examples" : [{
-									"label" : "/user/963/tickets",
-									"description" : "Brings complete list of tickets of this user with full set of information."
-								},
-								{
-									"label" : "/user/963/tickets/?event=963",
-									"description" : "Brings complete list of tickets of this user to specific event with full set of information."
-									}]
+					"request" : "/event/?term=Migration%20Party&state=sp",
+					"description" : "Brings all events who has term words in any context and are in São Paulo."
+				}
+			]
+		},
+		{
+			"id": "get-event",
+			"name" : "Get an specific event",
+			"type" : "get",
+			"url" : "/event/",
+			"action" : "List all events ordered by date from past to future",
+			"params" : [
+				{
+					"name" : "lat",
+					"default" : "none",
+					"description" : "requires long (higher priority than the state*).",
+					"type" : "double"
 				},
 				{
-					"name" : "POST - Create User",
-					"id" : "post-create-user",
-					"definition" : "URL template: /user/?method=create",
-					"action" : "Creates a new user account into Ingresse.",
-					"partParams" : "<strong>name</strong>: mandatory<br><strong>lastname</strong>: mandatory<br><strong>pass</strong>: mandatory<br><strong>passcheck</strong>: mandatory<br><strong>username</strong>: mandatory<br><strong>acceptedTerms</strong>: mandatory<br><strong>fbuserid</strong>(none): mandatory if user are creating an account using Facebook<br><strong>cellphone</strong>(none): Use in the specified format: (00) 90000-0000<br><strong>subscribenews</strong>(0): if 1, user is subscribing to Ingresse newsletter.",
-					"examples" : []
+					"name" : "long",
+					"default" : "none",
+					"description" : "requires lat (higher priority than the state*).",
+					"type" : "double"
+				}
+			],
+			"examples" : [
+				{
+					"request" : "/event/?term=Migration%20Party&state=sp",
+					"description" : "Brings all events who has term words in any context and are in São Paulo."
 				},
 				{
-					"name" : "POST - Update User",
-					"id" : "post-update-user",
-					"definition" : "URL template: /user/:id?method=update",
-					"action" : "Updating existing user account into Ingresse.",
-					"partParams" : "All User entity attributes can be added into this query, but are optional.",
-					"examples" : []
-				}]
+					"request" : "/event/?term=Migration%20Party&state=sp",
+					"description" : "Brings all events who has term words in any context and are in São Paulo."
+				}
+			]
+		},
+		{
+			"id" : "get-list-of-tickets",
+			"name" : "List of tickets",
+			"type" : "get",
+			"url" : "/event/",
+			"action" : "List all events ordered by date from past to future",
+			"params" : [
+				{
+					"name" : "lat",
+					"default" : "none",
+					"description" : "requires long (higher priority than the state*).",
+					"type" : "double"
+				},
+				{
+					"name" : "long",
+					"default" : "none",
+					"description" : "requires lat (higher priority than the state*).",
+					"type" : "double"
+				}
+			],
+			"examples" : [
+				{
+					"request" : "/event/?term=Migration%20Party&state=sp",
+					"description" : "Brings all events who has term words in any context and are in São Paulo."
+				},
+				{
+					"request" : "/event/?term=Migration%20Party&state=sp",
+					"description" : "Brings all events who has term words in any context and are in São Paulo."
+				}
+			]
+		}
+	]
 }

@@ -1,91 +1,106 @@
 {
 	"title" : "Event",
-	"id" : "event",
-	"text" : "",
+	"id" : "category-1",
+	"description" : "This is the fucking awesome Event entity. It has incredible methods to help you retrieve events and more.",
 	"entity" : {
-		"publicInfo" : "id,<br>title,<br>description,<br>type,<br>status,<br>salesEnabled,<br>link,<br>date{list of event dates},<br>planner{default set Planner},<br>addedBy{default set User},<br>category{list of Tags},<br>venue{full set Venue},<br>rsvp{list of, at maximum 5 Users in Ingresse’s list},<br>ticket{list of tickets},<br>aiddp,<br>formalName,<br>cnpj,<br>cpf,<br>cityNumber<br>",
-		"privateInfo" : "private,<br>totalTicketsSold,<br>totalTickets,<br>totalRevenue,<br>totalIngresseTax,<br>totalMoipTax,<br>totalProfit,<br>tax,<br>taxToCostumer,<br>creationDate,<br>modificationDate<br>",
-		"set" : "Default",
-		"properties" : "id, title, description (200 chars), date, type, link, venue",
-		"branches" : []
+		"id" : "public",
+		"description": "public",
+		"status": "public",
+		"totalTicketsSold": "private"
 	},
-	"methods" : [{
-					"name" : "GET - List of events",
-					"id" : "get-list-of-events",
-					"definition" : "URL template: /event/",
-					"action" : "List all events ordered by date from past to future",
-					"partParams" :  "<strong>lat</strong>(none): requires long (higher priority than the state*) <br><strong>long</strong>(none): requires lat (higher priority than the state*) <br><strong>from</strong>(present date) <br><strong>to</strong>(none) <br><strong>state</strong>(none): valid state code. Ex.: am for \"Amazonas\" <br><strong>term</strong>(none): text to be used to search for tags, titles, description, link encoded in URI format - see RFC-3986. <br><strong>venues</strong> names [<em>future version</em>]",
-					"examples" : [{
-									"label" : "/event/?term=Migration%20Party&state=sp",
-									"description" : "Brings all events who has term words in any context and are in São Paulo."
-								},
-								{
-									"label" : "/event/?long=32.22763&lat=3.76762",
-									"description" : "Brings all events until 400km from the given latitude and longitude"
-								},
-								{
-									"label" : "/event/?from=2012-11-23&to=2012-11-25",
-									"description" : "Brings all events happening from 23 to 25 November in 2012."
-								},
-								{
-									"label" : "/event/?fields=id,title,venue",
-									"description" : "Brings all events from today, but only id, title and venue information."
-								}]
+	"methods" : [
+		{
+			"id": "get-list-of-events",
+			"name" : "List of events",
+			"type" : "get",
+			"url" : "event/",
+			"action" : "List all events ordered by date from past to future",
+			"params" : [
+				{
+					"name" : "lat",
+					"default" : "none",
+					"description" : "requires long (higher priority than the state*).",
+					"type" : "double"
 				},
 				{
-					"name" : "GET - Retrieve an specific event",
-					"id" : "get-retrieve-an-specific-event",
-					"definition" : "URL template: /event/:id",
-					"action" : "Brings full set of specific information for the given id event",
-					"partParams" : "<em>none</em>",
-					"examples" : [{
-									"label" : "/event/963",
-									"description" : "Brings full set of information for specified event."
-								},
-								{
-									"label" : "/event/963?fields=id,title,venue",
-									"description" : "Bring full set of information for specified event, but only id, title and venue information."
-								}]
+					"name" : "long",
+					"default" : "none",
+					"description" : "requires lat (higher priority than the state*).",
+					"type" : "double"
+				}
+			],
+			"examples" : [
+				{
+					"request" : "event/?term=Migration%20Party&state=sp",
+					"description" : "Brings all events who has term words in any context and are in São Paulo."
 				},
 				{
-					"name" : "GET - Retrive Ingresse list of a specific event",
-					"id" : "get-retrieve-ingresse-list-of-an-specific-event",
-					"definition" : "URL template: /event/:id/rsvp",
-					"action" : "List of users in Ingresse list for specified event with default set of information in a random order.",
-					"partParams" : "<em>none</em>",
-					"examples" : [{
-									"label" : "/event/963/rsvp/",
-									"description" : "List users in Ingresse list for specified event."
-								}]
+					"request" : "event/?term=Migration%20Party&state=sp",
+					"description" : "Brings all events who has term words in any context and are in São Paulo."
+				}
+			]
+		},
+		{
+			"id": "get-event",
+			"name" : "Get an specific event",
+			"type" : "get",
+			"url" : "event/:eventId",
+			"action" : "List all events ordered by date from past to future",
+			"params" : [
+				{
+					"name" : "lat",
+					"default" : "none",
+					"description" : "requires long (higher priority than the state*).",
+					"type" : "double"
 				},
 				{
-					"name" : "GET - Retrieve event's tickets list",
-					"id" : "get-retrieve-events-tickets-list",
-					"definition" : "URL template: /event/:id/tickets",
-					"action" : "List of tickets for specified event with full set of information.",
-					"partParams" : "<em>none</em>",
-					"examples" : [{
-									"label" : "/event/963/tickets/",
-									"description" : "List of tickets for specified event with full set of information."
-								}]
+					"name" : "long",
+					"default" : "none",
+					"description" : "requires lat (higher priority than the state*).",
+					"type" : "double"
+				}
+			],
+			"examples" : [
+				{
+					"request" : "event/?term=Migration%20Party&state=sp",
+					"description" : "Brings all events who has term words in any context and are in São Paulo."
 				},
 				{
-					"name" : "GET - Retrieve event's poster",
-					"id" : "get-retrieve-events-poster",
-					"definition" : "URL template: /event/:id/poster",
-					"action" : "Return event poster in the specified parameters",
-					"partParams" : "<strong>width</strong> (none): width in pixels. Requires height to be specified.<br><strong>height</strong> (none): width in pixels. Requires width to be specified.<br><strong>size</strong>(normal): options are (small[70x90],normal[230x300],big[460x600])",
-					"examples" : [{
-									"label" : "/event/963/poster",
-									"description" : "Brings event poster in default size."
-								},
-								{
-									"label" : "/event/963/poster/?size=\"normal\"",
-									"description" : "Brings event poster in normal size."
-								},
-								{
-									"label" : "/event/963/poster/?dimensions=\"30,36\"",
-									"description" : "Brings event poster in 30pixels for 36pixels."
-								}]
-				}]
+					"request" : "event/?term=Migration%20Party&state=sp",
+					"description" : "Brings all events who has term words in any context and are in São Paulo."
+				}
+			]
+		},
+		{
+			"id" : "get-list-of-tickets",
+			"name" : "List of tickets",
+			"type" : "get",
+			"url" : "event/:eventId/tickets/",
+			"action" : "List all events ordered by date from past to future",
+			"params" : [
+				{
+					"name" : "lat",
+					"default" : "none",
+					"description" : "requires long (higher priority than the state*).",
+					"type" : "double"
+				},
+				{
+					"name" : "long",
+					"default" : "none",
+					"description" : "requires lat (higher priority than the state*).",
+					"type" : "double"
+				}
+			],
+			"examples" : [
+				{
+					"request" : "event/?term=Migration%20Party&state=sp",
+					"description" : "Brings all events who has term words in any context and are in São Paulo."
+				},
+				{
+					"request" : "event/?term=Migration%20Party&state=sp",
+					"description" : "Brings all events who has term words in any context and are in São Paulo."
+				}
+			]
+		}
+	]
 }

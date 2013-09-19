@@ -4,14 +4,14 @@
 	</ul>
 	<div class="panel large-12" style="height: 800px;">
 		<div class="columns large-3">
-			<h5>Referências</h5>
+			<h6>Referências</h6>
 			<nav>
 				<ul>
 					<li ng-repeat="reference in references">
 						<a href="#/references/{{reference.id}}">{{reference.name}}</a>
 						<ul>
 							<li ng-repeat="method in reference.methods">
-								<a href="">{{method.name}}</a>
+								<a href="#/references/{{reference.id}}/{{method.id}}">{{method.name}}</a>
 							</li>
 						</ul>
 					</li>
@@ -19,10 +19,51 @@
 			</nav>
 		</div>
 		<div class="ref-article columns large-9">
-			<article>
-				<h2>Biblioteca de referências</h2>
-				<p>Nesta página você vai encontrar a lista de referências aos métodos da Ingresse. Não esqueça que para ter uma aplicação rodando com a Ingresse você precisa antes credenciar a sua aplicação. Quaisquer dúvidas e sugestões referentes a nossa API, podem ser enviadas para contato@ingresse.com.</p>
-			</article>
+			<ANY ng-switch="viewContent">
+				<article ng-switch-when="entity">
+					<header>
+						<h2>{{category.title}}</h2>
+						<p class="subheader">{{category.description}}</p>
+					</header>
+					<section>
+						<h3>Objeto</h3>
+						<code>{{category.entity}}</code>
+					</section>
+					<section>
+						<h3>Métodos</h3>
+						Lista de métodos
+					</section>
+				</article>
+				<article ng-switch-when="method">
+					<any ng-repeat="method in category.methods | filter:selectedMethod">
+						<header>
+							<h2>{{method.name}}</h2>
+							<span>{{method.type}} - {{url}}{{method.url}}</span>
+							<p class="subheader">{{method.action}}</p>
+						</header>
+						<h3>Parâmetros</h3>
+						<table>
+							<tr>
+								<th>Nome</th>
+								<th>Tipo</th>
+								<th>Valor padrão</th>
+								<th>Descrição</th>
+							</tr>
+							<tr ng-repeat="param in method.params">
+								<td>{{param.name}}</td>
+								<td>{{param.type}}</td>
+								<td>{{param.description}}</td>
+								<td>{{param.type}}</td>
+							</tr>
+						</table>
+						<h3>Exemplos de uso</h3>
+						<p ng-repeat="example in method.examples">
+							<span>{{example.request}}</span><br/>
+							{{example.description}}
+						</p>
+					</any>
+				</article>
+			</ANY>
 		</div>
 	</div>
 </div>
