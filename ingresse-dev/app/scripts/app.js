@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('ingresse-devApp', ['ngResource'])
-	.config(function ($routeProvider) {
+
+	.config(function ($routeProvider, $locationProvider) {
+
 		$routeProvider
 			.when('/', {
 				templateUrl: 'views/main.html',
@@ -9,21 +11,19 @@ angular.module('ingresse-devApp', ['ngResource'])
 			})
 			.when('/references', {
 			  templateUrl: 'views/references.html',
-			  controller: 'ReferencesCtrl'
 			})
 			.when('/references/:category', {
 			  templateUrl: 'views/references.html',
-			  controller: 'ReferencesSpecificCtrl'
 			})
 			.when('/references/:category/:method', {
 			  templateUrl: 'views/references.html',
-			  controller: 'ReferencesSpecificCtrl'
 			})
 			.otherwise({
 				redirectTo: '/'
 			});
 	})
 
-	.run(function ($rootScope) {
+	.run(function ($rootScope, $route, $routeParams, $location) {
 		$rootScope.url = '/';
+		$rootScope.location = $location;
 	});

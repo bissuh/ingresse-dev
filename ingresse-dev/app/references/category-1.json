@@ -29,6 +29,12 @@
 					"type" : "double"
 				}
 			],
+			"answer" : {
+				"id" : "public",
+				"description": "public",
+				"status": "public",
+				"totalTicketsSold": "private"
+			},
 			"examples" : [
 				{
 					"request" : "event/?term=Migration%20Party&state=sp",

@@ -20,27 +20,27 @@
 
 # Run apt-get update to create the stamp file
 execute "apt-get-update" do
-  command "apt-get update"
+  command "sudo apt-get update"
   ignore_failure true
   not_if do ::File.exists?('/var/lib/apt/periodic/update-success-stamp') end
 end
 
 # For other recipes to call to force an update
 execute "apt-get update" do
-  command "apt-get update"
+  command "sudo apt-get update"
   ignore_failure true
   action :nothing
 end
 
 # Automatically remove packages that are no longer needed for dependencies
 execute "apt-get autoremove" do
-  command "apt-get -y autoremove"
+  command "sudo apt-get -y autoremove"
   action :nothing
 end
 
 # Automatically remove .deb files for packages no longer on your system
 execute "apt-get autoclean" do
-  command "apt-get -y autoclean"
+  command "sudo apt-get -y autoclean"
   action :nothing
 end
 
@@ -50,7 +50,7 @@ package "update-notifier-common" do
 end
 
 execute "apt-get-update-periodic" do
-  command "apt-get update"
+  command "sudo apt-get update"
   ignore_failure true
   only_if do
     ::File.exists?('/var/lib/apt/periodic/update-success-stamp') &&

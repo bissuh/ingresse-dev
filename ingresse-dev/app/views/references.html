@@ -1,17 +1,14 @@
-<div class="row">
-	<ul class="breadcrumbs large-12">
-		<li><a href="#/references">Referências</a></li>
-	</ul>
+<div ng-controller="ReferencesCtrl" class="row">
 	<div class="panel large-12" style="height: 800px;">
 		<div class="columns large-3">
 			<h6>Referências</h6>
-			<nav>
+			<nav ng-controller="ReferencesMenuCtrl">
 				<ul>
-					<li ng-repeat="reference in references">
-						<a href="#/references/{{reference.id}}">{{reference.name}}</a>
+					<li ng-repeat="reference in references | orderBy:'name':false">
+						<a ng-click="setItem(reference.id)">{{reference.name}}</a>
 						<ul>
-							<li ng-repeat="method in reference.methods">
-								<a href="#/references/{{reference.id}}/{{method.id}}">{{method.name}}</a>
+							<li ng-repeat="method in reference.methods | orderBy:'name':false">
+								<a ng-click="setItem(reference.id, method.id)">{{method.name}}</a>
 							</li>
 						</ul>
 					</li>
@@ -19,23 +16,32 @@
 			</nav>
 		</div>
 		<div class="ref-article columns large-9">
-			<ANY ng-switch="viewContent">
-				<article ng-switch-when="entity">
+			<ul class="breadcrumbs large-12">
+				<li><a href="#/references">Referências</a></li>
+				<li><a ng-click="setItem(category.id)">{{category.title}}</a></li>
+				<li ng-show="selectedMethod"><a ng-click="setItem(category.id, method.id)">{{method.name}}</a></li>
+			</ul>
+			<ANY ng-switch="selectedMethod" ng-repeat="method in category.methods | filter:selectedMethod">
+				<article ng-switch-when="null">
 					<header>
 						<h2>{{category.title}}</h2>
 						<p class="subheader">{{category.description}}</p>
 					</header>
 					<section>
 						<h3>Objeto</h3>
-						<code>{{category.entity}}</code>
+						<kbd>{{category.entity}}</kbd>
 					</section>
 					<section>
 						<h3>Métodos</h3>
-						Lista de métodos
+						<ul>
+							<li ng-repeat="method in category.methods | orderBy:'name':false">
+								<a ng-click="setItem(category.id, method.id)">{{method.name}}</a>
+							</li>
+						</ul>
 					</section>
 				</article>
-				<article ng-switch-when="method">
-					<any ng-repeat="method in category.methods | filter:selectedMethod">
+				<article ng-switch-default>
+					<any>
 						<header>
 							<h2>{{method.name}}</h2>
 							<span>{{method.type}} - {{url}}{{method.url}}</span>
@@ -56,11 +62,16 @@
 								<td>{{param.type}}</td>
 							</tr>
 						</table>
+						<h3>Resposta da chamada</h3>
+						<kbd>{{method.answer}}</kbd>
 						<h3>Exemplos de uso</h3>
 						<p ng-repeat="example in method.examples">
-							<span>{{example.request}}</span><br/>
+							<kbd>{{example.request}}</kbd><br/>
 							{{example.description}}
 						</p>
+						<h3>Discussões</h3>
+					    <div id="disqus_thread" disqus="{{category.id}}.{{method.id}}"></div>
+					    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 					</any>
 				</article>
 			</ANY>

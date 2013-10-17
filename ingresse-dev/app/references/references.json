@@ -10,5 +10,9 @@
 {
 	"name" : "Category 3",
 	"id" : "category-3"
+},
+{
+	"name" : "Category 4",
+	"id" : "category-4"
 }
 ]
