@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
   config.vm.network :forwarded_port, guest: 9000, host: 9000
-  # config.vm.network :forwarded_port, guest: 35729, host: 35729
+  config.vm.network :forwarded_port, guest: 35729, host: 35729
 
   config.vm.synced_folder "../ingresse-dev", "/vagrant/"
 

@@ -1,5 +1,8 @@
 <div ng-controller="ReferencesCtrl" class="row">
+
 	<div class="panel large-12" style="height: 800px;">
+
+		<!-- BEGIN - LEFT SIDEBAR: REFERENCES MENU -->
 		<div class="columns large-3">
 			<h6>Referências</h6>
 			<nav ng-controller="ReferencesMenuCtrl">
@@ -15,21 +18,42 @@
 				</ul>
 			</nav>
 		</div>
+		<!-- END - LEFT SIDEBAR: REFERENCES MENU -->
+
+		<!-- BEGIN - CONTENT -->
 		<div class="ref-article columns large-9">
+
 			<ul class="breadcrumbs large-12">
 				<li><a href="#/references">Referências</a></li>
-				<li><a ng-click="setItem(category.id)">{{category.title}}</a></li>
-				<li ng-show="selectedMethod"><a ng-click="setItem(category.id, method.id)">{{method.name}}</a></li>
+				<li>{{category.title}}</li>
 			</ul>
-			<ANY ng-switch="selectedMethod" ng-repeat="method in category.methods | filter:selectedMethod">
+
+			<ANY ng-switch="referenceTemplate">
+
+				<!-- THERE IS NO SELECTED METHOD -->
 				<article ng-switch-when="null">
+					<header>
+						<h2>Referências</h2>
+						<p class="subheader">Aqui você irá encontrar o que é necessário para entender como integrar a sua aplicação ou site, com o sistema Ingresse.</p>
+					</header>
+					<section>
+						<p>Ao lado está listado o conjunto de métodos e entidades que o sistema de integração da Ingresse dispõe. Abaixo estão alguns links úteis, caso esteja começando agora:</p>
+						<ul>
+							<li>Como adquirir uma chave de desenvolvedor?</li>
+							<li>O que é preciso para vender ingressos usando a API?</li>
+						</ul>
+					</section>
+				</article>
+
+				<!-- FOR A SELECTED ENTITY -->
+				<article ng-switch-when="category">
 					<header>
 						<h2>{{category.title}}</h2>
 						<p class="subheader">{{category.description}}</p>
 					</header>
 					<section>
 						<h3>Objeto</h3>
-						<kbd>{{category.entity}}</kbd>
+						<pre ng-bind="category.entity | json"></pre>
 					</section>
 					<section>
 						<h3>Métodos</h3>
@@ -40,8 +64,10 @@
 						</ul>
 					</section>
 				</article>
-				<article ng-switch-default>
-					<any>
+
+				<!-- FOR A SELECTED METHOD -->
+				<article ng-switch-when="method">
+					<any ng-repeat="method in category.methods | filter:{id: methodId}">
 						<header>
 							<h2>{{method.name}}</h2>
 							<span>{{method.type}} - {{url}}{{method.url}}</span>
@@ -69,12 +95,11 @@
 							<kbd>{{example.request}}</kbd><br/>
 							{{example.description}}
 						</p>
-						<h3>Discussões</h3>
-					    <div id="disqus_thread" disqus="{{category.id}}.{{method.id}}"></div>
-					    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 					</any>
 				</article>
 			</ANY>
 		</div>
+		<!-- END - CONTENT -->
+
 	</div>
 </div>

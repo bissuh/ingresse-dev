@@ -7,15 +7,23 @@ angular.module('ingresse-devApp')
 	 */
 	.controller('ReferencesCtrl', function($scope, $http, $routeParams, $filter, References) {
 
+		// At the beggning, were darkness...
+		$scope.referenceTemplate = null;
+		$scope.category = null;
+		$scope.methodId = null;
+
 		if($routeParams.category) {
+
+			// ... then comes the light
 			$scope.category = References.get({categoryId: $routeParams.category});
+			$scope.methodId = $routeParams.method;
 
 			// Defines which template will be loaded
 			if($routeParams.method === undefined) {
-				$scope.selectedMethod = null;
+				$scope.referenceTemplate = 'category';
 			}
 			else {
-				$scope.selectedMethod = $routeParams.method;
+				$scope.referenceTemplate = 'method';
 			}
 		}
 
@@ -24,15 +32,14 @@ angular.module('ingresse-devApp')
 		 */
 		$scope.setItem = function (selectedCategory, selectedMethod) {
 			$scope.category = References.get({categoryId: selectedCategory});
-			$scope.selectedMethod = selectedMethod;
+			$scope.methodId = selectedMethod;
 
 			// Defines which template will be loaded
 			if(selectedMethod === undefined) {
-				$scope.selectedMethod = null;
+				$scope.referenceTemplate = 'category';
 			}
 			else {
-				$scope.selectedMethod = selectedMethod;
-				console.log($filter('filter')($scope.category.methods, selectedMethod));
+				$scope.referenceTemplate = 'method';
 			}
 		};
 
