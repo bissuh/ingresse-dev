@@ -16,6 +16,9 @@ npm install grunt-contrib-compass --save-dev
 echo "Installing Node Monitor"
 npm install -g nodemon
 
+echo "Installing Node server moderewrite"
+npm install connect-modrewrite
+
 echo "Define your Github account"
 git config --global user.name "Bissuh"
 git config --global user.email "bissuh@gmail.com"
