@@ -21,9 +21,11 @@ angular.module('ingresse-devApp')
 			// Defines which template will be loaded
 			if($routeParams.method === undefined) {
 				$scope.referenceTemplate = 'category';
+				$scope.disqusIdentifier = 'references.' + $routeParams.category;
 			}
 			else {
 				$scope.referenceTemplate = 'method';
+				$scope.disqusIdentifier = 'references.' + $routeParams.category + "." + $routeParams.method;
 			}
 		}
 
@@ -40,12 +42,14 @@ angular.module('ingresse-devApp')
 
 				// Refresh url
 				$location.path("/references/" + selectedCategory);
+				$scope.disqusIdentifier = 'references.' + selectedCategory;
 			}
 			else {
 				$scope.referenceTemplate = 'method';
 
 				// Refresh url
 				$location.path("/references/" + selectedCategory + "/" + selectedMethod);
+				$scope.disqusIdentifier = 'references.' + selectedCategory + "." + selectedMethod;
 			}
 		};
 

@@ -1,10 +1,11 @@
 'use strict';
 
-angular.module('ingresse-devApp', ['ngResource'])
+angular.module('ingresse-devApp', ['ngResource', 'ngDisqus'])
 
-	.config(function ($routeProvider, $locationProvider) {
+	.config(function ($disqusProvider, $routeProvider, $locationProvider) {
 
-		$locationProvider.html5Mode(true);
+		$disqusProvider.setShortname('ingresse');
+		$locationProvider.html5Mode(true).hashPrefix('!');
 
 		$routeProvider
 			.when('/', {
@@ -28,14 +29,4 @@ angular.module('ingresse-devApp', ['ngResource'])
 	.run(function ($rootScope, $route, $routeParams, $location) {
 		$rootScope.url = '/';
 		$rootScope.location = $location;
-
-		// $scope.$watch('locationPath', function(path) {
-	 //    $location.path(path);
-		// });
-
-		// $scope.$watch(function() {
-		// 		return $location.path();
-		// 	}, function(path) {
-		// 		$scope.locationPath = path;
-		// });
 	});
