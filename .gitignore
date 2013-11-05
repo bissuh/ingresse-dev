@@ -1,6 +1,11 @@
 ingresse-dev/node_modules
 ingresse-dev/app/ist
-ingresse-div/app/bower_components
+ingresse-dev/app/bower_components
+ingresse-dev/.DS_Store
+ingresse-dev/.bowerrc
+ingresse-dev/.editorconfig
+ingresse-dev/.gitattributes
+ingresse-dev/.tmp
 .DS_Store
 .AppleDouble
 .LSOverride
