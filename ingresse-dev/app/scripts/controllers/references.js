@@ -5,7 +5,7 @@ angular.module('ingresse-devApp')
 	/**
 	 * References main Controlller
 	 */
-	.controller('ReferencesCtrl', function($scope, $http, $routeParams, $filter, References) {
+	.controller('ReferencesCtrl', function($scope, $http, $routeParams, $location, $filter, References) {
 
 		// At the beggning, were darkness...
 		$scope.referenceTemplate = null;
@@ -41,6 +41,9 @@ angular.module('ingresse-devApp')
 			else {
 				$scope.referenceTemplate = 'method';
 			}
+
+			// Refresh url
+			$location.path("/references/" + selectedCategory + "/" + selectedMethod);
 		};
 
 	})
