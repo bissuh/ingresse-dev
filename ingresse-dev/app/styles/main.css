@@ -11,43 +11,40 @@ By: Bissuh
 /* =HOME */
 
 .main-header {
-    background: #3ca8e9;
-    color: #fff;
-    padding: 30px 0;
+	background: #3ca8e9;
+	color: #fff;
 }
 .mh-title {
-    font-size: 60px;
-    font-style: italic;
-    font-weight: bold;
-    line-height: 0;
+	font-size: 60px;
+	font-style: italic;
+	font-weight: bold;
+	line-height: 0;
 }
 .mh-subtitle {
-    font-size: 25px;
+	font-size: 25px;
 }
-.mh-gs-btn {
-
+.mh-subheader {
+	font-size: 20px;
+	line-height: 1.4;
+	font-weight: 300;
+	margin-top: 0.2em;
+	margin-bottom: 0.5em;
+	text-align: center;
 }
-
-.getting-started {
-    padding-top: 20px;
+.api-feature, .signin {
+	text-align: center;
 }
-.circle-icon {
-    background-color: #FF9600;
-    border-radius: 100%;
-    color: white;
-    display: inline-block;
-    float: left;
-    font-size: 2em;
-    height: 50px;
-    margin-right: 10px;
-    padding-top: 8px;
-    text-align: center;
-    width: 50px;
+.api-feature {
+	padding: 20px 0;
 }
 
-.feat-img-left {
-    float: left;
-    margin: 5px 20px 0 0;
+.bg-header-text {
+	background: url("../img/check-in-lindo.png") center -90px no-repeat;
+}
+
+.header-text {
+	padding: 60px 0 200px;
+	text-shadow: 1px 1px 1px #000;
 }
 
 /* References */
@@ -61,7 +58,7 @@ By: Bissuh
 }
 
 .ref-index {
-    border-right: 1px solid #ccc;
+	border-right: 1px solid #ccc;
 }
 
 .ref-article {
