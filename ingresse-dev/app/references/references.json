@@ -4,12 +4,12 @@
 	"id" : "event"
 },
 {
-	"name" : "Category 2",
-	"id" : "category-2"
+	"name" : "Ticket",
+	"id" : "ticket"
 },
 {
-	"name" : "Category 3",
-	"id" : "category-3"
+	"name" : "User",
+	"id" : "user"
 },
 {
 	"name" : "Category 4",

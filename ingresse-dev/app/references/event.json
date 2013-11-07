@@ -116,7 +116,7 @@
 		},
 		{
 			"id": "get-event",
-			"name" : "Retrieve an specific event",
+			"name" : "Retrieve specific event",
 			"type" : "get",
 			"url" : "event/:id",
 			"action" : "Brings full set of specific information for the given id event.",
@@ -212,6 +212,13 @@
 			"action" : "Retrieve event's poster from CDN. Posters are already compressed.",
 			"params" : [
 				{
+					"name" : "size",
+					"default" : "normal",
+					"description" : "As the recommmended parameter to be used, this request a poster from a default size: small (70x90), normal(230x300), big(460,600).",
+					"type" : "string",
+					"example": "big"
+				},
+				{
 					"name" : "width",
 					"default" : "none",
 					"description" : "Width in pixels. Requires height to be specified.",
@@ -224,13 +231,6 @@
 					"description" : "Height in pixels. Requires width to be specified.",
 					"type" : "double",
 					"example" : "300"
-				},
-				{
-					"name" : "size",
-					"default" : "normal",
-					"description" : "As the recommmended parameter to be used, this request a poster from a default size: small (70x90), normal(230x300), big(460,600).",
-					"type" : "string",
-					"example": "big"
 				}
 			],
 			"answer" : {
