@@ -39,7 +39,8 @@ By: Bissuh
 }
 
 .bg-header-text {
-	background: url("../img/check-in-lindo.png") center -90px no-repeat;
+	background: black center -90px no-repeat;
+    background-image: url("../img/check-in-lindo.jpg");
 }
 
 .header-text {
@@ -48,6 +49,10 @@ By: Bissuh
 }
 
 /* References */
+
+.references-pg {
+    margin-top: 20px;
+}
 
 .reference-link {
     cursor: pointer;
@@ -62,4 +67,6 @@ By: Bissuh
 }
 
 .ref-article {
+    border-left: 1px solid #e5e5e5;
+    min-height: 500px;
 }
