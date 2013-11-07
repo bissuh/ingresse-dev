@@ -1,12 +1,38 @@
 {
 	"title" : "Event",
-	"id" : "category-1",
+	"id" : "event",
 	"description" : "This is the fucking awesome Event entity. It has incredible methods to help you retrieve events and more.",
 	"entity" : {
 		"id" : "public",
-		"description": "public",
-		"status": "public",
-		"totalTicketsSold": "private"
+		"title" : "public",
+		"description" : "public",
+		"type" : "public",
+		"status" : "public",
+		"saleEnabled" : "public",
+		"link" : "public",
+		"date" : "public",
+		"planner" : "public",
+		"addedBy" : "public",
+		"category" : "public",
+		"venue" : "public",
+		"rsvp" : "public",
+		"ticket" : "public",
+		"aiddp" : "public",
+		"formalName" : "public",
+		"cnpj" : "public",
+		"cpf" : "public",
+		"cityNumber" : "public",
+		"private" : "private",
+		"totalTicketsSold" : "private",
+		"totalTickets" : "private",
+		"totalRevenue" : "private",
+		"totalIngresseTax" : "private",
+		"totalMoipTax" : "private",
+		"totalProfit" : "private",
+		"tax" : "private",
+		"taxToCostumer" : "private",
+		"creationDate" : "private",
+		"modificationDate" : "private"
 	},
 	"methods" : [
 		{
@@ -20,13 +46,22 @@
 					"name" : "lat",
 					"default" : "none",
 					"description" : "requires long (higher priority than the state*).",
-					"type" : "double"
+					"type" : "double",
+					"example" : "32.12345"
 				},
 				{
 					"name" : "long",
 					"default" : "none",
 					"description" : "requires lat (higher priority than the state*).",
-					"type" : "double"
+					"type" : "double",
+					"example" : "2.12345"
+				},
+				{
+					"name" : "from",
+					"default" : "present date",
+					"description" : "filter events from date provided.",
+					"type" : "string",
+					"example": "2013-12-02"
 				}
 			],
 			"answer" : {

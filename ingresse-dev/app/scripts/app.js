@@ -2,10 +2,12 @@
 
 angular.module('ingresse-devApp', ['ngResource', 'ngDisqus'])
 
-	.config(function ($disqusProvider, $routeProvider, $locationProvider) {
+	.config(function ($disqusProvider, $routeProvider, $locationProvider, $httpProvider) {
 
 		$disqusProvider.setShortname('ingresse');
 		$locationProvider.html5Mode(true).hashPrefix('!');
+		$httpProvider.defaults.useXDomain = true;
+		delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
 		$routeProvider
 			.when('/', {
