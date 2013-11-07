@@ -49,6 +49,14 @@ By: Bissuh
 
 /* References */
 
+.reference-link {
+    cursor: pointer;
+}
+
+.reference-link:hover {
+    background: #e5e5e5;
+}
+
 .ref-index {
 	border-right: 1px solid #ccc;
 }

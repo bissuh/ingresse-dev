@@ -1,16 +1,16 @@
 <div ng-controller="ReferencesCtrl" class="row">
 
-	<div class="panel large-12" style="height: 800px;">
+	<div class="columns large-12 panel">
 
 		<!-- BEGIN - LEFT SIDEBAR: REFERENCES MENU -->
 		<div class="columns large-3">
 			<h6>Referências</h6>
 			<nav ng-controller="ReferencesMenuCtrl">
-				<ul>
+				<ul class="no-bullet">
 					<li ng-repeat="reference in references | orderBy:'name':false">
 						<a ng-click="setItem(reference.id)">{{reference.name}}</a>
-						<ul>
-							<li ng-repeat="method in reference.methods | orderBy:'name':false">
+						<ul class="square">
+							<li class="reference-link" ng-repeat="method in reference.methods | orderBy:'name':false">
 								<a ng-click="setItem(reference.id, method.id)">{{method.name}}</a>
 							</li>
 						</ul>
@@ -23,11 +23,10 @@
 		<!-- BEGIN - CONTENT -->
 		<div class="ref-article columns large-9">
 
-			<ul class="breadcrumbs large-12">
+			<ul class="breadcrumbs">
 				<li><a href="/references">Referências</a></li>
 				<li>{{category.title}}</li>
 			</ul>
-
 			<ANY ng-switch="referenceTemplate">
 
 				<!-- THERE IS NO SELECTED METHOD -->
@@ -98,10 +97,11 @@
 					</any>
 				</article>
 
-				<div disqus="disqusIdentifier"></div>
+				<section class="disqus-block">
+					<div disqus="disqusIdentifier"></div>
+				</section>
 			</ANY>
 		</div>
 		<!-- END - CONTENT -->
-
 	</div>
 </div>
