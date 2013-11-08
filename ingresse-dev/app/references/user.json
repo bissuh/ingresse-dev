@@ -78,7 +78,7 @@
 			]
 		},
 		{
-			"id": "get-user-picture",
+			"id": "get-picture",
 			"name" : "Retrieve profile picture",
 			"type" : "get",
 			"url" : "user/:id/picture",
