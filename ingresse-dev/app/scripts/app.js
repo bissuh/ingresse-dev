@@ -17,6 +17,15 @@ angular.module('ingresse-devApp', ['ngResource', 'ngDisqus'])
 			.when('/references', {
 			  templateUrl: 'views/references.html',
 			})
+			.when('/developer-guide', {
+			  templateUrl: 'views/developer-guide.html',
+			})
+			.when('/developer-guide/auth', {
+			  templateUrl: 'views/developer-guide/auth.html',
+			})
+			.when('/developer-guide/login', {
+			  templateUrl: 'views/developer-guide/login.html',
+			})
 			.when('/references/:category', {
 			  templateUrl: 'views/references.html',
 			})
