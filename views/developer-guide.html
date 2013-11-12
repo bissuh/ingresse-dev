@@ -1,0 +1,20 @@
+<div ng-controller="DeveloperGuideCtrl" class="row">
+	<div class="columns large-12 panel references-pg">
+
+		<!-- BEGIN - LEFT SIDEBAR: REFERENCES MENU -->
+		<aside class="columns large-3">
+			<h6>Guia do Desenvolvedor</h6>
+			<nav>
+				<ul class="no-bullet">
+					<li><a href="/developer-guide/auth">Autenticação</a></li>
+				</ul>
+			</nav>
+		</aside>
+		<!-- END - LEFT SIDEBAR: REFERENCES MENU -->
+
+		<!-- BEGIN - CONTENT -->
+		<div class="ref-article columns large-9" ng-include="developer-guide/auth.html"></div>
+		<!-- END - CONTENT -->
+
+	</div>
+</div>
