@@ -81,12 +81,14 @@
 								<th>Tipo</th>
 								<th>Valor padrão</th>
 								<th>Descrição</th>
+								<th>Exemplo</th>
 							</tr>
 							<tr ng-repeat="param in method.params">
 								<td>{{param.name}}</td>
 								<td>{{param.type}}</td>
+								<td>{{param.default}}</td>
 								<td>{{param.description}}</td>
-								<td>{{param.type}}</td>
+								<td>{{param.example}}</td>
 							</tr>
 						</table>
 						<h3>Resposta da chamada</h3>

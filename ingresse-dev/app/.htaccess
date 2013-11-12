@@ -216,7 +216,7 @@ AddDefaultCharset utf-8
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} !index
-    RewriteCond %{REQUEST_URI} !.*\.(css¦js|html|png|json)
+    RewriteCond %{REQUEST_URI} !.*\.(css¦js|html|png|jpeg|jpg|json)
     RewriteRule (.*) index.html [L]
 </IfModule>
 

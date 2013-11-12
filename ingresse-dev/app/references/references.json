@@ -14,5 +14,9 @@
 {
 	"name" : "Sale",
 	"id" : "sale"
+},
+{
+	"name" : "Shop",
+	"id" : "shop"
 }
 ]
