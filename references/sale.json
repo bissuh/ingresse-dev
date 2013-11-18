@@ -1,0 +1,65 @@
+{
+	"title" : "Sale",
+	"id" : "sale",
+	"description" : "Sales are good. Money is here!",
+	"entity" : {
+		"id" : "private",
+		"paymentType" : "private",
+		"paymentOption" : "private",
+		"installments" : "private",
+		"paymentDetails" : "private",
+		"transactionId" : "private",
+		"token" : "private",
+		"status" : "private",
+		"event" : "private",
+		"eventDate" : "private",
+		"promocode" : "private",
+		"totalPaid" : "private",
+		"totalCart" : "private",
+		"paymentTax" : "private",
+		"interest" : "private",
+		"consumer" : "private",
+		"creationDate" : "private",
+		"modificationDate" : "private"
+	},
+	"methods" : [
+		{
+			"id": "get-transaction",
+			"name" : "Request transaction",
+			"type" : "get",
+			"url" : "/shop/:id",
+			"action" : "Brings full set of specific information for the given id sale.",
+			"params" : [],
+			"answer" :  {
+				"id" : "private",
+				"paymentType" : "private",
+				"paymentOption" : "private",
+				"installments" : "private",
+				"paymentDetails" : "private",
+				"transactionId" : "private",
+				"token" : "private",
+				"status" : "private",
+				"event" : "private",
+				"eventDate" : "private",
+				"promocode" : "private",
+				"totalPaid" : "private",
+				"totalCart" : "private",
+				"paymentTax" : "private",
+				"interest" : "private",
+				"consumer" : "private",
+				"creationDate" : "private",
+				"modificationDate" : "private"
+			},
+			"examples" : [
+				{
+					"request" : "/shop/963",
+					"description" : "Brings full set of information for specified sale."
+				},
+				{
+					"request" : "/shop/963?fields=id,status",
+					"description" : "Brings only id, status information for specified sale."
+				}
+			]
+		}
+	]
+}

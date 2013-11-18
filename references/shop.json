@@ -1,0 +1,156 @@
+{
+	"title" : "Shop",
+	"id" : "shop",
+	"description" : "",
+	"entity" : {},
+	"methods" : [
+		{
+			"id": "post-transaction",
+			"name" : "Request transaction",
+			"type" : "post",
+			"url" : "shop/",
+			"action" : "Verifies availability for those tickets and, if set, verifies promocode availability.",
+			"params" : [
+				{
+					"name" : "eventId",
+					"default" : "none",
+					"description" : "Valid event ID.",
+					"type" : "integer",
+					"example" : "12345"
+				},
+				{
+					"name" : "userId",
+					"default" : "none",
+					"description" : "Valid user ID for checkout process.",
+					"type" : "integer",
+					"example" : "12345"
+				},
+				{
+					"name" : "session",
+					"default" : "none",
+					"description" : "Date (dd/mm/yyyy) and time (hh:mm:ss) to where is intended to buy the tickets.",
+					"type" : "integer",
+					"example" : "-"
+				},
+				{
+					"name" : "ticketTypeId",
+					"default" : "none",
+					"description" : "Valid ID for chosen ticket type.",
+					"type" : "integer",
+					"example" : "12345"
+				},
+				{
+					"name" : "type",
+					"default" : "none",
+					"description" : "Define a ticket as student price (meia) or not (inteira).",
+					"type" : "string",
+					"example" : "inteira"
+				},
+				{
+					"name" : "quantity",
+					"default" : "none",
+					"description" : "Quantity chosen, greater than 0.",
+					"type" : "integer",
+					"example" : "3"
+				},
+				{
+					"name" : "discountCode",
+					"default" : "none",
+					"description" : "Valid discount code (optional).",
+					"type" : "integer",
+					"example" : "3"
+				}
+			],
+			"answer" :  {
+				"transactionStatus" : {
+					"transactionId" : "Transaction identification number",
+					"status" : "[pending,declined]",
+					"message" : "error message or declined excuses"
+				}
+			},
+			"examples" : [
+			]
+		},
+		{
+			"id": "post-payment",
+			"name" : "Do payment",
+			"type" : "post",
+			"url" : "shop/",
+			"action" : "Finalizes the transaction with payment.",
+			"params" : [
+				{
+					"name" : "eventId",
+					"default" : "none",
+					"description" : "Valid event ID.",
+					"type" : "integer",
+					"example" : "12345"
+				},
+				{
+					"name" : "userId",
+					"default" : "none",
+					"description" : "Valid user ID for checkout process.",
+					"type" : "integer",
+					"example" : "12345"
+				},
+				{
+					"name" : "session",
+					"default" : "none",
+					"description" : "Date (dd/mm/yyyy) and time (hh:mm:ss) to where is intended to buy the tickets.",
+					"type" : "integer",
+					"example" : "-"
+				},
+				{
+					"name" : "ticketTypeId",
+					"default" : "none",
+					"description" : "Valid ID for chosen ticket type.",
+					"type" : "integer",
+					"example" : "12345"
+				},
+				{
+					"name" : "type",
+					"default" : "none",
+					"description" : "Define a ticket as student price (meia) or not (inteira).",
+					"type" : "string",
+					"example" : "inteira"
+				},
+				{
+					"name" : "quantity",
+					"default" : "none",
+					"description" : "Quantity chosen, greater than 0.",
+					"type" : "integer",
+					"example" : "3"
+				},
+				{
+					"name" : "discountCode",
+					"default" : "none",
+					"description" : "Valid discount code (optional).",
+					"type" : "integer",
+					"example" : "3"
+				},
+				{
+					"name" : "transactionId",
+					"default" : "none",
+					"description" : "Valid transaction Id sent previous.",
+					"type" : "string",
+					"example" : "1234-234324-124KH1G4JH23G4J23FGF324HGF23GH4FHG23F4H"
+				},
+				{
+					"name" : "cardHash",
+					"default" : "none",
+					"description" : "To be sent if one click is available for user.",
+					"type" : "string",
+					"example" : "J34H5GK3J4HG53KJ45HGKJ3H4G5JK3"
+				}
+			],
+			"answer" :  {
+				"transactionStatus" : {
+					"transactionId" : "Transaction identification number",
+					"status" : "[pending,declined]",
+					"message" : "error message or declined excuses"
+				}
+			},
+			"examples" : [
+			]
+		}
+	]
+}

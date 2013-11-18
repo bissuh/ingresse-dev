@@ -1,0 +1,174 @@
+{
+	"title" : "User",
+	"id" : "user",
+	"description" : "User entity, what to say about that?",
+	"entity" : {
+		"id" : "public",
+		"name" : "public",
+		"lastName" : "public",
+		"username" : "public",
+		"email" : "private",
+		"cellphone" : "private",
+		"loginMoip" : "private",
+		"phone" : "private",
+		"termsAcceptedVersion" : "private",
+		"type" : "private",
+		"token" : "private",
+		"fbUserId" : "private",
+		"cofre" : "private",
+		"street" : "private",
+		"number" : "private",
+		"complement" : "private",
+		"district" : "private",
+		"city" : "private",
+		"state" : "private",
+		"zip" : "private",
+		"cartaoFinal" : "private",
+		"cartaoBandeira" : "private",
+		"private" : "private",
+		"creationDate" : "private",
+		"modificationDate" : "private",
+		"deletionDate" : "private"
+	},
+	"methods" : [
+		{
+			"id": "get-user",
+			"name" : "Retrieve specific user",
+			"type" : "get",
+			"url" : "user/:id",
+			"action" : "Brings full set of specific information for the given id user. If not logged, or if app does not has permission, will retrieve only public data.",
+			"params" : [],
+			"answer" : {
+				"id" : "public",
+				"name" : "public",
+				"lastName" : "public",
+				"username" : "public",
+				"email" : "private",
+				"cellphone" : "private",
+				"loginMoip" : "private",
+				"phone" : "private",
+				"termsAcceptedVersion" : "private",
+				"type" : "private",
+				"token" : "private",
+				"fbUserId" : "private",
+				"cofre" : "private",
+				"street" : "private",
+				"number" : "private",
+				"complement" : "private",
+				"district" : "private",
+				"city" : "private",
+				"state" : "private",
+				"zip" : "private",
+				"cartaoFinal" : "private",
+				"cartaoBandeira" : "private",
+				"private" : "private",
+				"creationDate" : "private",
+				"modificationDate" : "private",
+				"deletionDate" : "private"
+			},
+			"examples" : [
+				{
+					"request" : "user/963",
+					"description" : "Brings all events who has term words in any context and are in São Paulo."
+				},
+				{
+					"request" : "user/963?fields=id,name",
+					"description" : "Brings only id, name information for specified user."
+				}
+			]
+		},
+		{
+			"id": "get-picture",
+			"name" : "Retrieve profile picture",
+			"type" : "get",
+			"url" : "user/:id/picture",
+			"action" : "Brings user profile picture from Ingresse, Facebook or default Ingresse profile picture. It never comes null.",
+			"params" : [
+				{
+					"name" : "size",
+					"default" : "normal",
+					"description" : "As the recommmended parameter to be used, this request a poster from a default size: small (50x50), normal(160x160), big(600,600).",
+					"type" : "string",
+					"example": "big"
+				},
+				{
+					"name" : "width",
+					"default" : "none",
+					"description" : "Width in pixels. Requires height to be specified..",
+					"type" : "double",
+					"example" : "200"
+				},
+				{
+					"name" : "height",
+					"default" : "none",
+					"description" : "Height in pixels. Requires width to be specified.",
+					"type" : "double",
+					"example" : "200"
+				}
+			],
+			"answer" : {
+				"Image url" : "public"
+			},
+			"examples" : [
+				{
+					"request" : "user/963/picture",
+					"description" : "Brings user profile picture in small size."
+				},
+				{
+					"request" : "user/963/picture/?size=normal",
+					"description" : "Brings user profile picture in normal size."
+				},
+				{
+					"request" : "user/963/picture/?width=30&height=36",
+					"description" : "Brings user profile picture in 30 pixels for 36 pixels."
+				}
+			]
+		},
+		{
+			"id" : "get-list-of-tickets",
+			"name" : "Retrieve tickets list",
+			"type" : "get",
+			"url" : "/user/:id/tickets",
+			"action" : "Brings user tickets with full set information ordered by future events for past events. Method available only for logged users or allowed applications.",
+			"params" : [
+				{
+					"name" : "event",
+					"default" : "none",
+					"description" : "defines a specific event id to bring tickets from.",
+					"type" : "integer",
+					"example" : "123"
+				}
+			],
+			"answer" : {
+				"id" : "public",
+				"name" : "name",
+				"description" : "public",
+				"quantity" : "public",
+				"quantitySold" : "public",
+				"price" : "public",
+				"tax" : "public",
+				"percentTax" : "public",
+				"sessionAvailables" : "public",
+				"beginSalesDate" : "public",
+				"beginSalesTime" : "public",
+				"endSalesDate" : "public",
+				"endSalesTime" : "public",
+				"studentTicketAvailable" : "public",
+				"paidBy" : "private",
+				"moipPaidBy" : "private",
+				"creationDate" : "private",
+				"modificationDate" : "private"
+			},
+			"examples" : [
+				{
+					"request" : "user/963/tickets",
+					"description" : "Brings complete list of tickets of this user with full set of information."
+				},
+				{
+					"request" : "user/963/tickets/?event=963",
+					"description" : "Brings complete list of tickets of this user to specific event with full set of information."
+				}
+			]
+		}
+	]
+}
