@@ -7,16 +7,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="fragment" content="!" />
-    <base href="/ingresse-dev/" >
+    <base href="/">
     <title>API for life</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" href="./styles/main.css">
-        <link rel="stylesheet" href="./styles/greek/chronus.css">
-        <link rel="stylesheet" href="./styles/greek/normalize.css">
+        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/greek/chronus.css">
+        <link rel="stylesheet" href="styles/greek/normalize.css">
         <!-- endbuild -->
 
   </head>
@@ -37,7 +37,7 @@
           <ul class="title-area">
             <!-- Title Area -->
             <li class="name">
-              <a href="./home" class="home-developers"><img ng-src="./img/ingresse-dev.png" style="margin-top: 2px;" alt="Ingresse developers"></a>
+              <a href="#/home" class="home-developers"><img ng-src="img/ingresse-dev.png" style="margin-top: 2px;" alt="Ingresse developers"></a>
             </li>
             <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
             <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -47,8 +47,8 @@
 
             <!-- Right Nav Section -->
             <ul class="right">
-              <li><a href="./developer-guide">Guia do Desenvolvedor</a></li>
-              <li><a href="./references">API</a></li>
+              <!--<li><a href="#/developer-guide">Guia do Desenvolvedor</a></li>-->
+              <li><a href="#/references">API</a></li>
             </ul>
         </nav>
       </div>
@@ -83,23 +83,23 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
 
         <!-- build:js scripts/modules.js -->
-        <script src="./bower_components/angular-resource/angular-resource.js"></script>
-        <script src="./bower_components/angular-cookies/angular-cookies.js"></script>
-        <script src="./bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
         <script src="http://rawgithub.com/kirstein/angular-disqus/master/angular-disqus.js"></script>
         <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="./scripts/app.js"></script>
-        <script src="./scripts/controllers/main.js"></script>
-        <script src="./scripts/controllers/references.js"></script>
-        <script src="./scripts/controllers/developerGuide.js"></script>
-        <script src="./scripts/services/References.js"></script>
-        <script src="./scripts/services/Mailchimp.js"></script>
-        <script src="./scripts/greek/vendor/zepto.js"></script>
-        <script src="./scripts/greek/vendor/jquery.js"></script>
-        <script src="./scripts/greek/vendor/custom.modernizr.js"></script>
-        <script src="./scripts/greek/foundation.min.js"></script>
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/references.js"></script>
+        <script src="scripts/controllers/developerGuide.js"></script>
+        <script src="scripts/services/References.js"></script>
+        <script src="scripts/services/Mailchimp.js"></script>
+        <script src="scripts/greek/vendor/zepto.js"></script>
+        <script src="scripts/greek/vendor/jquery.js"></script>
+        <script src="scripts/greek/vendor/custom.modernizr.js"></script>
+        <script src="scripts/greek/foundation.min.js"></script>
         <!-- endbuild -->
 
 </body>
