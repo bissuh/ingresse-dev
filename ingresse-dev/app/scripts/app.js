@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ingresse-devApp', ['ngResource', 'ngDisqus'])
+angular.module('ingresse-devApp', ['ngResource'])
 
 	.config(function ($disqusProvider, $routeProvider, $locationProvider, $httpProvider) {
 
