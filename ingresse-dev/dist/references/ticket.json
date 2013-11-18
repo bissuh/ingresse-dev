@@ -1,0 +1,25 @@
+{
+	"title" : "Ticket",
+	"id" : "ticket",
+	"description" : "Ticket is a entity to represent a type of ticket for an event. Every event has many types of tickets, but a ticket is part of only one event.",
+	"entity" : {
+		"id" : "public",
+		"name" : "name",
+		"description" : "public",
+		"quantity" : "public",
+		"quantitySold" : "public",
+		"price" : "public",
+		"tax" : "public",
+		"percentTax" : "public",
+		"sessionAvailables" : "public",
+		"beginSalesDate" : "public",
+		"beginSalesTime" : "public",
+		"endSalesDate" : "public",
+		"endSalesTime" : "public",
+		"studentTicketAvailable" : "public",
+		"paidBy" : "private",
+		"moipPaidBy" : "private",
+		"creationDate" : "private",
+		"modificationDate" : "private"
+	}
+}

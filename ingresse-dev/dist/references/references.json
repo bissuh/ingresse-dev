@@ -1,0 +1,22 @@
+[
+{
+	"name" : "Event",
+	"id" : "event"
+},
+{
+	"name" : "Ticket",
+	"id" : "ticket"
+},
+{
+	"name" : "User",
+	"id" : "user"
+},
+{
+	"name" : "Sale",
+	"id" : "sale"
+},
+{
+	"name" : "Shop",
+	"id" : "shop"
+}
+]

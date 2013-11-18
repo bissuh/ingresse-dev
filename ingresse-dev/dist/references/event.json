@@ -1,0 +1,255 @@
+{
+	"title" : "Event",
+	"id" : "event",
+	"description" : "This is the fucking awesome Event entity. It has incredible methods to help you retrieve events and more.",
+	"entity" : {
+		"id" : "public",
+		"title" : "public",
+		"description" : "public",
+		"type" : "public",
+		"status" : "public",
+		"saleEnabled" : "public",
+		"link" : "public",
+		"date" : "public",
+		"planner" : "public",
+		"addedBy" : "public",
+		"category" : "public",
+		"venue" : "public",
+		"rsvp" : "public",
+		"ticket" : "public",
+		"aiddp" : "public",
+		"formalName" : "public",
+		"cnpj" : "public",
+		"cpf" : "public",
+		"cityNumber" : "public",
+		"private" : "private",
+		"totalTicketsSold" : "private",
+		"totalTickets" : "private",
+		"totalRevenue" : "private",
+		"totalIngresseTax" : "private",
+		"totalMoipTax" : "private",
+		"totalProfit" : "private",
+		"tax" : "private",
+		"taxToCostumer" : "private",
+		"creationDate" : "private",
+		"modificationDate" : "private"
+	},
+	"methods" : [
+		{
+			"id": "get-list-of-events",
+			"name" : "List of events",
+			"type" : "get",
+			"url" : "event/",
+			"action" : "List all events ordered by date from past to future",
+			"params" : [
+				{
+					"name" : "lat",
+					"default" : "none",
+					"description" : "requires long (higher priority than the state*). If the both param (lat/long and state) is passed, the system ignore the state and use only lat/long.",
+					"type" : "double",
+					"example" : "32.12345"
+				},
+				{
+					"name" : "long",
+					"default" : "none",
+					"description" : "requires lat (higher priority than the state*). If the both param (lat/long and state) is passed, the system ignore the state and use only lat/long.",
+					"type" : "double",
+					"example" : "2.12345"
+				},
+				{
+					"name" : "from",
+					"default" : "present date",
+					"description" : "filter events from date provided.",
+					"type" : "string",
+					"example": "2013-12-02"
+				},
+				{
+					"name" : "to",
+					"default" : "null",
+					"description" : "A date limit to bring events. Great to set intervals like, a specific week, or month.",
+					"type" : "string",
+					"example": "2013-12-02"
+				},
+				{
+					"name" : "state",
+					"default" : "none",
+					"description" : "Great to bring events from a specific state. Accepts only Brazilian states.",
+					"type" : "string",
+					"example": "am"
+				},
+				{
+					"name" : "term",
+					"default" : "none",
+					"description" : "Text to be used to search for tags, titles, description and link, encoded in URI format - see RFC - 3986.",
+					"type" : "string",
+					"example": "rock acústico"
+				}
+			],
+			"answer" : {
+				"id" : "public",
+				"title" : "public",
+				"description" : "public",
+				"type" : "public",
+				"status" : "public",
+				"link" : "public",
+				"date" : "public",
+				"venue" : "public"
+			},
+			"examples" : [
+				{
+					"request" : "event/?term=Migration%20Party&state=sp",
+					"description" : "Brings all events who has term words in any context and are in São Paulo."
+				},
+				{
+					"request" : "event/?long=32.22763&lat=3.76762",
+					"description" : "Brings all events until 400km from the given latitude and longitude."
+				},
+				{
+					"request" : "event/?from=2012-11-23&to=2012-11-25",
+					"description" : "Brings all events happening from 23 to 25 November in 2012."
+				},
+				{
+					"request" : "event/?fields=id,title,venue",
+					"description" : "Brings all events from today, but only id, title and venue information."
+				}
+			]
+		},
+		{
+			"id": "get-event",
+			"name" : "Retrieve specific event",
+			"type" : "get",
+			"url" : "event/:id",
+			"action" : "Brings full set of specific information for the given id event.",
+			"params" : [],
+			"answer" : {
+				"id" : "public",
+				"title" : "public",
+				"description" : "public",
+				"type" : "public",
+				"status" : "public",
+				"saleEnabled" : "public",
+				"link" : "public",
+				"date" : "public",
+				"planner" : "public",
+				"addedBy" : "public",
+				"category" : "public",
+				"venue" : "public",
+				"rsvp" : "public",
+				"ticket" : "public",
+				"aiddp" : "public",
+				"formalName" : "public",
+				"cnpj" : "public",
+				"cpf" : "public",
+				"cityNumber" : "public",
+				"private" : "private",
+				"totalTicketsSold" : "private",
+				"totalTickets" : "private",
+				"totalRevenue" : "private",
+				"totalIngresseTax" : "private",
+				"totalMoipTax" : "private",
+				"totalProfit" : "private",
+				"tax" : "private",
+				"taxToCostumer" : "private",
+				"creationDate" : "private",
+				"modificationDate" : "private"
+			},
+			"examples" : [
+				{
+					"request" : "event/963",
+					"description" : "Brings full set of information for specified event."
+				},
+				{
+					"request" : "event/963?fields=id,title,venue",
+					"description" : "Bring full set of information for specified event, but only id, title and venue information."
+				}
+			]
+		},
+		{
+			"id" : "get-ingresse-list",
+			"name" : "Retrieve Ingresse list",
+			"type" : "get",
+			"url" : "event/:id/rsvp",
+			"action" : "List of users in Ingresse list for specified event with default set of information in a random order.",
+			"params" : [],
+			"answer" : {
+				"id" : "public",
+				"name" : "public",
+				"lastName" : "public",
+				"username" : "public"
+			},
+			"examples" : [
+				{
+					"request" : "event/963/rsvp/",
+					"description" : "List users in Ingresse list for specified event."
+				}
+			]
+		},
+		{
+			"id" : "get-tickets-list",
+			"name" : "Retrieve tickets list",
+			"type" : "get",
+			"url" : "event/:id/tickets",
+			"action" : "List of tickets for specified event with full set of information.",
+			"params" : [],
+			"answer" : {
+				"id" : "public",
+				"name" : "public",
+				"lastName" : "public",
+				"username" : "public"
+			},
+			"examples" : [
+				{
+					"request" : "event/963/tickets/",
+					"description" : "List of tickets for specified event with full set of information."
+				}
+			]
+		},
+		{
+			"id" : "get-events-poster",
+			"name" : "Retrieve event's poster",
+			"type" : "get",
+			"url" : "event/:id/poster",
+			"action" : "Retrieve event's poster from CDN. Posters are already compressed.",
+			"params" : [
+				{
+					"name" : "size",
+					"default" : "normal",
+					"description" : "As the recommmended parameter to be used, this request a poster from a default size: small (70x90), normal(230x300), big(460,600).",
+					"type" : "string",
+					"example": "big"
+				},
+				{
+					"name" : "width",
+					"default" : "none",
+					"description" : "Width in pixels. Requires height to be specified.",
+					"type" : "double",
+					"example" : "200"
+				},
+				{
+					"name" : "height",
+					"default" : "none",
+					"description" : "Height in pixels. Requires width to be specified.",
+					"type" : "double",
+					"example" : "300"
+				}
+			],
+			"answer" : {
+				"Image url" : "public"
+			},
+			"examples" : [
+				{
+					"request" : "event/963/poster",
+					"description" : "Brings event poster in default size."
+				},
+				{
+					"request" : "/event/963/poster/?size=normal",
+					"description" : "Brings event poster in normal size."
+				},
+				{
+					"request" : "event/963/poster/?width=30&height=36",
+					"description" : "Brings event poster in 30pixels for 36pixels."
+				}
+			]
+		}
+	]
+}
