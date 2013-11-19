@@ -6,7 +6,7 @@
 			<h6>Guia do Desenvolvedor</h6>
 			<nav>
 				<ul class="no-bullet">
-					<li><a href="developer-guide/auth">Autenticação</a></li>
+					<li><a href="#/developer-guide/auth">Autenticação</a></li>
 				</ul>
 			</nav>
 		</aside>
@@ -14,37 +14,45 @@
 
 		<!-- BEGIN - CONTENT -->
 		<div class="ref-article columns large-9">
-			<h1>Atenticação</h1>
-			<p>Para desenvolver aplicativos com a API Ingresse, é preciso adquirir uma chave de autenticação da sua aplicação. A Ingresse ainda está em beta fechado, mas você pode se cadastrar em nossa mala para ser avisado quando ela for publicada abertamente</p>
-			<a class="button green round" href="http://eepurl.com/In9rH">Inscrever na lista</a>
-			<p>Abaixo estão descritas as formas como você poderá se conectar com a nossa API.</p>
+			<article>
+				<h1>Atenticação</h1>
+				<p>Para desenvolver aplicativos com a API Ingresse, é preciso adquirir uma chave de autenticação da sua aplicação. A Ingresse ainda está em beta fechado, mas você pode se cadastrar em nossa mala para ser avisado quando ela for publicada abertamente</p>
+				<a class="button green round" href="http://eepurl.com/In9rH">Inscrever na lista</a>
+				<p>Abaixo estão descritas as formas como você poderá se conectar com a nossa API.</p>
 
-			<h2>Realizando requisições</h2>
-			<p>Para fazer chamadas aos serviços da API é preciso enviar suas informações de acesso na URL. Essas informações de acesso se resumem a:</p>
-			<ul>
-				<li><strong>Token de acesso:</strong> a chave de acesso fornecida a você para poder criar aplicações credenciadas.</li>
-				<li><strong>Timestamp:</strong> resultado da função de timestamp que cria uma sessão válida de acesso com a API Ingresse.</li>
-			</ul>
-			<p>Para gerar um timestamp válido, basta usar a função abaixo:</p>
-			<div class="php">
-				<div class="CodeRay">
-					<div class="code">
-						<pre>
-							$timestamp = timestamp();
-						</pre>
+				<h2>Realizando requisições</h2>
+				<p>Para fazer chamadas aos serviços da API é preciso enviar suas informações de acesso na URL. Essas informações de acesso se resumem a:</p>
+				<ul>
+					<li><strong>publickey:</strong> a chave de acesso fornecida a você para poder criar aplicações credenciadas. Essa chave é fornecida pela Ingresse.</li>
+					<li><strong>signature:</strong> deve ser gerada no código do seu aplicativo no máximo a cada 15 minutos. Pois a API irá rejeitar requisições com mais de 15 minutos de "idade".</li>
+					<li><strong>timestamp:</strong> resultado da função de timestamp que cria uma sessão válida de acesso com a API Ingresse.</li>
+				</ul>
+				<h3>Gerando uma signature</h3>
+				<p>Para gerar a signature você precisa aplicar diversas criptografias acumulativas:</p>
+				<ol>
+					<li>Gere o timestamp da data corrente no formato 'Y-m-d\TH:i:s\Z' em timezone GMT. Ex.: $timestamp = gmdate('Y-m-d\TH:i:s\Z');</li>
+					<li>Concatene com sua publickey gerando data1. Ex.: $data1 = $publickey . $timestamp;</li>
+					<li>Crie um hash com a criptografia sha1 usando data1 e a sua privatekey enviada pela Ingresse. Ex.: $data2 = hash_hmac('sha1', $data, $privatekey, TRUE);</li>
+					<li>O hash gerado em data2 deve ser em Binário RAW. Então, transforme o data2 em base64. Ex.: $computedSignature = base64_encode($data2);</li>
+				</ol>
+				<p>E assim tem-se a string de autenticação completa para ser enviada via GET:</p>
+				<div class="php">
+					<div class="CodeRay">
+						<div class="code">
+							$timestamp = gmdate('Y-m-d\TH:i:s\Z');
+							$data1 = $publickey . $timestamp;
+							$data2 = hash_hmac('sha1', $data, $privatekey, TRUE);
+							$computedSignature = base64_encode($data2);
+							$authenticationString = "?publickey=" . $publickey . "&signature=".urlencode($computedSignature)."&timestamp=".urlencode($timestamp);
+						</div>
 					</div>
 				</div>
-			</div>
-			<p>Após gerar as informaçõe necessárias para gerar uma chamada a URL, basta juntas os dados na URL e mandar bala meu amigo. Veja como no exemplo abaixo:</p>
-			<pre>
-				$timestamp = timestamp();
-			</pre>
-
+				<p>É fundamental que esse algoritmo para gerar a string de conexão seja feito em código-fonte complicado ou ofuscado para evitar que pessoas não autorizadas usem sua conta de desenvolvedor com a Ingresse. Em hipotese alguma deixe sua privatekey em código aberto, por exemplo, no Javascript de seu site.</p>
+			</article>
 			<section class="disqus-block">
 				<div disqus="disqusIdentifier"></div>
 			</section>
 		</div>
 		<!-- END - CONTENT -->
-
 	</div>
 </div>
