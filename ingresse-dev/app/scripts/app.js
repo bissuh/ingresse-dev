@@ -38,6 +38,6 @@ angular.module('ingresse-devApp', ['ngResource', 'ngDisqus'])
 	})
 
 	.run(function ($rootScope, $route, $routeParams, $location) {
-		$rootScope.url = '/';
+		$rootScope.appUrl = 'http://bissu.github.io/ingresse-dev/';
 		$rootScope.location = $location;
 	});
