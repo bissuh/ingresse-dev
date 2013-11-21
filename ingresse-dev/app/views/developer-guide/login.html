@@ -6,8 +6,8 @@
 			<h6>Guia do Desenvolvedor</h6>
 			<nav>
 				<ul class="no-bullet">
-					<li><a href="developer-guide/auth">Autenticação</a></li>
-					<li><a href="developer-guide/login">Login</a></li>
+					<li><a href="#/developer-guide/auth">Autenticação</a></li>
+					<li><a href="#/developer-guide/login">Login</a></li>
 				</ul>
 			</nav>
 		</aside>
@@ -15,15 +15,23 @@
 
 		<!-- BEGIN - CONTENT -->
 		<div class="ref-article columns large-9">
-			<h1>Login</h1>
-			<p>Para desenvolver aplicativos que resgatam dados do usuário, é preciso que os usuários tenham dado permissão a sua aplicação para acessar os dados dele. Nesse caso, o usuário precisa se identificar e conceder essa permissão. Para isso, a Ingresse desenvolveu um mecanismo de identificação próprio, evitando que aplicativos de terceiros manipulem os dados de acesso a conta de nossos usuários.</p>
+			<article>
+				<h1>Login</h1>
 
-			<p>O processo de autenticação envolve alguns elementos:</p>
-			<ul>
-				<li><strong>Token:</strong> a chave de acesso fornecida a você para poder criar aplicações credenciadas.</li>
-				<li><strong>Url de retorno:</strong> resultado da função de timestamp que cria uma sessão válida de acesso com a API Ingresse.</li>
-			</ul>
+				<p>Para desenvolver aplicativos que resgatam dados do usuário, é preciso que os usuários tenham dado permissão a sua aplicação para acessar os dados dele. Nesse caso, o usuário precisa se identificar e conceder essa permissão. Para isso, a Ingresse desenvolveu um mecanismo de identificação próprio, evitando que aplicativos de terceiros manipulem os dados de acesso a conta de nossos usuários.</p>
 
+				<p>Para esses métodos você precisa enviar via GET o usertoken. O usertoken é gerado pela Ingresse e pode ser armazenado pela sua aplicação associando ao mesmo usuário.</p>
+
+				<p>Para solicitar o usertoken faça uma requisição usando o método <kbd>/authorize</kbd>. Essa requisição irá retornar a página HTML de login de usuário da Ingresse. Através dessa página o usuário irá informar seu email e senha autorizando que o respectivo aplicativo acesse seus dados da Ingresse. Por padrão, o retorno desse login é um JSON com a seguinte estrutura:</p>
+
+				<div class="CodeRay">
+					<div class="code"><pre>
+						{token: value, userId: value}
+					</div>
+				</div>
+
+				<p>Porém, na requisição do método <kbd>/authorize</kbd> você pode enviar também via GET o parâmetro returnurl com a URL de retorno no sucesso do login. Dessa forma, no sucesso do login a API irá redirecionar o resultado para a URL em returnurl enviando via GET as mesmas informações acima, isto é, token e userId.</p>
+			</article>
 			<section class="disqus-block">
 				<div disqus="disqusIdentifier"></div>
 			</section>
