@@ -17,6 +17,8 @@ angular.module('ingresse-devApp', ['ngResource', 'ngDisqus'])
 			.when('/references', {
 			  templateUrl: 'views/references.html',
 			})
+
+			// DEVELOPER GUIDE REFERENCES
 			.when('/developer-guide', {
 			  templateUrl: 'views/developer-guide.html',
 			})
@@ -26,6 +28,10 @@ angular.module('ingresse-devApp', ['ngResource', 'ngDisqus'])
 			.when('/developer-guide/login', {
 			  templateUrl: 'views/developer-guide/login.html',
 			})
+			.when('/developer-guide/checkout', {
+			  templateUrl: 'views/developer-guide/checkout.html',
+			})
+
 			.when('/references/:category', {
 			  templateUrl: 'views/references.html',
 			})
