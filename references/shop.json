@@ -1,15 +1,16 @@
 {
 	"title" : "Shop",
 	"id" : "shop",
-	"description" : "",
+	"description" : "O sistema de compra da Ingresse é dividido em duas etapas. A primeira etapa verifica se todos os dados do comprador estão corretos e se os ingressos solicitados estão disponíveis para reserva. Na segunda etapa, os dados de pagamento são enviados e a venda é concretizada.",
 	"entity" : {},
 	"methods" : [
 		{
 			"id": "post-transaction",
 			"name" : "Request transaction",
 			"type" : "post",
+			"private" : true,
 			"url" : "shop/",
-			"action" : "Verifies availability for those tickets and, if set, verifies promocode availability.",
+			"action" : "Verifies availability for those tickets and, if set, verifies discount availability.",
 			"params" : [
 				{
 					"name" : "eventId",
@@ -75,6 +76,7 @@
 			"id": "post-payment",
 			"name" : "Do payment",
 			"type" : "post",
+			"private" : true,
 			"url" : "shop/",
 			"action" : "Finalizes the transaction with payment.",
 			"params" : [
