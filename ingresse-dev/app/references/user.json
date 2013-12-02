@@ -128,6 +128,7 @@
 			"id" : "get-list-of-tickets",
 			"name" : "Retrieve tickets list",
 			"type" : "get",
+			"private" : true,
 			"url" : "/user/:id/tickets",
 			"action" : "Brings user tickets with full set information ordered by future events for past events. Method available only for logged users or allowed applications.",
 			"params" : [

@@ -17,7 +17,7 @@
 		<!-- BEGIN - CONTENT -->
 		<div class="ref-article columns large-9">
 			<article>
-				<h1>Atenticação</h1>
+				<h1>Autenticação</h1>
 				<p>Para desenvolver aplicativos com a API Ingresse, é preciso adquirir uma chave de autenticação da sua aplicação. A Ingresse ainda está em beta fechado, mas você pode se cadastrar em nossa mala para ser avisado quando ela for publicada abertamente</p>
 				<a class="button green round" href="http://eepurl.com/In9rH">Inscrever na lista</a>
 				<p>Abaixo estão descritas as formas como você poderá se conectar com a nossa API.</p>
@@ -48,6 +48,11 @@ $authenticationString = "?publickey=" . $publickey . "&signature=".urlencode($co
 					</pre></div>
 				</div>
 				<p>É fundamental que esse algoritmo para gerar a string de conexão seja feito em código-fonte complicado ou ofuscado para evitar que pessoas não autorizadas usem sua conta de desenvolvedor com a Ingresse. Em hipotese alguma deixe sua privatekey em código aberto, por exemplo, no Javascript de seu site.</p>
+
+				<h2>Métodos fechados</h2>
+				<p>Algumas requisições só podem ser feitas com a permissão de um usuário. Esses métodos são chamados de métodos fechados e requerem uma chave de usuário (uertoken) para serem abertas. Algumas entidades exibem determinados dados apenas com a presença de um token de usuário.</p>
+				<p>Para acrescentar a chave de usuário, basta adicionar um token de usuário, basta adicionar a variável <kbd>usertoken</kbd> ao conjunto de variáveis de autenticação. Para saber como conseguir o token do usuário, veja a documentação sobre processo de login do usuário <a href="#/developer-guide/login">clicando aqui</a>.
+				</p><p>Para saber se um método é fechado ou não, verifique se existe um marcador <span class="orange radius label">Método fechado</span> logo após a descrição do métodos que deseja utilizar.</p>
 			</article>
 			<section class="disqus-block">
 				<div disqus="disqusIdentifier"></div>
