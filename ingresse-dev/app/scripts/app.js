@@ -31,6 +31,9 @@ angular.module('ingresse-devApp', ['ngResource', 'ngDisqus'])
 			.when('/developer-guide/checkout', {
 			  templateUrl: 'views/developer-guide/checkout.html',
 			})
+			.when('/developer-guide/filters', {
+			  templateUrl: 'views/developer-guide/filters.html',
+			})
 
 			.when('/references/:category', {
 			  templateUrl: 'views/references.html',
