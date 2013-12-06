@@ -39,26 +39,26 @@
 
 				<p><strong>Exemplo de parâmetro para envio</strong></p>
 
-				<pre>
-{
-  eventId : 12345,  // ID do evento para o qual está sendo feita a venda
-  userId : 123,     // ID do usuário para o qual está sendo realizada essa venda
-  tickets:[         // Lista de ingressos
-    {
-      session : {2013-10-12 , 22:00},  // Data e hora da sessão do ingresso especificado
-      ticketTypeId : 1234,             // ID do tipo do ingresso especificado
-      type : "inteira",                // inteira ou meia
-      quantity : 2                     // Quantidade de ingressos solicitada
-    },
-    {
-      session : {2013-10-13 , 22:00},
-      ticketTypeId : 1234,
-      type : "Inteira",
-      quantity : 5
-    }
-  ]
-}
-				</pre>
+				<script type="syntaxhighlighter" class="brush: js"><![CDATA[
+				{
+				  eventId : 12345,  // ID do evento para o qual está sendo feita a venda
+				  userId : 123,     // ID do usuário para o qual está sendo realizada essa venda
+				  tickets:[         // Lista de ingressos
+				    {
+				      session : {2013-10-12 , 22:00},  // Data e hora da sessão do ingresso especificado
+				      ticketTypeId : 1234,             // ID do tipo do ingresso especificado
+				      type : "inteira",                // inteira ou meia
+				      quantity : 2                     // Quantidade de ingressos solicitada
+				    },
+				    {
+				      session : {2013-10-13 , 22:00},
+				      ticketTypeId : 1234,
+				      type : "Inteira",
+				      quantity : 5
+				    }
+				  ]
+				}
+				]]></script>
 
 				<p><strong>Atenção:</strong> só é possível vender ingressos para cada evento por vez.</p>
 
@@ -69,24 +69,24 @@
 				<p>O sistema de Ingresse pode responder de forma positiva ou negativa, dependendo da disponibilidade do evento para realizar vendas e da disponibilidade dos ingressos para a realização do pagamento.</p>
 
 				<p><strong>Exemplo de resposta positiva:</strong></p>
-				<pre>
-{
-  "transactionStatus": {
-    "transactionId": "12345-1234-000046751B8EC09A34D16DD07BA6A0762081E719",
-    "status": "pending"
-  }
-}
-				</pre>
+				<script type="syntaxhighlighter" class="brush: js"><![CDATA[
+				{
+				  "transactionStatus": {
+				    "transactionId": "12345-1234-000046751B8EC09A34D16DD07BA6A0762081E719",
+				    "status": "pending"
+				  }
+				}
+				]]></script>
 
 				<p><strong>Exemplo de resposta negativa</strong></p>
-				<pre>
-{
-  "transactionStatus": {
-    "status": "declined",
-    message : "Sorry baby, seems that you are late!"
-  }
-}
-				</pre>
+				<script type="syntaxhighlighter" class="brush: js"><![CDATA[
+				{
+				  "transactionStatus": {
+				    "status": "declined",
+				    message : "Sorry baby, seems that you are late!"
+				  }
+				}
+				]]></script>
 
 				<h2>Enviando o pagamento</h2>
 
@@ -96,28 +96,28 @@
 
 				<p><strong>Exemplo de parâmetro para envio</strong></p>
 
-				<pre>
-{
-  transactionId : "12345-1234-000046751B8EC09A34D16DD07BA6A0762081E719"
-  eventId : 12345,
-  userId : 123,
-  tickets:[
-    {
-      session : {2013-10-12 , 22:00},
-      ticketTypeId : 1234,
-      type : "inteira",
-      quantity : 2
-    },
-    {
-      session : {2013-10-13 , 22:00},
-      ticketTypeId : 1234,
-      type : "Inteira",
-      quantity : 5
-    }
-  ],
-  cardHash : "FFtwikzg/FC1mH7XLFU5fjcRy[...]DcsxPtVB+Fgq7SDuB4tHWBT8j6wihOO7ww=="
-}
-				</pre>
+				<script type="syntaxhighlighter" class="brush: js"><![CDATA[
+				{
+				  transactionId : "12345-1234-000046751B8EC09A34D16DD07BA6A0762081E719"
+				  eventId : 12345,
+				  userId : 123,
+				  tickets:[
+				    {
+				      session : {2013-10-12 , 22:00},
+				      ticketTypeId : 1234,
+				      type : "inteira",
+				      quantity : 2
+				    },
+				    {
+				      session : {2013-10-13 , 22:00},
+				      ticketTypeId : 1234,
+				      type : "Inteira",
+				      quantity : 5
+				    }
+				  ],
+				  cardHash : "FFtwikzg/FC1mH7XLFU5fjcRy[...]DcsxPtVB+Fgq7SDuB4tHWBT8j6wihOO7ww=="
+				}
+				]]></script>
 
 				<h3>Gerando o card hash</h3>
 
@@ -136,24 +136,24 @@
 				</ul>
 
 				<p><strong>Exemplo de resposta positiva</strong></p>
-				<pre>
-{
-  "transactionStatus": {
-    "transactionId": "12345-1234-000046751B8EC09A34D16DD07BA6A0762081E719",
-    "status": "approved"
-  }
-}
-				</pre>
+				<script type="syntaxhighlighter" class="brush: js"><![CDATA[
+				{
+				  "transactionStatus": {
+				    "transactionId": "12345-1234-000046751B8EC09A34D16DD07BA6A0762081E719",
+				    "status": "approved"
+				  }
+				}
+				]]></script>
 
 				<p><strong>Exemplo de resposta negativa:</strong></p>
-				<pre>
-{
-  "transactionStatus": {
-    "status": "declined",
-    message : "Sorry baby, seems that your card information is wrong!"
-  }
-}
-				</pre>
+				<script type="syntaxhighlighter" class="brush: js"><![CDATA[
+				{
+				  "transactionStatus": {
+				    "status": "declined",
+				    message : "Sorry baby, seems that your card information is wrong!"
+				  }
+				}
+				]]></script>
 
 				<p>No caso de aprovação da compra, o sistema de Ingresse automaticamente disponibilizará os ingressos na conta do cliente e enviará os emails de notificação da compra. A partir daí, nõa há mais nada necessário, venda realizada!</p>
 			</article>
