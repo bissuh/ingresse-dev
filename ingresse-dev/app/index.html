@@ -7,17 +7,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="fragment" content="!" />
-    <!-- <base href="/ingresse-dev/"> -->
+    <base href="/ingresse-dev/">
     <title>API for life</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" href="styles/main.css">
-        <link rel="stylesheet" href="styles/foundation.min.css">
         <link rel="stylesheet" href="styles/normalize.css">
-        <!-- <link href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+        <link rel="stylesheet" href="styles/foundation.min.css">
+        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/prettify.css">
         <link href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
         <!-- endbuild -->
 
@@ -33,31 +33,27 @@
     <![endif]-->
 
     <!-- Top Bar -->
-    <header class="background-color dark" style="margin-bottom: 0;">
-      <div class="row">
-        <nav class="top-bar">
+    <header>
+
+        <nav class="top-bar" data-topbar>
           <ul class="title-area">
             <!-- Title Area -->
             <li class="name">
-              <a href="#/home" class="home-developers"><img src="./img/ingresse-dev.png" style="margin-top: 2px;" alt="Ingresse developers"></a>
+              <a href="#/home"><img class="home-developers" src="./img/ingresse-dev.png" alt="Ingresse developers"></a>
             </li>
-            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
           </ul>
 
           <section class="top-bar-section">
-
             <!-- Right Nav Section -->
             <ul class="right">
               <li><a href="#/developer-guide/auth">Guia do Desenvolvedor</a></li>
               <li><a href="#/references">API</a></li>
             </ul>
         </nav>
-      </div>
     </header>
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+    <section role="main" ng-view=""></section>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID
     <script>
@@ -69,17 +65,6 @@
       ga('create', 'UA-26110667-5', 'ingresse.com.br');
       ga('send', 'pageview');
     </script> -->
-
-    <!-- Google Tag Manager -->
-    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-T55B5T"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-T55B5T');</script>
-    <!-- End Google Tag Manager -->
-
 
     <!-- <script src="bower_components/angular/angular.js"></script> -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
@@ -96,15 +81,11 @@
         <script src="scripts/controllers/references.js"></script>
         <script src="scripts/controllers/developerGuide.js"></script>
         <script src="scripts/services/References.js"></script>
-        <script src="scripts/services/Mailchimp.js"></script>
         <script src="scripts/services/angular-disqus.js"></script>
         <script src="scripts/vendor/jquery.js"></script>
         <script src="scripts/foundation.min.js"></script>
         <script src="scripts/vendor/custom.modernizr.js"></script>
-        <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js" type="text/javascript"></script>
-        <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shAutoloader.js" type="text/javascript"></script>
-        <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushJScript.js"></script>
-        <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushPHP.js"></script>
+        <script src="scripts/vendor/prettify.js"></script>
         <!-- endbuild -->
 
 </body>

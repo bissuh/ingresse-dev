@@ -5,7 +5,7 @@ angular.module('ingresse-devApp')
 	/**
 	 * References main Controlller
 	 */
-	.controller('ReferencesCtrl', function($scope, $http, $routeParams, $location, $filter, References) {
+	.controller('ReferencesCtrl', function($scope, $http, $routeParams, $location, $filter, $timeout, References) {
 
 		// At the beggning, were darkness...
 		$scope.referenceTemplate = null;
@@ -15,7 +15,9 @@ angular.module('ingresse-devApp')
 		if($routeParams.category) {
 
 			// ... then comes the light
-			$scope.category = References.get({categoryId: $routeParams.category});
+			$scope.category = References.get({categoryId: $routeParams.category}, function(){
+				$timeout(function() {prettyPrint()},100);
+			});
 			$scope.methodId = $routeParams.method;
 
 			// Defines which template will be loaded
@@ -51,6 +53,8 @@ angular.module('ingresse-devApp')
 				$location.path("/references/" + selectedCategory + "/" + selectedMethod);
 				$scope.disqusIdentifier = 'references.' + selectedCategory + "." + selectedMethod;
 			}
+
+			$timeout(function() {prettyPrint()},100);
 		};
 
 	})

@@ -1,45 +1,48 @@
 <div ng-controller="DeveloperGuideCtrl" class="row">
-	<div class="columns large-12 panel references-pg">
 
-		<!-- BEGIN - LEFT SIDEBAR: REFERENCES MENU -->
-		<aside class="columns large-3">
-			<h6>Guia do Desenvolvedor</h6>
-			<nav>
-				<ul class="no-bullet">
-					<li><a href="#/developer-guide/auth">Autenticação</a></li>
-					<li><a href="#/developer-guide/login">Login</a></li>
-					<li><a href="#/developer-guide/checkout">Fluxo de compra</a></li>
-				</ul>
-			</nav>
-		</aside>
-		<!-- END - LEFT SIDEBAR: REFERENCES MENU -->
+	<!-- BEGIN - LEFT SIDEBAR: REFERENCES MENU -->
+	<div class="large-3 medium-4 columns">
+		<div class="hide-for-small">
+			<div class="sidebar">
+				<h6>Guia do Desenvolvedor</h6>
+				<nav>
+					<ul class="side-nav">
+						<li><a href="#/developer-guide/auth">Autenticação</a></li>
+						<li><a href="#/developer-guide/login">Login</a></li>
+						<li class="active"><a href="#/developer-guide/checkout">Fluxo de compra</a></li>
+						<li><a href="#/developer-guide/filters">Filtros</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<!-- END - LEFT SIDEBAR: REFERENCES MENU -->
 
-		<!-- BEGIN - CONTENT -->
-		<div class="ref-article columns large-9">
-			<article>
-				<h1>Fluxo de compra</h1>
-				<p>É fato comprovado que o ambiente de compra influencia no processo de tomada de decisão de compra do usuário. Pensando nisso, a Ingresse disponibiliza sua tecnologia de venda de ingressos para que você possa vender ingressos dentro de um ambiente personalizado, construído por você, do jeito que acredita ser melhor para o seu público.</p>
+	<!-- BEGIN - CONTENT -->
+	<div class="large-9 medium-8 columns">
+		<h1>Fluxo de compra</h1>
+		<h4 class="subheader">É fato comprovado que o ambiente de compra influencia no processo de tomada de decisão de compra do usuário. Pensando nisso, a Ingresse disponibiliza sua tecnologia de venda de ingressos para que você possa vender ingressos dentro de um ambiente personalizado, construído por você, do jeito que acredita ser melhor para o seu público.</h4>
 
-				<p>Através dessa página você vai entender como desenvolver cada passo e onde encontrar o material de referência para isso. O fluxo de vendas utilizando a tecnologia é composta de 4 etapas, eles estão descritas abaixo. Considerando que seu usuário já teve acesso aos dados do evento e possui um carrinho de compras formado, os passos seguintes são:</p>
+		<p>Através dessa página você vai entender como desenvolver cada passo e onde encontrar o material de referência para isso. O fluxo de vendas utilizando a tecnologia é composta de 4 etapas, eles estão descritas abaixo. Considerando que seu usuário já teve acesso aos dados do evento e possui um carrinho de compras formado, os passos seguintes são:</p>
 
-				<ol>
-					<li>Sua aplicação envia uma mensagem para Ingresse verificando se os ingressos do carrinho estão disponíveis.</li>
-					<li>A Ingresse responde se os ingressos estão disponíveis para compra, e reserva os ingressos do carrinho.</li>
-					<li>Sua aplicação envia o pagamento.</li>
-					<li>A Ingresse recebe o pagamento, valida o mesmo e retorna a confirmação de compra.</li>
-				</ol>
+		<ol>
+			<li>Sua aplicação envia uma mensagem para Ingresse verificando se os ingressos do carrinho estão disponíveis.</li>
+			<li>A Ingresse responde se os ingressos estão disponíveis para compra, e reserva os ingressos do carrinho.</li>
+			<li>Sua aplicação envia o pagamento.</li>
+			<li>A Ingresse recebe o pagamento, valida o mesmo e retorna a confirmação de compra.</li>
+		</ol>
 
-				<h2>Enviando um carrinho de compras</h2>
+		<hr>
+		<h2>Enviando um carrinho de compras</h2>
 
-				<h3>Solicitando a transação</h3>
+		<h3>Solicitando a transação</h3>
 
-				<p>Para dar início ao processo de venda de ingressos, é preciso enviar para a Ingresse a lista de ingressos que o usuário selecionou. Você faz isso <a href="#/references/shop/post-transaction" target="blank">solicitando uma transação</a>. Através da solicitação já deve ser enviado como parâmetro a lista de ingressos que se deseja. Veja um exemplo abaixo:</p>
+		<p>Para dar início ao processo de venda de ingressos, é preciso enviar para a Ingresse a lista de ingressos que o usuário selecionou. Você faz isso <a href="#/references/shop/post-transaction" target="blank">solicitando uma transação</a>. Através da solicitação já deve ser enviado como parâmetro a lista de ingressos que se deseja. Veja um exemplo abaixo:</p>
 
-				<p><kbd>https://api.ingresse.com.br/shop/publickey=YOURAPPLICATIONKEY&signature=GENERATEDSIGNATURE&timestamp=GENERATEDTIMESTAMP</kbd></p>
+		<p><kbd>https://api.ingresse.com.br/shop/publickey=YOURAPPLICATIONKEY&signature=GENERATEDSIGNATURE&timestamp=GENERATEDTIMESTAMP</kbd></p>
 
-				<p><strong>Exemplo de parâmetro para envio</strong></p>
-
-				<pre>
+		<p><strong>Exemplo de parâmetro para envio</strong>
+<pre class="prettyprint">
 {
   eventId : 12345,  // ID do evento para o qual está sendo feita a venda
   userId : 123,     // ID do usuário para o qual está sendo realizada essa venda
@@ -58,45 +61,48 @@
     }
   ]
 }
-				</pre>
+</pre>
+</p>
 
-				<p><strong>Atenção:</strong> só é possível vender ingressos para cada evento por vez.</p>
+		<p><strong>Atenção:</strong> só é possível vender ingressos para cada evento por vez.</p>
 
-				<h3>Recebendo a confirmação de reserva:</h3>
+		<h3>Recebendo a confirmação de reserva:</h3>
 
-				<p>Solicitar uma transação da Ingresse é um passo importante para garantir a reserva de ingressos e para recer o ID da transação que será usado para realizar o pagamento referente a essa compra.</p>
+		<p>Solicitar uma transação da Ingresse é um passo importante para garantir a reserva de ingressos e para recer o ID da transação que será usado para realizar o pagamento referente a essa compra.</p>
 
-				<p>O sistema de Ingresse pode responder de forma positiva ou negativa, dependendo da disponibilidade do evento para realizar vendas e da disponibilidade dos ingressos para a realização do pagamento.</p>
+		<p>O sistema de Ingresse pode responder de forma positiva ou negativa, dependendo da disponibilidade do evento para realizar vendas e da disponibilidade dos ingressos para a realização do pagamento.</p>
 
-				<p><strong>Exemplo de resposta positiva:</strong></p>
-				<pre>
+		<p><strong>Exemplo de resposta positiva:</strong>
+<pre class="prettyprint">
 {
   "transactionStatus": {
     "transactionId": "12345-1234-000046751B8EC09A34D16DD07BA6A0762081E719",
     "status": "pending"
   }
 }
-				</pre>
+</pre>
+</p>
 
-				<p><strong>Exemplo de resposta negativa</strong></p>
-				<pre>
+		<p><strong>Exemplo de resposta negativa</strong>
+<pre class="prettyprint">
 {
   "transactionStatus": {
     "status": "declined",
-    message : "Sorry baby, seems that you are late!"
+    "message" : "Sorry baby, seems that you are late!"
   }
 }
-				</pre>
+</pre>
+</p>
 
-				<h2>Enviando o pagamento</h2>
+		<hr>
+		<h2>Enviando o pagamento</h2>
 
-				<p>Após receber a confirmação de criação da transação e reserva dos ingressos, é hora de <a href="#/references/shop/post-payment" target="blank">fazer o pagamento</a>. Para fazer o pagamento, é preciso se tomar vários cuidados para não expor os dados de pagamento do usuário. Para enviar um pagamento, faça o envio do carrinho de compras, com dois dados adicionais: transactionId e cardHash.</p>
+		<p>Após receber a confirmação de criação da transação e reserva dos ingressos, é hora de <a href="#/references/shop/post-payment" target="blank">fazer o pagamento</a>. Para fazer o pagamento, é preciso se tomar vários cuidados para não expor os dados de pagamento do usuário. Para enviar um pagamento, faça o envio do carrinho de compras, com dois dados adicionais: transactionId e cardHash.</p>
 
-				<p><kbd>https://api.ingresse.com.br/shop/publickey=YOURAPPLICATIONKEY&signature=GENERATEDSIGNATURE&timestamp=GENERATEDTIMESTAMP</kbd></p>
+		<p><kbd>https://api.ingresse.com.br/shop/publickey=YOURAPPLICATIONKEY&signature=GENERATEDSIGNATURE&timestamp=GENERATEDTIMESTAMP</kbd></p>
 
-				<p><strong>Exemplo de parâmetro para envio</strong></p>
-
-				<pre>
+		<p><strong>Exemplo de parâmetro para envio</strong>
+<pre class="prettyprint">
 {
   transactionId : "12345-1234-000046751B8EC09A34D16DD07BA6A0762081E719"
   eventId : 12345,
@@ -115,52 +121,56 @@
       quantity : 5
     }
   ],
-  cardHash : "FFtwikzg/FC1mH7XLFU5fjcRy[...]DcsxPtVB+Fgq7SDuB4tHWBT8j6wihOO7ww=="
+  creditcard : {
+    cardHash : "FFtwikzg/FC1mH7XLFU5fjcRy[...]DcsxPtVB+Fgq7SDuB4tHWBT8j6wihOO7ww=="
+  }
 }
-				</pre>
+</pre>
+</p>
 
-				<h3>Gerando o card hash</h3>
+		<h3>Gerando o card hash</h3>
 
-				<p>Os dados do cartão de crédito do cliente pagador não devem ser enviados pelo POST, e sim criptografados e enviados através do cardHash. Para gerar o cardHash em uma aplicação web você deve utilizar o lib javascript pagarme.js. Para tal, solicite da Ingresse a chave de encriptação (encryption_key).</p>
+		<p>Os dados do cartão de crédito do cliente pagador não devem ser enviados pelo POST, e sim criptografados e enviados através do cardHash. Para gerar o cardHash em uma aplicação web você deve utilizar o lib javascript pagarme.js. Para tal, solicite da Ingresse a chave de encriptação (encryption_key).</p>
 
-				<p>Mais informações sobre o que é o cardhash, como ele funciona e das vantagens de usar o cardhash, acessar o manual do Pagar.me, o gateway de pagamentos da Ingresse, <a href="https://pagar.me/docs/restful-api/card-hash/">clicando aqui</a>.</p>
+		<p>Mais informações sobre o que é o cardhash, como ele funciona e das vantagens de usar o cardhash, acessar o manual do Pagar.me, o gateway de pagamentos da Ingresse, <a href="https://pagar.me/docs/restful-api/card-hash/">clicando aqui</a>.</p>
 
-				<h3>Recebendo a confirmação de compra</h3>
+		<h3>Recebendo a confirmação de compra</h3>
 
-				<p>A API Ingresse dará a resposta em tempo real da aprovação da compra ou não. Os motivos de não aprovação da compra podem ser:</p>
+		<p>A API Ingresse dará a resposta em tempo real da aprovação da compra ou não. Os motivos de não aprovação da compra podem ser:</p>
 
-				<ul>
-					<li>informações erradas do cartão de crédito</li>
-					<li>por detemrinação do sistema anti-fraude</li>
-					<li>pela adquirente ou pelo banco emissor do cartão.</li>
-				</ul>
+		<ul>
+			<li>informações erradas do cartão de crédito</li>
+			<li>por detemrinação do sistema anti-fraude</li>
+			<li>pela adquirente ou pelo banco emissor do cartão.</li>
+		</ul>
 
-				<p><strong>Exemplo de resposta positiva</strong></p>
-				<pre>
+		<p><strong>Exemplo de resposta positiva</strong>
+<pre class="prettyprint">
 {
   "transactionStatus": {
     "transactionId": "12345-1234-000046751B8EC09A34D16DD07BA6A0762081E719",
     "status": "approved"
   }
 }
-				</pre>
+</pre>
+</p>
 
-				<p><strong>Exemplo de resposta negativa:</strong></p>
-				<pre>
+		<p><strong>Exemplo de resposta negativa:</strong>
+<pre class="prettyprint">
 {
   "transactionStatus": {
     "status": "declined",
     message : "Sorry baby, seems that your card information is wrong!"
   }
 }
-				</pre>
+</pre>
+</p>
 
-				<p>No caso de aprovação da compra, o sistema de Ingresse automaticamente disponibilizará os ingressos na conta do cliente e enviará os emails de notificação da compra. A partir daí, nõa há mais nada necessário, venda realizada!</p>
-			</article>
-			<section class="disqus-block">
-				<div disqus="disqusIdentifier"></div>
-			</section>
-		</div>
-		<!-- END - CONTENT -->
+		<p>No caso de aprovação da compra, o sistema de Ingresse automaticamente disponibilizará os ingressos na conta do cliente e enviará os emails de notificação da compra. A partir daí, nõa há mais nada necessário, venda realizada!</p>
+
+		<section class="disqus-block">
+			<div disqus="disqusIdentifier"></div>
+		</section>
 	</div>
+	<!-- END - CONTENT -->
 </div>
