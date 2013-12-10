@@ -42,14 +42,15 @@
 			<li>Crie um hash com a criptografia sha1 usando data1 e a sua privatekey enviada pela Ingresse. Ex.: <kbd>$data2 = hash_hmac('sha1', $data, $privatekey, TRUE);</kbd></li>
 			<li>O hash gerado em data2 deve ser em Binário RAW. Então, transforme o data2 em base64. Ex.: <kbd>$computedSignature = base64_encode($data2);</kbd></li>
 		</ol>
-		<p>E assim tem-se a string de autenticação completa para ser enviada via GET:</p>
-		<script type="syntaxhighlighter" class="brush: js"><![CDATA[
+		<p>E assim tem-se a string de autenticação completa para ser enviada via GET:
+<pre class="prettyprint">
 $timestamp = gmdate('Y-m-d\TH:i:s\Z');
 $data1 = $publickey . $timestamp;
 $data2 = hash_hmac('sha1', $data, $privatekey, TRUE);
 $computedSignature = base64_encode($data2);
 $authenticationString = "?publickey=" . $publickey . "&signature=".urlencode($computedSignature)."&timestamp=".urlencode($timestamp);
-		]]></script>
+</pre></p>
+
 		<p>É fundamental que esse algoritmo para gerar a string de conexão seja feito em código-fonte complicado ou ofuscado para evitar que pessoas não autorizadas usem sua conta de desenvolvedor com a Ingresse. Em hipotese alguma deixe sua privatekey em código aberto, por exemplo, no Javascript de seu site.</p>
 
 		<hr>

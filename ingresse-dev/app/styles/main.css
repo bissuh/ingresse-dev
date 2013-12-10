@@ -22,6 +22,10 @@ h1 {
 	margin-top: 20px;
 }
 
+.home-developers {
+	margin: 6px 10px;
+}
+
 /* =HOME */
 
 .mh-title {
@@ -43,9 +47,15 @@ h1 {
 }
 .api-feature, .signin {
 	text-align: center;
+	padding-top: 20px;
+}
+
+.main-header {
+	background: #0079a1;
+	color: #fff;
 }
 .api-feature {
-	padding: 20px 0;
+	padding: 20px;
 }
 
 .bg-header-text {
@@ -58,11 +68,10 @@ h1 {
 	text-shadow: 1px 1px 1px #000;
 }
 
-/* References */
 
-.references-pg {
-    margin-top: 20px;
-}
+
+
+/* References */
 
 .reference-link {
     cursor: pointer;
