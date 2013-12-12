@@ -1,72 +1,72 @@
 {
-	"title" : "Shop",
+	"title" : "Venda de ingressos",
 	"id" : "shop",
 	"description" : "O sistema de compra da Ingresse é dividido em duas etapas. A primeira etapa verifica se todos os dados do comprador estão corretos e se os ingressos solicitados estão disponíveis para reserva. Na segunda etapa, os dados de pagamento são enviados e a venda é concretizada.",
 	"entity" : {},
 	"methods" : [
 		{
 			"id": "post-transaction",
-			"name" : "Request transaction",
+			"name" : "Criar transação",
 			"type" : "post",
 			"private" : true,
 			"url" : "shop/",
-			"action" : "Verifies availability for those tickets and, if set, verifies discount availability.",
-			"params" : [
+			"action" : "Verifica a disponibilidade dos ingressos enviados e, se configurado, verifica a disponibilidade do cupom de desconto informado.",
+			"filters" : [
 				{
 					"name" : "eventId",
 					"default" : "none",
-					"description" : "Valid event ID.",
+					"description" : "ID válido de evento.",
 					"type" : "integer",
 					"example" : "12345"
 				},
 				{
 					"name" : "userId",
 					"default" : "none",
-					"description" : "Valid user ID for checkout process.",
+					"description" : "ID válido do usuário para quem está sendo feita a compra.",
 					"type" : "integer",
 					"example" : "12345"
 				},
 				{
 					"name" : "session",
 					"default" : "none",
-					"description" : "Date (dd/mm/yyyy) and time (hh:mm:ss) to where is intended to buy the tickets.",
+					"description" : "Data (dd/mm/yyyy) e hora (hh:mm:ss) da lista do evento para quando se deseja comprar os ingressos.",
 					"type" : "integer",
 					"example" : "-"
 				},
 				{
 					"name" : "ticketTypeId",
 					"default" : "none",
-					"description" : "Valid ID for chosen ticket type.",
+					"description" : "ID válido para o tipo de ingresso selecionado.",
 					"type" : "integer",
 					"example" : "12345"
 				},
 				{
 					"name" : "type",
-					"default" : "none",
-					"description" : "Define a ticket as student price (meia) or not (inteira).",
+					"default" : "Inteira",
+					"description" : "Define um ingresso como do tipo inteira (Inteira) ou meia (Meia) entrada.",
 					"type" : "string",
-					"example" : "inteira"
+					"example" : "Inteira"
 				},
 				{
 					"name" : "quantity",
 					"default" : "none",
-					"description" : "Quantity chosen, greater than 0.",
+					"description" : "Quantidade escolhido para o tipo de ingresso especificado, maior que 0.",
 					"type" : "integer",
 					"example" : "3"
 				},
 				{
 					"name" : "discountCode",
 					"default" : "none",
-					"description" : "Valid discount code (optional).",
-					"type" : "integer",
-					"example" : "3"
+					"description" : "Código promocional válido (opcional).",
+					"type" : "string",
+					"example" : "JWjhGSs"
 				}
 			],
 			"answer" :  {
 				"transactionStatus" : {
-					"transactionId" : "Transaction identification number",
-					"status" : "[pending,declined]",
-					"message" : "error message or declined excuses"
+					"transactionId" : "1234-234324-124KH1G4JH23G4J23FGF324HGF23GH4FHG23F4H // Código de identificação da transação",
+					"status" : "[pending,declined] // Retorna se é possível fazer o pagamento (pending), ou se não pode ser realizada (declined)",
+					"message" : "Mensagem de erro ou motivos não aprovação."
 				}
 			},
 			"examples" : [
@@ -74,81 +74,81 @@
 		},
 		{
 			"id": "post-payment",
-			"name" : "Do payment",
+			"name" : "Realizar pagamento",
 			"type" : "post",
 			"private" : true,
 			"url" : "shop/",
-			"action" : "Finalizes the transaction with payment.",
-			"params" : [
+			"action" : "Realiza o pagamento de uma transação criada e pendente de pagamento.",
+			"filters" : [
 				{
 					"name" : "eventId",
 					"default" : "none",
-					"description" : "Valid event ID.",
+					"description" : "ID válido de evento.",
 					"type" : "integer",
 					"example" : "12345"
 				},
 				{
 					"name" : "userId",
 					"default" : "none",
-					"description" : "Valid user ID for checkout process.",
+					"description" : "ID válido do usuário para quem está sendo feita a compra.",
 					"type" : "integer",
 					"example" : "12345"
 				},
 				{
 					"name" : "session",
 					"default" : "none",
-					"description" : "Date (dd/mm/yyyy) and time (hh:mm:ss) to where is intended to buy the tickets.",
+					"description" : "Data (dd/mm/yyyy) e hora (hh:mm:ss) da lista do evento para quando se deseja comprar os ingressos.",
 					"type" : "integer",
 					"example" : "-"
 				},
 				{
 					"name" : "ticketTypeId",
 					"default" : "none",
-					"description" : "Valid ID for chosen ticket type.",
+					"description" : "ID válido para o tipo de ingresso selecionado.",
 					"type" : "integer",
 					"example" : "12345"
 				},
 				{
 					"name" : "type",
-					"default" : "none",
-					"description" : "Define a ticket as student price (meia) or not (inteira).",
+					"default" : "Inteira",
+					"description" : "Define um ingresso como do tipo inteira (Inteira) ou meia (Meia) entrada.",
 					"type" : "string",
-					"example" : "inteira"
+					"example" : "Inteira"
 				},
 				{
 					"name" : "quantity",
 					"default" : "none",
-					"description" : "Quantity chosen, greater than 0.",
+					"description" : "Quantidade escolhido para o tipo de ingresso especificado, maior que 0.",
 					"type" : "integer",
 					"example" : "3"
 				},
 				{
 					"name" : "discountCode",
 					"default" : "none",
-					"description" : "Valid discount code (optional).",
-					"type" : "integer",
-					"example" : "3"
+					"description" : "Código promocional válido (opcional).",
+					"type" : "string",
+					"example" : "JWjhGSs"
 				},
 				{
 					"name" : "transactionId",
 					"default" : "none",
-					"description" : "Valid transaction Id sent previous.",
+					"description" : "Código identificador de transação válido. Este valor é retornado no método de criação de transação.",
 					"type" : "string",
 					"example" : "1234-234324-124KH1G4JH23G4J23FGF324HGF23GH4FHG23F4H"
 				},
 				{
 					"name" : "cardHash",
 					"default" : "none",
-					"description" : "To be sent if one click is available for user.",
+					"description" : "O cardhash possui as informações de pagamento codificadas para uma segunda camada de segurança. Para saber mais sobre como criar um cardhash, consultar Guia do desenvolvedor > Fluxo de compra",
 					"type" : "string",
 					"example" : "J34H5GK3J4HG53KJ45HGKJ3H4G5JK3"
 				}
 			],
 			"answer" :  {
 				"transactionStatus" : {
-					"transactionId" : "Transaction identification number",
-					"status" : "[pending,declined]",
-					"message" : "error message or declined excuses"
+					"transactionId" : "1234-234324-124KH1G4JH23G4J23FGF324HGF23GH4FHG23F4H // Código de identificação da transação",
+					"status" : "[approved,declined] // Retorna se a compra está aprovada (approved), ou não (declined)",
+					"message" : "Mensagem de erro ou motivos não aprovação."
 				}
 			},
 			"examples" : [

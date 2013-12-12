@@ -67,7 +67,7 @@
 							<h4 class="subheader">{{method.action}}</h4>
 							<a href="#/developer-guide/auth"><span ng-show="method.private" class="orange radius label">Método fechado</span></a>
 						</header>
-						<h2>Parâmetros</h2>
+						<h2>Filtros</h2>
 						<table>
 							<tr>
 								<th>Nome</th>
@@ -76,12 +76,12 @@
 								<th>Descrição</th>
 								<th>Exemplo</th>
 							</tr>
-							<tr ng-repeat="param in method.params">
-								<td>{{param.name}}</td>
-								<td>{{param.type}}</td>
-								<td>{{param.default}}</td>
-								<td>{{param.description}}</td>
-								<td>{{param.example}}</td>
+							<tr ng-repeat="filter in method.filters">
+								<td>{{filter.name}}</td>
+								<td>{{filter.type}}</td>
+								<td>{{filter.default}}</td>
+								<td>{{filter.description}}</td>
+								<td>{{filter.example}}</td>
 							</tr>
 						</table>
 						<h2>Resposta da chamada</h2>

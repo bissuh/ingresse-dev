@@ -1,22 +1,22 @@
 [
 {
-	"name" : "Event",
+	"name" : "Evento",
 	"id" : "event"
 },
 {
-	"name" : "Ticket",
+	"name" : "Ingresso",
 	"id" : "ticket"
 },
 {
-	"name" : "User",
+	"name" : "Usuário",
 	"id" : "user"
 },
 {
-	"name" : "Sale",
+	"name" : "Transação",
 	"id" : "sale"
 },
 {
-	"name" : "Shop",
+	"name" : "Venda de ingressos",
 	"id" : "shop"
 }
 ]

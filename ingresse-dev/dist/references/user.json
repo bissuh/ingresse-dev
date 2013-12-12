@@ -1,109 +1,109 @@
 {
-	"title" : "User",
+	"title" : "Usuário",
 	"id" : "user",
-	"description" : "User entity, what to say about that?",
+	"description" : "A entidade usuário representa a conta Ingressde um usuário da plataforma. Para acessar os dados privados de um específico usuário, é preciso que o mesmo esteja com uma sessão aberta na sua aplicação.",
 	"entity" : {
-		"id" : "public",
-		"name" : "public",
-		"lastName" : "public",
-		"username" : "public",
-		"email" : "private",
-		"cellphone" : "private",
-		"loginMoip" : "private",
-		"phone" : "private",
-		"termsAcceptedVersion" : "private",
-		"type" : "private",
-		"token" : "private",
-		"fbUserId" : "private",
-		"cofre" : "private",
-		"street" : "private",
-		"number" : "private",
-		"complement" : "private",
-		"district" : "private",
-		"city" : "private",
-		"state" : "private",
-		"zip" : "private",
-		"cartaoFinal" : "private",
-		"cartaoBandeira" : "private",
-		"private" : "private",
-		"creationDate" : "private",
-		"modificationDate" : "private",
-		"deletionDate" : "private"
+		"id" : "público",
+		"name" : "público",
+		"lastName" : "público",
+		"username" : "público",
+		"email" : "privado",
+		"cellphone" : "privado",
+		"loginMoip" : "privado",
+		"phone" : "privado",
+		"termsAcceptedVersion" : "privado",
+		"type" : "privado",
+		"token" : "privado",
+		"fbUserId" : "privado",
+		"cofre" : "privado",
+		"street" : "privado",
+		"number" : "privado",
+		"complement" : "privado",
+		"district" : "privado",
+		"city" : "privado",
+		"state" : "privado",
+		"zip" : "privado",
+		"cartaoFinal" : "privado",
+		"cartaoBandeira" : "privado",
+		"private" : "privado",
+		"creationDate" : "privado",
+		"modificationDate" : "privado",
+		"deletionDate" : "privado"
 	},
 	"methods" : [
 		{
 			"id": "get-user",
-			"name" : "Retrieve specific user",
+			"name" : "Pedir usuário",
 			"type" : "get",
 			"url" : "user/:id",
-			"action" : "Brings full set of specific information for the given id user. If not logged, or if app does not has permission, will retrieve only public data.",
-			"params" : [],
+			"action" : "Retorna os dados públicos completos do usuário especificado. Em caso de o usuário estar com uma sessão aberta na aplicação, será retornado também os dados privados.",
+			"filters" : [],
 			"answer" : {
-				"id" : "public",
-				"name" : "public",
-				"lastName" : "public",
-				"username" : "public",
-				"email" : "private",
-				"cellphone" : "private",
-				"loginMoip" : "private",
-				"phone" : "private",
-				"termsAcceptedVersion" : "private",
-				"type" : "private",
-				"token" : "private",
-				"fbUserId" : "private",
-				"cofre" : "private",
-				"street" : "private",
-				"number" : "private",
-				"complement" : "private",
-				"district" : "private",
-				"city" : "private",
-				"state" : "private",
-				"zip" : "private",
-				"cartaoFinal" : "private",
-				"cartaoBandeira" : "private",
-				"private" : "private",
-				"creationDate" : "private",
-				"modificationDate" : "private",
-				"deletionDate" : "private"
+				"id" : "público",
+				"name" : "público",
+				"lastName" : "público",
+				"username" : "público",
+				"email" : "privado",
+				"cellphone" : "privado",
+				"loginMoip" : "privado",
+				"phone" : "privado",
+				"termsAcceptedVersion" : "privado",
+				"type" : "privado",
+				"token" : "privado",
+				"fbUserId" : "privado",
+				"cofre" : "privado",
+				"street" : "privado",
+				"number" : "privado",
+				"complement" : "privado",
+				"district" : "privado",
+				"city" : "privado",
+				"state" : "privado",
+				"zip" : "privado",
+				"cartaoFinal" : "privado",
+				"cartaoBandeira" : "privado",
+				"private" : "privado",
+				"creationDate" : "privado",
+				"modificationDate" : "privado",
+				"deletionDate" : "privado"
 			},
 			"examples" : [
 				{
 					"request" : "user/963",
-					"description" : "Brings all events who has term words in any context and are in São Paulo."
+					"description" : "Retorna o objeto completo de dados públicos do usuário 963."
 				},
 				{
 					"request" : "user/963?fields=id,name",
-					"description" : "Brings only id, name information for specified user."
+					"description" : "Retorna apenas os campos id e name do usuário 963."
 				}
 			]
 		},
 		{
 			"id": "get-picture",
-			"name" : "Retrieve profile picture",
+			"name" : "Pedir foto de perfil",
 			"type" : "get",
 			"url" : "user/:id/picture",
-			"action" : "Brings user profile picture from Ingresse, Facebook or default Ingresse profile picture. It never comes null.",
+			"action" : "Retorna a imagem de perfil da conta Ingresse do usuário. Caso o usuáro não possua uma imagem de perfil cadastrada na Ingresse, mas possua a conta do Facebook conectada, será retornado a imagem de perfil do usuário cadastrado no facebook. Em último caso, será retornada a imagem padrão de foto de usuários da Ingresse.",
 			"params" : [
 				{
 					"name" : "size",
 					"default" : "normal",
-					"description" : "As the recommmended parameter to be used, this request a poster from a default size: small (50x50), normal(160x160), big(600,600).",
+					"description" : "Filtro recomendado para ser usado na hora de definir um tamanho específico da imagem de perfil a ser retornada. Este filtro modifica o tamanho da imagem entre as opções: small (70x90), normal (230x300), big (460,600).",
 					"type" : "string",
 					"example": "big"
 				},
 				{
 					"name" : "width",
 					"default" : "none",
-					"description" : "Width in pixels. Requires height to be specified..",
-					"type" : "double",
+					"description" : "Valor da largura em pixels desejada para a imagem. Requer especificação de height.",
+					"type" : "integer",
 					"example" : "200"
 				},
 				{
 					"name" : "height",
 					"default" : "none",
-					"description" : "Height in pixels. Requires width to be specified.",
-					"type" : "double",
-					"example" : "200"
+					"description" : "Valor da altura em pixels desejada para a imagem. Requer especificação de width",
+					"type" : "integer",
+					"example" : "300"
 				}
 			],
 			"answer" : {
@@ -112,30 +112,30 @@
 			"examples" : [
 				{
 					"request" : "user/963/picture",
-					"description" : "Brings user profile picture in small size."
+					"description" : "Retorna a imagem do usuário em tamanho normal."
 				},
 				{
-					"request" : "user/963/picture/?size=normal",
-					"description" : "Brings user profile picture in normal size."
+					"request" : "user/963/picture/?size=big",
+					"description" : "Retorna a imagem do usuário no tamanho grande (460,600)."
 				},
 				{
 					"request" : "user/963/picture/?width=30&height=36",
-					"description" : "Brings user profile picture in 30 pixels for 36 pixels."
+					"description" : "Retorna a imagem do usuário com 30 pixels de largura e 36 pixels de altura."
 				}
 			]
 		},
 		{
 			"id" : "get-list-of-tickets",
-			"name" : "Retrieve tickets list",
+			"name" : "Pedir lista de ingressos",
 			"type" : "get",
 			"private" : true,
 			"url" : "/user/:id/tickets",
-			"action" : "Brings user tickets with full set information ordered by future events for past events. Method available only for logged users or allowed applications.",
-			"params" : [
+			"action" : "Retorna a lista de ingressos do usuário especificado. Válido somente caso a sessão aberta seja do mesmo usuário.",
+			"filters" : [
 				{
 					"name" : "event",
 					"default" : "none",
-					"description" : "defines a specific event id to bring tickets from.",
+					"description" : "Traz a lista de ingressos já comprados apenas para o evento especificado.",
 					"type" : "integer",
 					"example" : "123"
 				}
@@ -163,11 +163,11 @@
 			"examples" : [
 				{
 					"request" : "user/963/tickets",
-					"description" : "Brings complete list of tickets of this user with full set of information."
+					"description" : "Retorna a lista completa de ingressos do usuário 963."
 				},
 				{
 					"request" : "user/963/tickets/?event=963",
-					"description" : "Brings complete list of tickets of this user to specific event with full set of information."
+					"description" : "Retorna a lista de ingressos comprados pelo usuário 963 para o evento 963."
 				}
 			]
 		}
