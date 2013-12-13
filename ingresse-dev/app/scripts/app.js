@@ -5,9 +5,9 @@ angular.module('ingresse-devApp', ['ngResource', 'ngDisqus'])
 	.config(function ($disqusProvider, $routeProvider, $locationProvider, $httpProvider) {
 
 		$disqusProvider.setShortname('ingresse');
-		$locationProvider.html5Mode(true).hashPrefix('!');
-		$httpProvider.defaults.useXDomain = true;
-		delete $httpProvider.defaults.headers.common['X-Requested-With'];
+		//$locationProvider.html5Mode(true).hashPrefix('!');
+		//$httpProvider.defaults.useXDomain = true;
+		//delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
 		$routeProvider
 			.when('/', {
@@ -17,6 +17,24 @@ angular.module('ingresse-devApp', ['ngResource', 'ngDisqus'])
 			.when('/references', {
 			  templateUrl: 'views/references.html',
 			})
+
+			// DEVELOPER GUIDE REFERENCES
+			.when('/developer-guide', {
+			  templateUrl: 'views/developer-guide.html',
+			})
+			.when('/developer-guide/auth', {
+			  templateUrl: 'views/developer-guide/auth.html',
+			})
+			.when('/developer-guide/login', {
+			  templateUrl: 'views/developer-guide/login.html',
+			})
+			.when('/developer-guide/checkout', {
+			  templateUrl: 'views/developer-guide/checkout.html',
+			})
+			.when('/developer-guide/filters', {
+			  templateUrl: 'views/developer-guide/filters.html',
+			})
+
 			.when('/references/:category', {
 			  templateUrl: 'views/references.html',
 			})
@@ -29,6 +47,6 @@ angular.module('ingresse-devApp', ['ngResource', 'ngDisqus'])
 	})
 
 	.run(function ($rootScope, $route, $routeParams, $location) {
-		$rootScope.url = '/';
+		$rootScope.appUrl = 'http://bissu.github.io/ingresse-dev/';
 		$rootScope.location = $location;
 	});

@@ -1,0 +1,66 @@
+<div ng-controller="DeveloperGuideCtrl" class="row">
+
+	<!-- BEGIN - LEFT SIDEBAR: REFERENCES MENU -->
+	<div class="large-3 medium-4 columns">
+		<div class="hide-for-small">
+			<div class="sidebar">
+				<h6>Guia do Desenvolvedor</h6>
+				<nav>
+					<ul class="side-nav">
+						<li class="active"><a href="#/developer-guide/auth">Autenticação</a></li>
+						<li><a href="#/developer-guide/login">Login</a></li>
+						<li><a href="#/developer-guide/checkout">Fluxo de compra</a></li>
+						<li><a href="#/developer-guide/filters">Filtros</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<!-- END - LEFT SIDEBAR: REFERENCES MENU -->
+
+	<!-- BEGIN - CONTENT -->
+	<div class="large-9 medium-8 columns">
+		<h1>Autenticação</h1>
+		<h4 class="subheader">Para desenvolver aplicativos com a API Ingresse, é preciso adquirir uma chave de autenticação da sua aplicação. A Ingresse ainda está em beta fechado, mas você pode se cadastrar em nossa mala para ser avisado quando ela for publicada abertamente.</h4>
+		<a class="button green round" href="http://eepurl.com/In9rH">Inscrever na lista</a>
+		<p>Abaixo estão descritas as formas como você poderá se conectar com a nossa API.</p>
+
+		<hr>
+		<h2>Realizando requisições</h2>
+		<p>Para fazer chamadas aos serviços da API é preciso enviar suas informações de acesso na URL. Essas informações de acesso se resumem a:</p>
+		<ul>
+			<li><strong>publickey:</strong> a chave de acesso fornecida a você para poder criar aplicações credenciadas. Essa chave é fornecida pela Ingresse.</li>
+			<li><strong>signature:</strong> deve ser gerada no código do seu aplicativo no máximo a cada 15 minutos. Pois a API irá rejeitar requisições com mais de 15 minutos de "idade".</li>
+			<li><strong>timestamp:</strong> resultado da função de timestamp que cria uma sessão válida de acesso com a API Ingresse.</li>
+		</ul>
+
+		<h3>Gerando uma signature</h3>
+		<p>Para gerar a signature você precisa aplicar diversas criptografias acumulativas:</p>
+		<ol>
+			<li>Gere o timestamp da data corrente no formato 'Y-m-d\TH:i:s\Z' em timezone GMT. Ex.: <kbd>$timestamp = gmdate('Y-m-d\TH:i:s\Z');</kbd></li>
+			<li>Concatene com sua publickey gerando data1. Ex.: <kbd>$data1 = $publickey . $timestamp;</kbd></li>
+			<li>Crie um hash com a criptografia sha1 usando data1 e a sua privatekey enviada pela Ingresse. Ex.: <kbd>$data2 = hash_hmac('sha1', $data, $privatekey, TRUE);</kbd></li>
+			<li>O hash gerado em data2 deve ser em Binário RAW. Então, transforme o data2 em base64. Ex.: <kbd>$computedSignature = base64_encode($data2);</kbd></li>
+		</ol>
+		<p>E assim tem-se a string de autenticação completa para ser enviada via GET:
+<pre class="prettyprint">
+$timestamp = gmdate('Y-m-d\TH:i:s\Z');
+$data1 = $publickey . $timestamp;
+$data2 = hash_hmac('sha1', $data, $privatekey, TRUE);
+$computedSignature = base64_encode($data2);
+$authenticationString = "?publickey=" . $publickey . "&signature=".urlencode($computedSignature)."&timestamp=".urlencode($timestamp);
+</pre></p>
+
+		<p>É fundamental que esse algoritmo para gerar a string de conexão seja feito em código-fonte complicado ou ofuscado para evitar que pessoas não autorizadas usem sua conta de desenvolvedor com a Ingresse. Em hipotese alguma deixe sua privatekey em código aberto, por exemplo, no Javascript de seu site.</p>
+
+		<hr>
+		<h2>Métodos fechados</h2>
+		<p>Algumas requisições só podem ser feitas com a permissão de um usuário. Esses métodos são chamados de métodos fechados e requerem uma chave de usuário (uertoken) para serem abertas. Algumas entidades exibem determinados dados apenas com a presença de um token de usuário.</p>
+		<p>Para acrescentar a chave de usuário, basta adicionar um token de usuário, basta adicionar a variável <kbd>usertoken</kbd> ao conjunto de variáveis de autenticação. Para saber como conseguir o token do usuário, veja a documentação sobre processo de login do usuário <a href="#/developer-guide/login">clicando aqui</a>.
+		</p><p>Para saber se um método é fechado ou não, verifique se existe um marcador <span class="orange radius label">Método fechado</span> logo após a descrição do métodos que deseja utilizar.</p>
+		<section class="disqus-block">
+			<div disqus="disqusIdentifier"></div>
+		</section>
+	</div>
+	<!-- END - CONTENT -->
+</div>

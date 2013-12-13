@@ -1,63 +1,55 @@
 <div ng-controller="ReferencesCtrl" class="row">
 
-	<div class="columns large-12 panel references-pg">
-
 		<!-- BEGIN - LEFT SIDEBAR: REFERENCES MENU -->
-		<aside class="columns large-3">
-			<h6>Referências</h6>
-			<nav ng-controller="ReferencesMenuCtrl">
-				<ul class="no-bullet">
-					<li ng-repeat="reference in references | orderBy:'name':false">
-						<a ng-click="setItem(reference.id)">{{reference.name}}</a>
-						<ul class="square">
-							<li class="reference-link" ng-repeat="method in reference.methods | orderBy:'name':false">
-								<a ng-click="setItem(reference.id, method.id)">{{method.name}}</a>
+		<div class="large-3 medium-4 columns">
+			<div>
+				<div class="sidebar">
+					<h6>Referências</h6>
+					<nav ng-controller="ReferencesMenuCtrl">
+						<ul class="side-nav">
+							<li ng-repeat="reference in references | orderBy:'name':false">
+								<a ng-click="setItem(reference.id)">{{reference.name}}</a>
+								<ul>
+									<li class="reference-link" ng-repeat="method in reference.methods | orderBy:'name':false">
+										<a ng-click="setItem(reference.id, method.id)">{{method.name}}</a>
+									</li>
+								</ul>
 							</li>
 						</ul>
-					</li>
-				</ul>
-			</nav>
-		</aside>
+					</nav>
+				</div>
+			</div>
+		</div>
 		<!-- END - LEFT SIDEBAR: REFERENCES MENU -->
 
 		<!-- BEGIN - CONTENT -->
 		<div class="ref-article columns large-9">
 
-			<ul class="breadcrumbs">
-				<li><a href="/references">References</a></li>
-				<li>{{category.title}}</li>
-			</ul>
 			<ANY ng-switch="referenceTemplate">
 
 				<!-- THERE IS NO SELECTED METHOD -->
 				<article ng-switch-when="null">
 					<header>
-						<h2>References</h2>
-						<p class="subheader">Aqui você irá encontrar o que é necessário para entender como integrar a sua aplicação ou site, com o sistema Ingresse.</p>
+						<h1>References</h1>
+						<h4 class="subheader">Aqui você irá encontrar o que é necessário para entender como integrar a sua aplicação ou site, com o sistema Ingresse.</h4>
 					</header>
 					<section>
-						<p>Ao lado está listado o conjunto de métodos e entidades que o sistema de integração da Ingresse dispõe. Abaixo estão alguns links úteis, caso esteja começando agora:</p>
-						<div class="columns large-12">
-							<ul class="disc">
-								<li>Como adquirir uma chave de desenvolvedor?</li>
-								<li>O que é preciso para vender ingressos usando a API?</li>
-							</ul>
-						</div>
+						<p>Caso tenha dúvidas sobre como conseguir uma chave de desenvolvedor ou como começar a utilizar a API, dê uma olhada em nosso <a href="#/developer-guide">guia para desenvolvedores</a> explicando como a API funciona em vários aspectos.</p>
 					</section>
 				</article>
 
 				<!-- FOR A SELECTED ENTITY -->
 				<article ng-switch-when="category">
 					<header>
-						<h2>{{category.title}}</h2>
-						<p class="subheader">{{category.description}}</p>
+						<h1>{{category.title}}</h1>
+						<h4 class="subheader">{{category.description}}</h4>
 					</header>
 					<section>
-						<h3>Objeto</h3>
-						<pre ng-bind="category.entity | json"></pre>
+						<h2>Objeto</h2>
+						<pre class="prettyprint" ng-bind="category.entity | json"></pre>
 					</section>
 					<section>
-						<h3>Métodos</h3>
+						<h2>Métodos</h2>
 						<ul>
 							<li ng-repeat="method in category.methods | orderBy:'name':false">
 								<a ng-click="setItem(category.id, method.id)">{{method.name}}</a>
@@ -70,28 +62,31 @@
 				<article ng-switch-when="method">
 					<any ng-repeat="method in category.methods | filter:{id: methodId}">
 						<header>
-							<h2>{{method.name}}</h2>
+							<h1>{{method.name}}</h1>
 							<span>{{method.type}} - {{url}}{{method.url}}</span>
-							<p class="subheader">{{method.action}}</p>
+							<h4 class="subheader">{{method.action}}</h4>
+							<a href="#/developer-guide/auth"><span ng-show="method.private" class="orange radius label">Método fechado</span></a>
 						</header>
-						<h3>Parâmetros</h3>
+						<h2>Filtros</h2>
 						<table>
 							<tr>
 								<th>Nome</th>
 								<th>Tipo</th>
 								<th>Valor padrão</th>
 								<th>Descrição</th>
+								<th>Exemplo</th>
 							</tr>
-							<tr ng-repeat="param in method.params">
-								<td>{{param.name}}</td>
-								<td>{{param.type}}</td>
-								<td>{{param.description}}</td>
-								<td>{{param.type}}</td>
+							<tr ng-repeat="filter in method.filters">
+								<td>{{filter.name}}</td>
+								<td>{{filter.type}}</td>
+								<td>{{filter.default}}</td>
+								<td>{{filter.description}}</td>
+								<td>{{filter.example}}</td>
 							</tr>
 						</table>
-						<h3>Resposta da chamada</h3>
-						<pre ng-bind="method.answer | json"></pre>
-						<h3>Exemplos de uso</h3>
+						<h2>Resposta da chamada</h2>
+						<pre class="prettyprint" ng-bind="method.answer | json"></pre>
+						<h2>Exemplos de uso</h2>
 						<p ng-repeat="example in method.examples">
 							<kbd>{{example.request}}</kbd><br/>
 							{{example.description}}

@@ -8,12 +8,26 @@ By: Bissuh
 - HOME
 */
 
+/* =GENERAL */
+
+.sidebar {
+	padding: 30px 20px;
+}
+
+.row {
+	max-width: 80rem !important;
+}
+
+h1 {
+	margin-top: 20px;
+}
+
+.home-developers {
+	margin: 6px 10px;
+}
+
 /* =HOME */
 
-.main-header {
-	background: #3ca8e9;
-	color: #fff;
-}
 .mh-title {
 	font-size: 60px;
 	font-style: italic;
@@ -33,14 +47,20 @@ By: Bissuh
 }
 .api-feature, .signin {
 	text-align: center;
+	padding-top: 20px;
+}
+
+.main-header {
+	background: #0079a1;
+	color: #fff;
 }
 .api-feature {
-	padding: 20px 0;
+	padding: 20px;
 }
 
 .bg-header-text {
 	background: black center -90px no-repeat;
-    background-image: url("../img/check-in-lindo.jpg");
+    background-image: url("../img/check-in-lindo.png");
 }
 
 .header-text {
@@ -48,11 +68,10 @@ By: Bissuh
 	text-shadow: 1px 1px 1px #000;
 }
 
-/* References */
 
-.references-pg {
-    margin-top: 20px;
-}
+
+
+/* References */
 
 .reference-link {
     cursor: pointer;

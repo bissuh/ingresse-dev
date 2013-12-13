@@ -1,0 +1,59 @@
+<div ng-controller="DeveloperGuideCtrl" class="row">
+
+	<!-- BEGIN - LEFT SIDEBAR: REFERENCES MENU -->
+	<div class="large-3 medium-4 columns">
+		<div>
+			<div class="sidebar">
+				<h6>Guia do Desenvolvedor</h6>
+				<nav>
+					<ul class="side-nav">
+						<li><a href="#/developer-guide/auth">Autenticação</a></li>
+						<li><a href="#/developer-guide/login">Login</a></li>
+						<li><a href="#/developer-guide/checkout">Fluxo de compra</a></li>
+						<li class="active"><a href="#/developer-guide/filters">Filtros</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<!-- END - LEFT SIDEBAR: REFERENCES MENU -->
+
+	<!-- BEGIN - CONTENT -->
+	<div class="large-9 medium-8 columns">
+		<h1>Filtros</h1>
+		<h4 class="subheader">Tornamos a utilização da API Ingresse flexível com a aplicação de filtros de conteúdo. Esses filtros permitem que sua aplicação manipule como e o que irá ver de cada conteúdo. Para utilizar os filtros é simples, basta adicionar na url o manipulador que deseja utilizar e a API se encarrega do resto. Abaixo seguem a lista de filtros já disponíveis.</h4>
+		<p>Na página de cada método, ou categoria de método, é possível ver os filtros disponíveis para cada método.</p>
+
+		<hr>
+		<h2>Paginação</h2>
+		<h3>Acessando uma página</h3>
+		<p>Para acessar páginas de listas de conteúdos, basta acrescentar na url o número da página que deseja acessar através da variável <kbd>page</kbd>. Por exemplo, para ver a página 2 da lista de eventos, use: <kbd>api.ingresse.com/event?page=2</kbd>.</p>
+		<p>Para saber quantas páginas existem na lista, procure pelo campo <kbd>lastPage</kbd>, dentro do campo <kbd>paginationInfo</kbd> no JSON de resposta da lista solicitada.</p>
+		<p>Exemplo de retorno:</p>
+<pre class="prettyprint">
+// Início de JSON de resposta
+{
+	"responseData":{
+		"paginationInfo":{
+			"currentPage":1,
+			"lastPage":7,
+			"totalResults":154,
+			"pageSize":25
+		},
+... // JSON continua
+</pre>
+
+		<h3>Definindo tamanho da página</h3>
+		<p>Para aumentar ou diminuir o tamanho da página que está sendo retornada, utilize a variável <kbd>pagesize</kbd> e defina a quantidade de items que deseja. Por exemplo, para trazer 50 eventos por página na lista de eventos, use: <kbd>api.ingresse.com/event?pagesize=50</kbd>.</p>
+		<p> Ao fazer isso, os dados de quantidade de páginas e tamanho da página estarão alterados.</p>
+
+		<hr>
+		<h2>Filtros de atributos</h2>
+		<p>É possível espeficiar que informações deseja trazer de cada entidade (eventos, usuários, ingressos etc). Para isso, acrescente o filtro <kbd>fields</kbd> e logo após adicione o nome dos campos que deseja que venham. Os itens devem vir separados por vírgula e escritos de acordo com os atributos da entidade de retorno. No caso de uso do filtro de campos, automaticamente todos os atributos não mencionados no item serão removidos da chamada.</p>
+		<p>Exemplo, para trazer a lista de eventos apenas com título e data, faça: <kbd>api.ingresse.com/event?fields=title,date</kbd></p>
+		<section class="disqus-block">
+			<div disqus="disqusIdentifier"></div>
+		</section>
+	</div>
+	<!-- END - CONTENT -->
+</div>
