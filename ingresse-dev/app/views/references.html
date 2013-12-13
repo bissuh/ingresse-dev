@@ -61,14 +61,20 @@
 				<!-- FOR A SELECTED METHOD -->
 				<article ng-switch-when="method">
 					<any ng-repeat="method in category.methods | filter:{id: methodId}">
-						<header>
-							<h1>{{method.name}}</h1>
-							<h4 class="subheader">{{method.action}}</h4>
-							<a href="#/developer-guide/auth"><span ng-show="method.private" class="orange radius label">Método fechado</span></a>
-							<span class="green radius label">{{method.type | uppercase}}</span>
-							<!-- <kbd class="url-call"></kbd> -->
-							<input type="text" value="https://api.ingresse.com/{{url}}{{method.url}}" />
-						</header>
+						<h1>{{method.name}}</h1>
+						<h4 class="subheader">{{method.action}}</h4>
+						<div class="row collapse">
+							<div class="small-3 large-2 columns">
+								<span class="prefix">{{method.type | uppercase}}</span>
+							</div>
+							<div class="small-6 large-8 columns">
+								<input type="text" ng-readonly="true" value="https://api.ingresse.com/{{method.url}}">
+							</div>
+							<div class="small-3 large-2 columns">
+								<a href="#/developer-guide/auth"><span ng-show="method.private" class="postfix">Método privado</span></a>
+							</div>
+						</div>
+
 						<hr/>
 						<h2>Filtros</h2>
 						<table>
@@ -87,13 +93,19 @@
 								<td>{{filter.example}}</td>
 							</tr>
 						</table>
+
+						<hr/>
 						<h2>Resposta da chamada</h2>
-						<pre class="prettyprint" ng-bind="method.answer | json"></pre>
+						<p><pre class="prettyprint" ng-bind="method.answer | json"></pre></p>
+
+						<hr/>
 						<h2>Exemplos de uso</h2>
-						<p ng-repeat="example in method.examples">
-							<kbd>{{example.request}}</kbd><br/>
-							{{example.description}}
-						</p>
+						<any ng-repeat="example in method.examples">
+							<p>
+								{{example.description}}
+								<pre class="prettyprint">https://api.ingresse.com/{{example.request}}</pre>
+							</p>
+						</any>
 					</any>
 				</article>
 
