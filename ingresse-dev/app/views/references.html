@@ -63,36 +63,48 @@
 					<any ng-repeat="method in category.methods | filter:{id: methodId}">
 						<h1>{{method.name}}</h1>
 						<h4 class="subheader">{{method.action}}</h4>
-						<div class="row collapse">
-							<div class="small-3 large-2 columns">
-								<span class="prefix">{{method.type | uppercase}}</span>
+						<div ng-switch on="method.private">
+							<div ng-switch-when="true" class="row collapse">
+								<div class="small-3 large-2 columns">
+									<span class="prefix">{{method.type | uppercase}}</span>
+								</div>
+								<div class="small-6 large-8 columns">
+									<input type="text" ng-readonly="true" value="https://api.ingresse.com/{{method.url}}">
+								</div>
+								<div class="small-3 large-2 columns">
+									<a href="#/developer-guide/auth"><span ng-show="method.private" class="postfix">Método privado</span></a>
+								</div>
 							</div>
-							<div class="small-6 large-8 columns">
-								<input type="text" ng-readonly="true" value="https://api.ingresse.com/{{method.url}}">
-							</div>
-							<div class="small-3 large-2 columns">
-								<a href="#/developer-guide/auth"><span ng-show="method.private" class="postfix">Método privado</span></a>
+							<div ng-switch-default class="row collapse">
+								<div class="small-3 large-2 columns">
+									<span class="prefix">{{method.type | uppercase}}</span>
+								</div>
+								<div class="small-9 large-10 columns">
+									<input type="text" ng-readonly="true" value="https://api.ingresse.com/{{method.url}}">
+								</div>
 							</div>
 						</div>
 
-						<hr/>
-						<h2>Filtros</h2>
-						<table>
-							<tr>
-								<th>Nome</th>
-								<th>Tipo</th>
-								<th>Valor padrão</th>
-								<th>Descrição</th>
-								<th>Exemplo</th>
-							</tr>
-							<tr ng-repeat="filter in method.filters">
-								<td>{{filter.name}}</td>
-								<td>{{filter.type}}</td>
-								<td>{{filter.default}}</td>
-								<td>{{filter.description}}</td>
-								<td>{{filter.example}}</td>
-							</tr>
-						</table>
+						<div ng-show="method.filters">
+							<hr/>
+							<h2>Filtros</h2>
+							<table>
+								<tr>
+									<th>Nome</th>
+									<th>Tipo</th>
+									<th>Valor padrão</th>
+									<th>Descrição</th>
+									<th>Exemplo</th>
+								</tr>
+								<tr ng-repeat="filter in method.filters">
+									<td>{{filter.name}}</td>
+									<td>{{filter.type}}</td>
+									<td>{{filter.default}}</td>
+									<td>{{filter.description}}</td>
+									<td>{{filter.example}}</td>
+								</tr>
+							</table>
+						</div>
 
 						<hr/>
 						<h2>Resposta da chamada</h2>
