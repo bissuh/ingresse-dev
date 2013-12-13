@@ -63,10 +63,13 @@
 					<any ng-repeat="method in category.methods | filter:{id: methodId}">
 						<header>
 							<h1>{{method.name}}</h1>
-							<span>{{method.type}} - {{url}}{{method.url}}</span>
 							<h4 class="subheader">{{method.action}}</h4>
 							<a href="#/developer-guide/auth"><span ng-show="method.private" class="orange radius label">Método fechado</span></a>
+							<span class="green radius label">{{method.type | uppercase}}</span>
+							<!-- <kbd class="url-call"></kbd> -->
+							<input type="text" value="https://api.ingresse.com/{{url}}{{method.url}}" />
 						</header>
+						<hr/>
 						<h2>Filtros</h2>
 						<table>
 							<tr>

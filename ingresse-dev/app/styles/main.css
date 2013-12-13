@@ -68,12 +68,13 @@ h1 {
 	text-shadow: 1px 1px 1px #000;
 }
 
-
-
-
 /* References */
 
-.reference-link {
+.url-call {
+	color: #333;
+}
+
+/*.reference-link {
     cursor: pointer;
 }
 
@@ -88,4 +89,5 @@ h1 {
 .ref-article {
     border-left: 1px solid #e5e5e5;
     min-height: 500px;
-}
+}*/
+

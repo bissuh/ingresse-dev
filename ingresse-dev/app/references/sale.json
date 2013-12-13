@@ -27,7 +27,7 @@
 			"id": "get-transaction",
 			"name" : "Pedir transação",
 			"type" : "get",
-			"url" : "/sale/:transactionId",
+			"url" : "sale/:transactionId",
 			"action" : "Retorna todos os dados de uma transação especificada.",
 			"filters" : [],
 			"answer" :  {
@@ -52,11 +52,11 @@
 			},
 			"examples" : [
 				{
-					"request" : "/shop/9636573JHGA",
+					"request" : "shop/9636573JHGA",
 					"description" : "Retorna todos os dados da compra com transação de código '9636573JHGA'."
 				},
 				{
-					"request" : "/shop/9636573JHGA?fields=id,status",
+					"request" : "shop/9636573JHGA?fields=id,status",
 					"description" : "Retorna id e status da compra com transação de código '9636573JHGA'."
 				}
 			]

@@ -129,7 +129,7 @@
 			"name" : "Pedir lista de ingressos",
 			"type" : "get",
 			"private" : true,
-			"url" : "/user/:id/tickets",
+			"url" : "user/:id/tickets",
 			"action" : "Retorna a lista de ingressos do usuário especificado. Válido somente caso a sessão aberta seja do mesmo usuário.",
 			"filters" : [
 				{

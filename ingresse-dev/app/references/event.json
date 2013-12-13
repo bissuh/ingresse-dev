@@ -37,7 +37,7 @@
 	"methods" : [
 		{
 			"id": "get-list-of-events",
-			"name" : "Pedir Lista de eventos",
+			"name" : "Pedir lista de eventos",
 			"type" : "get",
 			"url" : "event/",
 			"action" : "Lista todos os eventos ordenados do mais antigo ao mais futuro. Quando executado sem nenhum parâmetro de filtro de campos, irá trazer apenas um conjunto curto de dados públicos: id, nome, tipo do evento, status de venda do evento, descrição parcial, datas, lugar e lista Ingresse.",
@@ -242,7 +242,7 @@
 					"description" : "Retorna a imagem do pôster no tamanho normal (230x300)."
 				},
 				{
-					"request" : "/event/963/poster/?size=big",
+					"request" : "event/963/poster/?size=big",
 					"description" : "Retorna a imagem do pôster no tamanho grande (460x600)."
 				},
 				{
