@@ -1,0 +1,22 @@
+[
+{
+	"name" : "Evento",
+	"id" : "event"
+},
+{
+	"name" : "Ingresso",
+	"id" : "ticket"
+},
+{
+	"name" : "Usuário",
+	"id" : "user"
+},
+{
+	"name" : "Transação",
+	"id" : "sale"
+},
+{
+	"name" : "Venda de ingressos",
+	"id" : "shop"
+}
+]
