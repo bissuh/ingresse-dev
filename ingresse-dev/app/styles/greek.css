@@ -874,7 +874,8 @@ label.error {
   font-weight: normal;
   font-style: normal;
   text-decoration: inherit;
-  font}
+  /* font */
+}
 
 /* icons */
 
