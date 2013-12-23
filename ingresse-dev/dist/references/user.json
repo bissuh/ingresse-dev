@@ -37,6 +37,7 @@
 			"type" : "get",
 			"url" : "user/:id",
 			"action" : "Retorna os dados públicos completos do usuário especificado. Em caso de o usuário estar com uma sessão aberta na aplicação, será retornado também os dados privados.",
+			"params" : [],
 			"filters" : [],
 			"answer" : {
 				"id" : "público",
@@ -83,7 +84,8 @@
 			"type" : "get",
 			"url" : "user/:id/picture",
 			"action" : "Retorna a imagem de perfil da conta Ingresse do usuário. Caso o usuáro não possua uma imagem de perfil cadastrada na Ingresse, mas possua a conta do Facebook conectada, será retornado a imagem de perfil do usuário cadastrado no facebook. Em último caso, será retornada a imagem padrão de foto de usuários da Ingresse.",
-			"params" : [
+			"params" : [],
+			"filters" : [
 				{
 					"name" : "size",
 					"default" : "normal",
@@ -131,6 +133,7 @@
 			"private" : true,
 			"url" : "user/:id/tickets",
 			"action" : "Retorna a lista de ingressos do usuário especificado. Válido somente caso a sessão aberta seja do mesmo usuário.",
+			"params" : [],
 			"filters" : [
 				{
 					"name" : "event",

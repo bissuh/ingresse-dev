@@ -85,6 +85,31 @@
 							</div>
 						</div>
 
+						<div ng-show="method.params">
+							<hr>
+							<h2>Parâmetros</h2>
+							<table>
+								<tr>
+									<th>Nome</th>
+									<th>Tipo</th>
+									<th>Valor padrão</th>
+									<th>Descrição</th>
+								</tr>
+								<tr ng-repeat="spec in method.params.specs">
+									<td>{{spec.name}}</td>
+									<td>{{spec.type}}</td>
+									<td>{{spec.default}}</td>
+									<td>{{spec.description}}</td>
+								</tr>
+							</table>
+						</div>
+
+						<div  ng-show="method.params">
+							<h3>Exemplo de envio</h3>
+							<p>Os exemplos de envio de parâmetros estão feitos com objetos JSON apenas para que você consiga visualizar a estrutura entre as informações enviadas.</p>
+							<pre class="prettyprint" ng-bind="method.params.example | json">
+						</div>
+
 						<div ng-show="method.filters">
 							<hr/>
 							<h2>Filtros</h2>

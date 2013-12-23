@@ -41,6 +41,7 @@
 			"type" : "get",
 			"url" : "event/",
 			"action" : "Lista todos os eventos ordenados do mais antigo ao mais futuro. Quando executado sem nenhum parâmetro de filtro de campos, irá trazer apenas um conjunto curto de dados públicos: id, nome, tipo do evento, status de venda do evento, descrição parcial, datas, lugar e lista Ingresse.",
+			"params" : [],
 			"filters" : [
 				{
 					"name" : "lat",
@@ -120,6 +121,7 @@
 			"type" : "get",
 			"url" : "event/:id",
 			"action" : "Retorna o conjunto completo de informações do evento especificado. Caso o usuário esteja identificado no sistema e seja dono do evento, retorna todos os dados privados do evento também.",
+			"params" : [],
 			"filters" : [],
 			"answer" : {
 				"id" : "público",
@@ -170,6 +172,7 @@
 			"type" : "get",
 			"url" : "event/:id/rsvp",
 			"action" : "Retorna a lista completa de usuários Ingresse que estão especificados na lista Ingresse do evento especificado.",
+			"params" : [],
 			"filters" : [],
 			"answer" : {
 				"id" : "público",
@@ -190,6 +193,7 @@
 			"type" : "get",
 			"url" : "event/:id/tickets",
 			"action" : "Lista de ingressos disponíveis para venda, cadastrados para o evento especificado.",
+			"params" : [],
 			"filters" : [],
 			"answer" : {
 				"id" : "público",
@@ -210,6 +214,7 @@
 			"type" : "get",
 			"url" : "event/:id/poster",
 			"action" : "Pedir o pôster do evento especificado. Os posters retornados já estão comprimidos.",
+			"params" : [],
 			"filters" : [
 				{
 					"name" : "size",

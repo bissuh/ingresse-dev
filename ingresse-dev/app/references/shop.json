@@ -11,57 +11,77 @@
 			"private" : true,
 			"url" : "shop/",
 			"action" : "Verifica a disponibilidade dos ingressos enviados e, se configurado, verifica a disponibilidade do cupom de desconto informado.",
-			"filters" : [
-				{
-					"name" : "eventId",
-					"default" : "none",
-					"description" : "ID válido de evento.",
-					"type" : "integer",
-					"example" : "12345"
-				},
-				{
-					"name" : "userId",
-					"default" : "none",
-					"description" : "ID válido do usuário para quem está sendo feita a compra.",
-					"type" : "integer",
-					"example" : "12345"
-				},
-				{
-					"name" : "session",
-					"default" : "none",
-					"description" : "Data (dd/mm/yyyy) e hora (hh:mm:ss) da lista do evento para quando se deseja comprar os ingressos.",
-					"type" : "integer",
-					"example" : "-"
-				},
-				{
-					"name" : "ticketTypeId",
-					"default" : "none",
-					"description" : "ID válido para o tipo de ingresso selecionado.",
-					"type" : "integer",
-					"example" : "12345"
-				},
-				{
-					"name" : "type",
-					"default" : "Inteira",
-					"description" : "Define um ingresso como do tipo inteira (Inteira) ou meia (Meia) entrada.",
-					"type" : "string",
-					"example" : "Inteira"
-				},
-				{
-					"name" : "quantity",
-					"default" : "none",
-					"description" : "Quantidade escolhido para o tipo de ingresso especificado, maior que 0.",
-					"type" : "integer",
-					"example" : "3"
-				},
-				{
-					"name" : "discountCode",
-					"default" : "none",
-					"description" : "Código promocional válido (opcional).",
-					"type" : "string",
-					"example" : "JWjhGSs"
+			"params" : {
+				"specs" : [
+					{
+						"name" : "eventId",
+						"default" : "none",
+						"description" : "ID válido de evento.",
+						"type" : "integer"
+					},
+					{
+						"name" : "userId",
+						"default" : "none",
+						"description" : "ID válido do usuário para quem está sendo feita a compra.",
+						"type" : "integer"
+					},
+					{
+						"name" : "tickets",
+						"default" : "none",
+						"description" : "Objeto array de ingressos selecionados para o evento especificado.",
+						"type" : "array"
+					},
+					{
+						"name" : "session",
+						"default" : "none",
+						"description" : "Data (dd/mm/yyyy) e hora (hh:mm:ss) da lista do evento para quando se deseja comprar os ingressos.",
+						"type" : "integer"
+					},
+					{
+						"name" : "ticketTypeId",
+						"default" : "none",
+						"description" : "ID válido para o tipo de ingresso selecionado.",
+						"type" : "integer"
+					},
+					{
+						"name" : "type",
+						"default" : "Inteira",
+						"description" : "Define um ingresso como do tipo inteira (Inteira) ou meia (Meia) entrada.",
+						"type" : "string"
+					},
+					{
+						"name" : "quantity",
+						"default" : "none",
+						"description" : "Quantidade escolhido para o tipo de ingresso especificado, maior que 0.",
+						"type" : "integer"
+					},
+					{
+						"name" : "discountCode",
+						"default" : "none",
+						"description" : "Código promocional válido (opcional).",
+						"type" : "string"
+					}
+				],
+				"example" : {
+				  "eventId" : 12345,
+				  "userId" : 123,
+				  "tickets" : [
+				    {
+				      "session" : "2013-10-12 22:00",
+				      "ticketTypeId" : 1234,
+				      "type" : "inteira",
+				      "quantity" : 2
+				    },
+				    {
+				      "session" : "2013-10-13 22:00",
+				      "ticketTypeId" : 1234,
+				      "type" : "Inteira",
+				      "quantity" : 5
+				    }
+				  ]
 				}
-			],
+			},
+			"filters" : [],
 			"answer" :  {
 				"transactionStatus" : {
 					"transactionId" : "1234-234324-124KH1G4JH23G4J23FGF324HGF23GH4FHG23F4H // Código de identificação da transação",
@@ -79,71 +99,93 @@
 			"private" : true,
 			"url" : "shop/",
 			"action" : "Realiza o pagamento de uma transação criada e pendente de pagamento.",
-			"filters" : [
-				{
-					"name" : "eventId",
-					"default" : "none",
-					"description" : "ID válido de evento.",
-					"type" : "integer",
-					"example" : "12345"
-				},
-				{
-					"name" : "userId",
-					"default" : "none",
-					"description" : "ID válido do usuário para quem está sendo feita a compra.",
-					"type" : "integer",
-					"example" : "12345"
-				},
-				{
-					"name" : "session",
-					"default" : "none",
-					"description" : "Data (dd/mm/yyyy) e hora (hh:mm:ss) da lista do evento para quando se deseja comprar os ingressos.",
-					"type" : "integer",
-					"example" : "-"
-				},
-				{
-					"name" : "ticketTypeId",
-					"default" : "none",
-					"description" : "ID válido para o tipo de ingresso selecionado.",
-					"type" : "integer",
-					"example" : "12345"
-				},
-				{
-					"name" : "type",
-					"default" : "Inteira",
-					"description" : "Define um ingresso como do tipo inteira (Inteira) ou meia (Meia) entrada.",
-					"type" : "string",
-					"example" : "Inteira"
-				},
-				{
-					"name" : "quantity",
-					"default" : "none",
-					"description" : "Quantidade escolhido para o tipo de ingresso especificado, maior que 0.",
-					"type" : "integer",
-					"example" : "3"
-				},
-				{
-					"name" : "discountCode",
-					"default" : "none",
-					"description" : "Código promocional válido (opcional).",
-					"type" : "string",
-					"example" : "JWjhGSs"
-				},
-				{
-					"name" : "transactionId",
-					"default" : "none",
-					"description" : "Código identificador de transação válido. Este valor é retornado no método de criação de transação.",
-					"type" : "string",
-					"example" : "1234-234324-124KH1G4JH23G4J23FGF324HGF23GH4FHG23F4H"
-				},
-				{
-					"name" : "cardHash",
-					"default" : "none",
-					"description" : "O cardhash possui as informações de pagamento codificadas para uma segunda camada de segurança. Para saber mais sobre como criar um cardhash, consultar Guia do desenvolvedor > Fluxo de compra",
-					"type" : "string",
-					"example" : "J34H5GK3J4HG53KJ45HGKJ3H4G5JK3"
+			"params" : {
+				"specs" : [
+					{
+						"name" : "eventId",
+						"default" : "none",
+						"description" : "ID válido de evento.",
+						"type" : "integer"
+					},
+					{
+						"name" : "userId",
+						"default" : "none",
+						"description" : "ID válido do usuário para quem está sendo feita a compra.",
+						"type" : "integer"
+					},
+					{
+						"name" : "tickets",
+						"default" : "none",
+						"description" : "Objeto array de ingressos selecionados para o evento especificado.",
+						"type" : "array"
+					},
+					{
+						"name" : "session",
+						"default" : "none",
+						"description" : "Data (dd/mm/yyyy) e hora (hh:mm:ss) da lista do evento para quando se deseja comprar os ingressos.",
+						"type" : "integer"
+					},
+					{
+						"name" : "ticketTypeId",
+						"default" : "none",
+						"description" : "ID válido para o tipo de ingresso selecionado.",
+						"type" : "integer"
+					},
+					{
+						"name" : "type",
+						"default" : "Inteira",
+						"description" : "Define um ingresso como do tipo inteira (Inteira) ou meia (Meia) entrada.",
+						"type" : "string"
+					},
+					{
+						"name" : "quantity",
+						"default" : "none",
+						"description" : "Quantidade escolhido para o tipo de ingresso especificado, maior que 0.",
+						"type" : "integer"
+					},
+					{
+						"name" : "discountCode",
+						"default" : "none",
+						"description" : "Código promocional válido (opcional).",
+						"type" : "string"
+					},
+					{
+						"name" : "transactionId",
+						"default" : "none",
+						"description" : "Código identificador de transação válido. Este valor é retornado no método de criação de transação.",
+						"type" : "string"
+					},
+					{
+						"name" : "cardHash",
+						"default" : "none",
+						"description" : "O cardhash possui as informações de pagamento codificadas para uma segunda camada de segurança. Para saber mais sobre como criar um cardhash, consultar Guia do desenvolvedor > Fluxo de compra",
+						"type" : "string"
+					}
+				],
+				"example" : {
+					"transactioId" : "12345-1234-000046751B8EC09A34D16DD07BA6A0762081E719",
+					"eventId" : 12345,
+					"userId" : 123,
+					"tickets" :[
+						{
+							"session" : "2013-10-12 22:00",
+							"ticketTypeId" : 1234,
+							"type" : "inteira",
+							"quantity" : 2
+						},
+						{
+							"session" : "2013-10-12 22:00",
+							"ticketTypeId" : 1234,
+							"type" : "inteira",
+							"quantity" : 2
+						}
+					],
+					"creditcard" : {
+						"cardHash" : "FFtwikzg/FC1mH7XLFU5fjcRy[...]DcsxPtVB+Fgq7SDuB4tHWBT8j6wihOO7ww=="
+					}
 				}
-			],
+			},
+			"filters" : [],
 			"answer" :  {
 				"transactionStatus" : {
 					"transactionId" : "1234-234324-124KH1G4JH23G4J23FGF324HGF23GH4FHG23F4H // Código de identificação da transação",
