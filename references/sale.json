@@ -29,6 +29,7 @@
 			"type" : "get",
 			"url" : "sale/:transactionId",
 			"action" : "Retorna todos os dados de uma transação especificada.",
+			"params" : [],
 			"filters" : [],
 			"answer" :  {
 				"id" : "privado",
