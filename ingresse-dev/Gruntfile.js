@@ -304,6 +304,14 @@ module.exports = function (grunt) {
         html: ['<%= yeoman.dist %>/*.html']
       }
     },
+    cdn: {
+      dist: {
+        options: {
+          cdn: 'http://bissu.github.io/ingresse-dev/',
+        },
+        src : ['<%= yeoman.dist %>/*.html', '<%= yeoman.dist %>/views/{,**/}*.html']
+      }
+    },
     ngmin: {
       dist: {
         files: [{
@@ -360,7 +368,8 @@ module.exports = function (grunt) {
     'cssmin',
     'uglify',
     'rev',
-    'usemin'
+    'usemin',
+    'cdn'
   ]);
 
   grunt.registerTask('default', [
