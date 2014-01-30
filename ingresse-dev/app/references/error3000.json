@@ -1,0 +1,113 @@
+{
+	"category" : "3000",
+	"category_description" : "Database errors or not sucessfull searches.",
+	"error" : [
+		{
+			"code" : 1,
+			"message" : "MongoDB returned an error. See Mongo Error Message for more information.",
+			"fields" : ["mongoErrorMessage"]
+		},
+		{
+			// Event Dao > getEventById()
+			"code" : 2,
+			"message" : "Event ID not found.",
+			"fields" : ["eventId"]
+		},
+		{
+			// Event Dao > getUserById()
+			"code" : 3,
+			"message" : "User ID not found.",
+			"fields" : ["userId"]
+		},
+		{
+			// Event Dao > removeUserToIngresseList()
+			"code" : 4,
+			"message" : "User not found in event's Ingresse list.",
+			"fields" : ["eventId", "userId"]
+		},
+		{
+			// Sale Dao > getSaleByTransactionId()
+			"code" : 5,
+			"message" : "Sale transaction ID not found.",
+			"fields" : ["transactionId"]
+		},
+		{
+			// Sale Dao > getGuestTypeByTicket()
+			"code" : 6,
+			"message" : "Guest type not found.",
+			"fields" : ["ticketTypeId","ticketTypeGuestType"]
+		},
+		{
+			// Sale Dao > updateTicketType()
+			"code" : 7,
+			"message" : "Ticket type ID not found.",
+			"fields" : ["ticketId","ticketType"]
+		},
+		{
+			// Sale Dao > updateTicketTypeDate()
+			"code" : 8,
+			"message" : "Ticket type date with ticket type ID specified not found.",
+			"fields" : ["ticketType"]
+		},
+		{
+			// Sale Dao > updateTicketTypeDate()
+			"code" : 9,
+			"message" : "Sale Ticket ID not found.",
+			"fields" : ["saleTicketId"]
+		},
+		{
+			// Users Dao > getTicketDataBySaleTicketId()
+			"code" : 10,
+			"message" : "Sale ID not found!",
+			"fields" : ["saleId"]
+		},
+		{
+			// Users Dao > getEventDateById()
+			"code" : 11,
+			"message" : "Event date ID not found.",
+			"fields" : ["eventDateId"]
+		},
+		{
+			// Event Service > getPosterById()
+			"code" : 12,
+			"message" : "Event poster not found, for specified event.",
+			"fields" : ["eventId"]
+		},
+		{
+			// Event Service > getRSVPById()
+			"code" : 13,
+			"message" : "Event RSVP list not found.",
+			"fields" : ["eventId"]
+		},
+		{
+			// Sale Service > validateEventAvailability()
+			"code" : 14,
+			"message" : "The ticket type you are looking for is not available for the session you requested.",
+			"fields" : ["ticketName", "sessionOfTicketToBuy['date']", "sessionOfTicketToBuy['time']"]
+		},
+		{
+			// Ticket Service > getQrCodeInfoById()
+			"code" : 15,
+			"message" : "Ticket information not found.",
+			"fields" : ["saleTicketId"]
+		},
+		{
+			// Users Service > getPictureById()
+			"code" : 16,
+			"message" : "User picture not found.",
+			"fields" : ["userId"]
+		},
+		{
+			// Users Service > getPictureByUsername()
+			"code" : 17,
+			"message" : "Username not found.",
+			"fields" : ["username"]
+		},
+		{
+			// Event Dao > removeUserToIngresseList()
+			"code" : 18,
+			"message" : "User not found in Ingresse list for event specified.",
+			"fields" : ["eventId", "userId"]
+		}
+	]
+}
