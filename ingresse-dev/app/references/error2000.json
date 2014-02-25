@@ -11,7 +11,7 @@
 		{
 			// Ticket Controller > run()
 			"code" : 2,
-			"message" : "Not implemented.",
+			"message" : "This request is not possible.",
 			"fields" : []
 		},
 		{
