@@ -23,7 +23,7 @@
 		<h1>Fluxo de compra</h1>
 		<h4 class="subheader">É fato comprovado que o ambiente de compra influencia no processo de tomada de decisão de compra do usuário. Pensando nisso, a Ingresse disponibiliza sua tecnologia de venda de ingressos para que você possa vender ingressos dentro de um ambiente personalizado, construído por você, do jeito que acredita ser melhor para o seu público.</h4>
 
-		<p>Através dessa página você vai entender como desenvolver cada passo e onde encontrar o material de referência para isso. O fluxo de vendas utilizando a tecnologia é composta de 4 etapas, eles estão descritas abaixo. Considerando que seu usuário já teve acesso aos dados do evento e possui um carrinho de compras formado, os passos seguintes são:</p>
+		<p>Através dessa página você vai entender como desenvolver cada passo e onde encontrar o material de referência para isso. O fluxo de vendas utilizando a tecnologia é composto de 4 etapas, eles estão descritas abaixo. Considerando que seu usuário já teve acesso aos dados do evento e possui um carrinho de compras formado, os passos seguintes são:</p>
 
 		<ol>
 			<li>Sua aplicação envia uma mensagem para Ingresse verificando se os ingressos do carrinho estão disponíveis.</li>
@@ -39,7 +39,7 @@
 
 		<p>Para dar início ao processo de venda de ingressos, é preciso enviar para a Ingresse a lista de ingressos que o usuário selecionou. Você faz isso <a href="#/references/shop/post-transaction" target="blank">solicitando uma transação</a>. Através da solicitação já deve ser enviado como parâmetro a lista de ingressos que se deseja. Veja um exemplo abaixo:</p>
 
-		<p><kbd>https://api.ingresse.com.br/shop/publickey=YOURAPPLICATIONKEY&signature=GENERATEDSIGNATURE&timestamp=GENERATEDTIMESTAMP</kbd></p>
+		<p><kbd>https://api.ingresse.com/shop/publickey=YOURAPPLICATIONKEY&signature=GENERATEDSIGNATURE&timestamp=GENERATEDTIMESTAMP</kbd></p>
 
 		<p><strong>Exemplo de parâmetro para envio</strong>
 <pre class="prettyprint">
@@ -48,13 +48,19 @@
   userId : 123,     // ID do usuário para o qual está sendo realizada essa venda
   tickets:[         // Lista de ingressos
     {
-      session : {2013-10-12 , 22:00},  // Data e hora da sessão do ingresso especificado
+      session : {   // Data e hora da sessão do ingresso especificado
+        date: "31/12/2014",
+        time: "12:00:00"
+      },
       ticketTypeId : 1234,             // ID do tipo do ingresso especificado
       type : "inteira",                // inteira ou meia
       quantity : 2                     // Quantidade de ingressos solicitada
     },
     {
-      session : {2013-10-13 , 22:00},
+      session : {
+        date: "31/12/2014",
+        time: "12:00:00"
+      },
       ticketTypeId : 1234,
       type : "Inteira",
       quantity : 5
@@ -70,7 +76,7 @@
 
 		<p>Solicitar uma transação da Ingresse é um passo importante para garantir a reserva de ingressos e para recer o ID da transação que será usado para realizar o pagamento referente a essa compra.</p>
 
-		<p>O sistema de Ingresse pode responder de forma positiva ou negativa, dependendo da disponibilidade do evento para realizar vendas e da disponibilidade dos ingressos para a realização do pagamento.</p>
+		<p>O sistema da Ingresse pode responder de forma positiva ou negativa, dependendo da disponibilidade do evento para realizar vendas e da disponibilidade dos ingressos para a realização do pagamento.</p>
 
 		<p><strong>Exemplo de resposta positiva:</strong>
 <pre class="prettyprint">
@@ -99,7 +105,7 @@
 
 		<p>Após receber a confirmação de criação da transação e reserva dos ingressos, é hora de <a href="#/references/shop/post-payment" target="blank">fazer o pagamento</a>. Para fazer o pagamento, é preciso se tomar vários cuidados para não expor os dados de pagamento do usuário. Para enviar um pagamento, faça o envio do carrinho de compras, com dois dados adicionais: transactionId e cardHash.</p>
 
-		<p><kbd>https://api.ingresse.com.br/shop/publickey=YOURAPPLICATIONKEY&signature=GENERATEDSIGNATURE&timestamp=GENERATEDTIMESTAMP</kbd></p>
+		<p><kbd>https://api.ingresse.com/shop/publickey=YOURAPPLICATIONKEY&signature=GENERATEDSIGNATURE&timestamp=GENERATEDTIMESTAMP</kbd></p>
 
 		<p><strong>Exemplo de parâmetro para envio</strong>
 <pre class="prettyprint">
@@ -109,13 +115,19 @@
   userId : 123,
   tickets:[
     {
-      session : {2013-10-12 , 22:00},
+      session : {
+        date: "31/12/2014",
+        time: "12:00:00"
+      },
       ticketTypeId : 1234,
       type : "inteira",
       quantity : 2
     },
     {
-      session : {2013-10-13 , 22:00},
+      session : {
+        date: "31/12/2014",
+        time: "12:00:00"
+      },
       ticketTypeId : 1234,
       type : "Inteira",
       quantity : 5
@@ -140,7 +152,7 @@
 
 		<ul>
 			<li>informações erradas do cartão de crédito</li>
-			<li>por detemrinação do sistema anti-fraude</li>
+			<li>por determinação do sistema anti-fraude</li>
 			<li>pela adquirente ou pelo banco emissor do cartão.</li>
 		</ul>
 
@@ -166,7 +178,7 @@
 </pre>
 </p>
 
-		<p>No caso de aprovação da compra, o sistema de Ingresse automaticamente disponibilizará os ingressos na conta do cliente e enviará os emails de notificação da compra. A partir daí, nõa há mais nada necessário, venda realizada!</p>
+		<p>No caso de aprovação da compra, o sistema da Ingresse automaticamente disponibilizará os ingressos na conta do cliente e enviará os emails de notificação da compra.</p>
 
 		<section class="disqus-block">
 			<div disqus="disqusIdentifier"></div>

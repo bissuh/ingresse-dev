@@ -1,0 +1,273 @@
+{
+	"category" : "1000",
+	"category_description" : "Missing parameters, wrong variable values or operations against business rules will throw this caterogy of error.",
+	"error" : [
+		{
+			// Sale Controller > postParameterTickets()
+			"code" : 1,
+			"message" : "Parameter tickets must be an array and can not be empty.",
+			"fields" : []
+		},
+		{
+			// Sale Controller > postParameterCreditcard()
+			"code" : 2,
+			"message" : "Parameter 'creditcard' must be an array and can not be empty.",
+			"fields" : ["creditcard"]
+		},
+		{
+			// Users Controller > getUser()
+			"code" : 3,
+			"message" : "User id must be a integer.",
+			"fields" : []
+		},
+		{
+			// Sale DAO > approveSale()
+			"code" : 4,
+			"message" : "Missing sale object in parameters.",
+			"fields" : []
+		},
+		{
+			// Sale DAO > approveSale()
+			"code" : 5,
+			"message" : "User informed is different from user who generated the transaction.",
+			"fields" : ["userId"]
+		},
+		{
+			// Email Service > deliverApproved()
+			"code" : 6,
+			"message" : "Missing email information.",
+			"fields" : [""]
+		},
+		{
+			// Email Service > deliverApproved()
+			"code" : 7,
+			"message" : "Incomplete or invalid email information.",
+			"fields" : ["emailInformation"]
+		},
+		{
+			// Event Date Service > validateFieldsParam()
+			"code" : 8,
+			"message" : "Invalid [fields] parameter format. The parameter must be a list of strings separated by comma. Examples: id, title, venue.",
+			"fields" : [""]
+		},
+		{
+			// Event Service > validateStateParam()
+			"code" : 9,
+			"message" : "Invalid [state] parameter format. The parameter must be with two lowercase letters. Examples: am, sp, rj.",
+			"fields" : [""]
+		},
+		{
+			// Event Service > validateLocationParam()
+			"code" : 10,
+			"message" : "Invalid location [lat,long] parameter format. The parameter must be passed with both values (lat and long). Examples: lat=-23.5804941&long=-46.685946",
+			"fields" : [""]
+		},
+		{
+			// Event Service > validateDatesParam()
+			"code" : 11,
+			"message" : "Invalid date format. Example: yyyy-mm-dd",
+			"fields" : ["dateProvided"]
+		},
+		{
+			// Event Service > validateEventIdParam()
+			"code" : 12,
+			"message" : "Invalid [eventId] parameter format. The parameter must be an integer.",
+			"fields" : [""]
+		},
+		{
+			// Pagarme Calculator > calculateCreditCardTax()
+			"code" : 13,
+			"message" : "Installments number must be an integer.",
+			"fields" : [""]
+		},
+		{
+			// Pagarme Calculator > calculateCreditCardTax()
+			"code" : 14,
+			"message" : "Installments number should be greater than one.",
+			"fields" : [""]
+		},
+		{
+			// Pagarme Service > createTransaction()
+			"code" : 15,
+			"message" : "Card hash can't be null.",
+			"fields" : [""]
+		},
+		{
+			// Pagarme Service > createTransactionWithoutCardhash()
+			"code" : 16,
+			"message" : "Credit card must be an array. We recommend you to create transactions using cardhash, please check out http://bissu.github.io/ingresse-dev/#/references/shop/post-transaction .",
+			"fields" : [""]
+		},
+		{
+			// Pagarme Service > refund()
+			"code" : 17,
+			"message" : "Transaction ID should be an integer.",
+			"fields" : [""]
+		},
+		{
+			// Sale Service > validateTicketsParam()
+			"code" : 18,
+			"message" : "Invalid [tickets] parameter format. The parameter must be a not empty array. See tickets array example here: http://bissu.github.io/ingresse-dev/#/references/shop/post-transaction .",
+			"fields" : [""]
+		},
+		{
+			// Sale Service > validateTicketsParam()
+			"code" : 19,
+			"message" : "Invalid [tickets] array element. The parameter must be an array with session, ticket type ID, type and quantity. See tickets array example here: http://bissu.github.io/ingresse-dev/#/references/shop/post-transaction .",
+			"fields" : ["wrongTicketIndex"]
+		},
+		{
+			// Sale Service > validateTicketsParam()
+			"code" : 20,
+			"message" : "Invalid [tickets] array element. Session item without date or time. See tickets array example here: http://bissu.github.io/ingresse-dev/#/references/shop/post-transaction .",
+			"fields" : ["wrongTicketIndex"]
+		},
+		{
+			// Sale Service > validateTicketsParam()
+			"code" : 21,
+			"message" : "Invalid [tickets] array element. The date format is dd/mm/yyyy. Ex: 20/10/2013. See tickets array example here: http://bissu.github.io/ingresse-dev/#/references/shop/post-transaction .",
+			"fields" : ["wrongTicketIndex"]
+		},
+		{
+			// Sale Service > validateTicketsParam()
+			"code" : 22,
+			"message" : "Invalid [tickets] array element. The time format is hh:mm:ss. Ex. 22:30:00. See tickets array example here: http://bissu.github.io/ingresse-dev/#/references/shop/post-transaction .",
+			"fields" : ["wrongTicketIndex"]
+		},
+		{
+			// Sale Service > validateTicketsParam()
+			"code" : 23,
+			"message" : "Invalid [tickets] array element. TicketTypeId must be an integer greater than zero. See tickets array example here: http://bissu.github.io/ingresse-dev/#/references/shop/post-transaction .",
+			"fields" : ["wrongTicketIndex"]
+		},
+		{
+			// Sale Service > validateTicketsParam()
+			"code" : 24,
+			"message" : "Invalid [tickets] array element. Type must be a string with 'Inteira' or 'Meia'. See tickets array example here: http://bissu.github.io/ingresse-dev/#/references/shop/post-transaction .",
+			"fields" : ["wrongTicketIndex"]
+		},
+		{
+			// Sale Service > validateTicketsParam()
+			"code" : 25,
+			"message" : "Invalid [tickets] array element. Quantity ($quantity) must be an integer greater than zero. See tickets array example here: http://bissu.github.io/ingresse-dev/#/references/shop/post-transaction .",
+			"fields" : ["wrongTicketIndex"]
+		},
+		{
+			// Sale Service > validateUserIdParam()
+			"code" : 26,
+			"message" : "Invalid [userId] parameter format. The parameter must be an integer.",
+			"fields" : ["wrongTicketIndex"]
+		},
+		{
+			// Sale Service > validateEventIdParam()
+			"code" : 27,
+			"message" : "Invalid [event_id] parameter format. The parameter must be an integer.",
+			"fields" : ["wrongTicketIndex"]
+		},
+		{
+			// Sale Service > validateEventDateIdParam()
+			"code" : 28,
+			"message" : "Invalid [eventDateId] parameter format. The parameter must be an integer.",
+			"fields" : ["wrongTicketIndex"]
+		},
+		{
+			// Sale Service > validateDiscountCodeParam()
+			"code" : 29,
+			"message" : "Invalid [discountCode] parameter format. The parameter must be a string.",
+			"fields" : ["wrongTicketIndex"]
+		},
+		{
+			// Sale Service > validateDiscountCodeParam()
+			"code" : 30,
+			"message" : "Invalid [discountCode] parameter format. The parameter must be a string.",
+			"fields" : ["wrongTicketIndex"]
+		},
+		{
+			// Sale Service > validateDiscountCodeParam()
+			"code" : 31,
+			"message" : "Invalid [creditcard] parameter. Some required fields not found. Check those fields: number, holderName, expiracyMonth, expiracyYear and cvv. We recommend you to create transactions using cardhash, please check out http://bissu.github.io/ingresse-dev/#/references/shop/post-transaction .",
+			"fields" : ["wrongTicketIndex"]
+		},
+		{
+			// Sale Service > validateDiscountCodeParam()
+			"code" : 32,
+			"message" : "You are sending [cpf] as an empty field. Please, make sure there is a valid CPF in this field.",
+			"fields" : ["wrongTicketIndex"]
+		},
+		{
+			// Sale Service > validateDiscountCodeParam()
+			"code" : 33,
+			"message" : "Missing [cpf] parameter.",
+			"fields" : ["wrongTicketIndex"]
+		},
+		{
+			// Ticket Service > generateQRCodeURL()
+			"code" : 34,
+			"message" : "Ticket Code cannot be empty.",
+			"fields" : []
+		},
+		{
+			// Users Service > insert()
+			"code" : 35,
+			"message" : "User parameter must be an Array.",
+			"fields" : ["userType"]
+		},
+		{
+			// Users Service > validateUsernameParam()
+			"code" : 36,
+			"message" : "Missing username parameter.",
+			"fields" : []
+		},
+		{
+			// Base Controller > getParameter()
+			"code" : 37,
+			"message" : "Parameter below cannot contain zero or negative numbers.",
+			"fields" : ["parameterName"]
+		},
+		{
+			// Base Controller > setStatusCode()
+			"code" : 38,
+			"message" : "Status code must be an integer.",
+			"fields" : ["statusCode"]
+		},
+		{
+			// Base Service > validatePositiveInt()
+			"code" : 39,
+			"message" : "The value in parameter below is not a number.",
+			"fields" : ["parameterName"]
+		},
+		{
+			// Base Service > validatePositiveInt()
+			"code" : 40,
+			"message" : "The value in parameter below is not a integer.",
+			"fields" : ["parameterName"]
+		},
+		{
+			// Base Service > validatePositiveInt()
+			"code" : 41,
+			"message" : "The value in parameter below must be greater than zero.",
+			"fields" : ["parameterName"]
+		},
+		{
+			// Security Auth > setPublickey()
+			"code" : 42,
+			"message" : "Missing publickey parameter.",
+			"fields" : [""]
+		},
+		{
+			// Security Auth > setSignature()
+			"code" : 43,
+			"message" : "Missing signature parameter.",
+			"fields" : [""]
+		},
+		{
+			// Security Auth > setTimestamp()
+			"code" : 44,
+			"message" : "Missing timestamp parameter.",
+			"fields" : [""]
+		}
+	]
+}
+
+
+

@@ -173,6 +173,59 @@
 					"description" : "Retorna a lista de ingressos comprados pelo usuário 963 para o evento 963."
 				}
 			]
+		},
+		{
+			"id" : "get-list-of-events",
+			"name" : "Pedir lista de eventos",
+			"type" : "get",
+			"private" : true,
+			"url" : "user/:id/event",
+			"action" : "Retorna a lista de eventos do usuário especificado. Válido somente caso a sessão aberta seja do mesmo usuário.",
+			"params" : [],
+			"filters" : [],
+			"answer" : {
+				"id" : "público",
+				"title" : "público",
+				"description" : "público",
+				"type" : "público",
+				"status" : "público",
+				"saleEnabled" : "público",
+				"link" : "público",
+				"date" : "público",
+				"planner" : "público",
+				"addedBy" : "público",
+				"category" : "público",
+				"venue" : "público",
+				"rsvp" : "público",
+				"rsvpTotal" : "público",
+				"ticket" : "público",
+				"aiddp" : "público",
+				"formalName" : "público",
+				"cnpj" : "público",
+				"cpf" : "público",
+				"cityNumber" : "público",
+				"private" : "privado",
+				"totalTicketsSold" : "privado",
+				"totalTickets" : "privado",
+				"totalRevenue" : "privado",
+				"totalIngresseTax" : "privado",
+				"totalMoipTax" : "privado",
+				"totalProfit" : "privado",
+				"tax" : "privado",
+				"taxToCostumer" : "privado",
+				"creationDate" : "privado",
+				"modificationDate" : "privado"
+			},
+			"examples" : [
+				{
+					"request" : "user/963/tickets",
+					"description" : "Retorna a lista completa de ingressos do usuário 963."
+				},
+				{
+					"request" : "user/963/tickets/?event=963",
+					"description" : "Retorna a lista de ingressos comprados pelo usuário 963 para o evento 963."
+				}
+			]
 		}
 	]
 }
