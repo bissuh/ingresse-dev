@@ -201,8 +201,14 @@
 			"answer" : {
 				"id" : "público",
 				"name" : "público",
-				"lastName" : "público",
-				"username" : "público"
+				"description" : "público",
+				"quantity" : "público",
+				"quantitySold" : "público",
+				"price" : "público",
+				"tax" : "público",
+				"percentTax" : "público",
+				"sessionAvailables" : "público",
+				"halfPrice" : "público",
 			},
 			"examples" : [
 				{

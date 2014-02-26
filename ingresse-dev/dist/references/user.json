@@ -218,12 +218,8 @@
 			},
 			"examples" : [
 				{
-					"request" : "user/963/tickets",
-					"description" : "Retorna a lista completa de ingressos do usuário 963."
-				},
-				{
-					"request" : "user/963/tickets/?event=963",
-					"description" : "Retorna a lista de ingressos comprados pelo usuário 963 para o evento 963."
+					"request" : "user/963/event",
+					"description" : "Retorna a lista completa de eventos do usuário 963."
 				}
 			]
 		}
