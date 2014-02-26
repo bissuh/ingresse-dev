@@ -12,14 +12,12 @@
 		"tax" : "público",
 		"percentTax" : "público",
 		"sessionAvailables" : "público",
-		"beginSalesDate" : "público",
-		"beginSalesTime" : "público",
-		"endSalesDate" : "público",
-		"endSalesTime" : "público",
-		"studentTicketAvailable" : "público",
-		"paidBy" : "público",
-		"moipPaidBy" : "público",
-		"creationDate" : "público",
-		"modificationDate" : "público"
+		"halfPrice" : "público",
+		"beginSalesDate" : "privado",
+		"beginSalesTime" : "privado",
+		"endSalesDate" : "privado",
+		"endSalesTime" : "privado",
+		"creationDate" : "privado",
+		"modificationDate" : "privado"
 	}
 }
