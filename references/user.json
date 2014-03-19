@@ -222,6 +222,92 @@
 					"description" : "Retorna a lista completa de eventos do usuário 963."
 				}
 			]
+		},
+		{
+			"id" : "post-update-user",
+			"name" : "Atualizar dados",
+			"type" : "post",
+			"private" : true,
+			"url" : "user/:id?method=update",
+			"action" : "Atualiza informações do ususário informado no token.",
+			"params" : {
+				"specs" : [
+					{
+						"name" : "name",
+						"default" : "Se vazio, não atualiza.",
+						"description" : "Primeiro nome do usuário.",
+						"type" : "texto"
+					},
+					{
+						"name" : "lastname",
+						"default" : "none",
+						"description" : "Último nome do usuário.",
+						"type" : "texto"
+					},
+					{
+						"name" : "street",
+						"default" : "Se vazio, não atualiza.",
+						"description" : "Rua para o endereço de cobrança do usuário.",
+						"type" : "texto"
+					},
+					{
+						"name" : "number",
+						"default" : "Se vazio, não atualiza.",
+						"description" : "Número do endereço de cobrança do usuário.",
+						"type" : "texto"
+					},
+					{
+						"name" : "complement",
+						"default" : "Se vazio, não atualiza.",
+						"description" : "Complemento para o endereço de cobrança do usuário.",
+						"type" : "texto"
+					},
+					{
+						"name" : "district",
+						"default" : "Se vazio, não atualiza.",
+						"description" : "Bairro do endereço de cobrança do usuário.",
+						"type" : "texto"
+					},
+					{
+						"name" : "city",
+						"default" : "Se vazio, não atualiza.",
+						"description" : "Cidade do endereço de cobrança do usuário.",
+						"type" : "texto"
+					},
+					{
+						"name" : "state",
+						"default" : "Se vazio, não atualiza.",
+						"description" : "Estado do endereço de cobrança do usuário. Formato: UF.",
+						"type" : "texto"
+					},
+					{
+						"name" : "zip",
+						"default" : "Se vazio, não atualiza.",
+						"description" : "CEP do endereço de cobrança do usuário. Formato: 00000-000.",
+						"type" : "texto"
+					},
+					{
+						"name" : "phone",
+						"default" : "Se vazio, não atualiza.",
+						"description" : "Telefone para contato com portador do cartão de crédito. Formato: (00) 0000-0000.",
+						"type" : "texto"
+					}
+				],
+				"example" : {
+				  "name" : "Joaquim",
+				  "street" : "Rua dos Marombeiros"
+				}
+			},
+			"filters" : [],
+			"answer" : {
+				"status" : true
+			},
+			"examples" : [
+				{
+					"request" : "user/963?method=update",
+					"description" : "Se id informado for diferente do usuário informado no token, será retornado um erro."
+				}
+			]
 		}
 	]
 }
