@@ -25,10 +25,7 @@
 		"zip" : "privado",
 		"cartaoFinal" : "privado",
 		"cartaoBandeira" : "privado",
-		"private" : "privado",
-		"creationDate" : "privado",
-		"modificationDate" : "privado",
-		"deletionDate" : "privado"
+		"private" : "privado"
 	},
 	"methods" : [
 		{
@@ -283,7 +280,7 @@
 					{
 						"name" : "zip",
 						"default" : "Se vazio, não atualiza.",
-						"description" : "CEP do endereço de cobrança do usuário. Formato: 00000-000.",
+						"description" : "CEP do endereço de cobrança do usuário. Formato: 00.000-000.",
 						"type" : "texto"
 					},
 					{
