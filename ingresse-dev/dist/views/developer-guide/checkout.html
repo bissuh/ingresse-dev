@@ -133,7 +133,9 @@
       quantity : 5
     }
   ],
+  paymentMethod: "CartaoCredito",
   creditcard : {
+    cpf : "89222644444"
     cardHash : "FFtwikzg/FC1mH7XLFU5fjcRy[...]DcsxPtVB+Fgq7SDuB4tHWBT8j6wihOO7ww=="
   }
 }
@@ -142,7 +144,14 @@
 
 		<h3>Gerando o card hash</h3>
 
-		<p>Os dados do cartão de crédito do cliente pagador não devem ser enviados pelo POST, e sim criptografados e enviados através do cardHash. Para gerar o cardHash em uma aplicação web você deve utilizar o lib javascript pagarme.js. Para tal, solicite da Ingresse a chave de encriptação (encryption_key).</p>
+		<p>Os dados do cartão de crédito do cliente pagador não devem ser enviados pelo POST, e sim criptografados e enviados através do cardHash. Para gerar o cardHash em uma aplicação web você deve utilizar o lib javascript pagarme.js. Para tal, solicite da Ingresse a chave de encriptação (encryption_key). As informações que são enviadas no cardhash são:</p>
+
+    <ul>
+      <li>Número do cartão</li>
+      <li>Nome no cartão</li>
+      <li>Validade do cartão</li>
+      <li>Código de segurança</li>
+    </ul>
 
 		<p>Mais informações sobre o que é o cardhash, como ele funciona e das vantagens de usar o cardhash, acessar o manual do Pagar.me, o gateway de pagamentos da Ingresse, <a href="https://pagar.me/docs/restful-api/card-hash/">clicando aqui</a>.</p>
 

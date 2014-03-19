@@ -8,6 +8,7 @@
 		"description" : "público",
 		"quantity" : "público",
 		"quantitySold" : "público",
+		"free" : "público",
 		"price" : "público",
 		"tax" : "público",
 		"percentTax" : "público",
