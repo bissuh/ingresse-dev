@@ -1,0 +1,31 @@
+{
+	"category" : "5000",
+  "class" : "External Error Exception",
+	"description" : "Algumas vezes a Ingresse usa serviços externos ao nosso. Quando esses sistemas não funcionarem corretamente iremos disparar essas exceções.",
+  "tips" : [
+    "Dê um tempo e tente novamente. Talvez o serviço só esteja fora do ar por algum tempo.",
+    "Verifique se o serviço declarou algum status de problema recentemente na própria página.",
+    "Experimente mandar um email de suporte para o serviço apontado na mensagem de erro"
+  ],
+	"error" : [
+		{
+			"code" : 1,
+			"message" : "Can not get the Facebook user profile info. Try login in your Facebook account again.",
+			"fields" : [""]
+		},
+		{
+			"code" : 2,
+			"message" : "Unknown payment error with status. Check out below Pagarme returned error message.",
+			"fields" : ["paymentTransactionStatus"]
+		},
+		{
+			"code" : 3,
+			"message" : "Can not send the email because some errors occurred. Check out below Sendgrid returned error message.",
+			"fields" : ["paymentTransactionStatus"]
+		}
+	]
+}
+
+
+
+

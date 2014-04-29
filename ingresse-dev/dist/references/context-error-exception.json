@@ -1,39 +1,39 @@
 {
 	"category" : "6000",
-	"category_description" : "When trying to do things that are not errors, but aren't available because Ingresse data configuration, like event, user or sale configuration.",
-	"error" : [
+  "class" : "Context Error Exception",
+	"description" : "Algumas vezes a configuração do seu evento ou da sua conta não vão permitir você realizar algumas operações. Para esses casos essa exceções serão disparadas.",
+	"tips" : [
+    "Problemas dessa classe de erros algumas vezes podem ser resolvidas usando a própria interface do site.",
+    "Geralmente você não vai precisar mudar nada de código quando essa classe for disparada.",
+    "Verifique se o que você está tentando fazer faz sentido dentro do contexto do seu evento, ou da sua conta."
+  ],
+  "error" : [
 		{
-			// Sale Service > validateEventAvailability()
 			"code" : 1,
 			"message" : "Sale is not enabled for this event. Contact event organizer.",
 			"fields" : [""]
 		},
 		{
-			// Sale Service > validateEventAvailability()
 			"code" : 2,
 			"message" : "All sessions for this event are out of sale. Maybe some tickets will be available again depending of pending payments. Contact event organizer.",
 			"fields" : [""]
 		},
 		{
-			// Sale Service > validateEventAvailability()
 			"code" : 3,
 			"message" : "There is no more available tickets for sale. Maybe some tickets will be available again depending of pending payments. Contact event organizer.",
 			"fields" : [""]
 		},
 		{
-			// Sale Service > validateEventAvailability()
 			"code" : 4,
 			"message" : "There is no more tickets availables for one of requested ticket types. Maybe some tickets will be available again depending of pending payments. Contact event organizer.",
 			"fields" : ["ticketName"]
 		},
 		{
-			// Sale Service > validateEventAvailability()
 			"code" : 5,
 			"message" : "The transaction you are trying to pay is not waiting for payment.",
 			"fields" : ["transactionId", "transactionStatus"]
 		},
 		{
-			// Sale DAO > addSale()
 			"code" : 6,
 			"message" : "The quantity of available tickets is minor than requested quantity.",
 			"fields" : ["requestedQuantity"]

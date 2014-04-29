@@ -1,99 +1,89 @@
 {
 	"category" : "2000",
-	"category_description" : "Unauthorized or not possible API requests throw this category of errors.",
+  "class" : "Unauthorized Access Exception",
+	"description" : "Ao chamar métodos da API que não existem ou que você não tem permissão para chamar, será retornada essa classe de erro.",
+  "tips" : [
+    "Verifique se o método é private e que você está informando um user token válido na url.",
+    "Certifique-se de que o método que você está tentando chamar existe.",
+    "Verifique se as strings de autenticação de sua URL estão válidos."
+  ],
 	"error" : [
 		{
-			// Sale Controller > shop()
 			"code" : 1,
 			"message" : "Access Denied: The userId is not authenticated!",
 			"fields" : ["userId"]
 		},
 		{
-			// Ticket Controller > run()
 			"code" : 2,
 			"message" : "This request is not possible.",
 			"fields" : []
 		},
 		{
-			// Users Controller > login()
 			"code" : 3,
 			"message" : "Only post request is available to /login.",
 			"fields" : []
 		},
 		{
-			// Event DAO > getPage()
 			"code" : 4,
 			"message" : "The page requested is greater than total of pages.",
 			"fields" : ["pageRequested","totalPages"]
 		},
 		{
-			// Auth Service > signinByUserToken()
 			"code" : 5,
 			"message" : "User token is required to continue.",
 			"fields" : []
 		},
 		{
-			// Auth Service > signinByUserToken()
 			"code" : 6,
 			"message" : "Access Denied: Invalid User-Token.",
 			"fields" : []
 		},
 		{
-			// Auth Service > login()
 			"code" : 7,
 			"message" : "This application does not have authorization to do a direcly login.",
 			"fields" : []
 		},
 		{
-			// Event Service > getTicketsById()
 			"code" : 8,
 			"message" : "It is a blogger event, and there is no tickets added for this type of event.",
 			"fields" : ["eventId"]
 		},
 		{
-			// Sale Service > payTransaction()
 			"code" : 9,
 			"message" : "Only SSL connections (https).",
 			"fields" : ["eventId"]
 		},
 		{
-			// Base Controller > requireAppSpecialAccess()
 			"code" : 10,
 			"message" : "Sorry, you do not have permission to make this request.",
 			"fields" : []
 		},
 		{
-			// Base Controller > requireEventOwner()
 			"code" : 11,
 			"message" : "There is no logged user.",
 			"fields" : []
 		},
 		{
-			// Base Controller > requireEventOwner()
 			"code" : 12,
 			"message" : "Access Denied: The logged user is not the event owner.",
 			"fields" : []
 		},
 		{
-			// Security Auth > validateApiRequest()
 			"code" : 13,
 			"message" : "Access Denied: request expired.",
 			"fields" : []
 		},
 		{
-			// Security Auth > validateApiRequest()
 			"code" : 14,
 			"message" : "Access Denied: invalid signature.",
 			"fields" : []
 		},
 		{
-			// Security Auth > validateKeys()
 			"code" : 15,
 			"message" : "Access Denied: invalid public key.",
 			"fields" : []
 		},
 		{
-			// Security Auth > _validateTimestamp()
 			"code" : 16,
 			"message" : "Access Denied: invalid timestamp.",
 			"fields" : []

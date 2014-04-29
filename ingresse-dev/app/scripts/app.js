@@ -14,33 +14,43 @@ angular.module('ingresse-devApp', ['ngResource', 'ngDisqus'])
 				templateUrl: 'views/main.html',
 				controller: 'MainCtrl'
 			})
-			.when('/references', {
-			  templateUrl: 'views/references.html',
-			})
 
 			// DEVELOPER GUIDE REFERENCES
 			.when('/developer-guide', {
-			  templateUrl: 'views/developer-guide.html',
+			  templateUrl: 'views/developer-guide.html'
 			})
 			.when('/developer-guide/auth', {
-			  templateUrl: 'views/developer-guide/auth.html',
+			  templateUrl: 'views/developer-guide/auth.html'
 			})
 			.when('/developer-guide/login', {
-			  templateUrl: 'views/developer-guide/login.html',
+			  templateUrl: 'views/developer-guide/login.html'
 			})
 			.when('/developer-guide/checkout', {
-			  templateUrl: 'views/developer-guide/checkout.html',
+			  templateUrl: 'views/developer-guide/checkout.html'
 			})
 			.when('/developer-guide/filters', {
-			  templateUrl: 'views/developer-guide/filters.html',
+			  templateUrl: 'views/developer-guide/filters.html'
 			})
 
+      // API REFERENCES TEMPLATE
+      .when('/references', {
+        templateUrl: 'views/references.html'
+      })
 			.when('/references/:category', {
-			  templateUrl: 'views/references.html',
+			  templateUrl: 'views/references.html'
 			})
 			.when('/references/:category/:method', {
-			  templateUrl: 'views/references.html',
+			  templateUrl: 'views/references.html'
 			})
+
+      // ERROR DICTIONARY
+      .when('/errors/', {
+        templateUrl: 'views/errors/main.html'
+      })
+      .when('/errors/:category', {
+        templateUrl: 'views/errors/errors.html'
+      })
+
 			.otherwise({
 				redirectTo: '/'
 			});
