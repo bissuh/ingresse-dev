@@ -39,7 +39,7 @@
 
 		<p>Para dar início ao processo de venda de ingressos, é preciso enviar para a Ingresse a lista de ingressos que o usuário selecionou. Você faz isso <a href="#/references/shop/post-transaction" target="blank">solicitando uma transação</a>. Através da solicitação já deve ser enviado como parâmetro a lista de ingressos que se deseja. Veja um exemplo abaixo:</p>
 
-		<p><kbd>https://api.ingresse.com/shop/publickey=YOURAPPLICATIONKEY&signature=GENERATEDSIGNATURE&timestamp=GENERATEDTIMESTAMP</kbd></p>
+		<p><kbd>https://api.ingresse.com/shop/publickey=YOURAPPLICATIONKEY&signature=GENERATEDSIGNATURE&amp;timestamp=GENERATEDTIMESTAMP</kbd></p>
 
 		<p><strong>Exemplo de parâmetro para envio</strong>
 <pre class="prettyprint">
@@ -105,7 +105,7 @@
 
 		<p>Após receber a confirmação de criação da transação e reserva dos ingressos, é hora de <a href="#/references/shop/post-payment" target="blank">fazer o pagamento</a>. Para fazer o pagamento, é preciso se tomar vários cuidados para não expor os dados de pagamento do usuário. Para enviar um pagamento, faça o envio do carrinho de compras, com dois dados adicionais: transactionId e cardHash.</p>
 
-		<p><kbd>https://api.ingresse.com/shop/publickey=YOURAPPLICATIONKEY&signature=GENERATEDSIGNATURE&timestamp=GENERATEDTIMESTAMP</kbd></p>
+		<p><kbd>https://api.ingresse.com/shop/publickey=YOURAPPLICATIONKEY&signature=GENERATEDSIGNATURE&amp;timestamp=GENERATEDTIMESTAMP</kbd></p>
 
 		<p><strong>Exemplo de parâmetro para envio</strong>
 <pre class="prettyprint">
