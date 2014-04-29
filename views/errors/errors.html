@@ -1,0 +1,47 @@
+<div ng-controller="ErrorsCtrl" class="row">
+
+  <!-- BEGIN - LEFT SIDEBAR: REFERENCES MENU -->
+  <div class="large-3 medium-4 columns">
+    <div class="hide-for-small">
+      <div class="sidebar">
+        <h6>Categorias de erro</h6>
+        <nav>
+          <ul class="side-nav">
+            <li><a href="#/errors/usage-exception">[1000] Usage Exception</a></li>
+            <li><a href="#/errors/unauthorized-access-exception">[2000] Unauthorized Access Exception</a></li>
+            <li><a href="#/errors/database-exception">[3000] Database Exception</a></li>
+            <li><a href="#/errors/fatal-error-exception">[4000] Fatal Error Exception</a></li>
+            <li><a href="#/errors/external-error-exception">[5000] External Error Exception</a></li>
+            <li><a href="#/errors/context-error-exception">[6000] Context Exception</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <!-- END - LEFT SIDEBAR: REFERENCES MENU -->
+
+  <!-- DICTIONARY -->
+  <div class="ref-article columns large-9">
+    <article>
+      <h1>{{category.class}}</h1>
+      <h4 class="subheader">{{category.description}}</h4>
+      <hr>
+      <h2>Dicas para correção</h2>
+      <ul>
+        <li ng-repeat="tip in category.tips">{{tip}}</li>
+      </ul>
+      <hr>
+      <h2>Lista de erros</h2>
+      <table>
+        <tr>
+          <th>Código</th>
+          <th>Mensagem de erro</th>
+        </tr>
+        <tr ng-repeat="error in category.error">
+          <td>{{error.code}}</td>
+          <td>{{error.message}}</td>
+        </tr>
+      </table>
+    </article>
+  </div>
+</div>
