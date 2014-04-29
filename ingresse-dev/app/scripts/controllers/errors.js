@@ -6,9 +6,4 @@ angular.module('ingresse-devApp')
     $scope.category = '';
     $scope.category = Errors.get({categoryId: $routeParams.category});
 
-    $scope.setItem = function (selectedCategory) {
-      $scope.category = References.get({categoryId: selectedCategory});
-      $location.path("/references/" + selectedCategory);
-    };
-
   });
