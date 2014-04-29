@@ -52,7 +52,7 @@
 					{
 						"name" : "type",
 						"default" : "Inteira",
-						"description" : "Define um ingresso como do tipo inteira (Inteira) ou meia (Meia) entrada.",
+						"description" : "Define um ingresso como do tipo inteira (Inteira) ou meia (Meia) entrada. Opções: Inteira, Meia.",
 						"type" : "string"
 					},
 					{
@@ -78,7 +78,7 @@
                 "time" : "12:00:00"
               },
 				      "ticketTypeId" : 1234,
-				      "type" : "inteira",
+				      "type" : "Inteira",
 				      "quantity" : 2
 				    },
             {
@@ -87,7 +87,7 @@
                 "time" : "12:00:00"
               },
               "ticketTypeId" : 1234,
-              "type" : "inteira",
+              "type" : "Inteira",
               "quantity" : 2
             }
 				  ]
@@ -152,7 +152,7 @@
 					{
 						"name" : "type",
 						"default" : "Inteira",
-						"description" : "Define um ingresso como do tipo inteira (Inteira) ou meia (Meia) entrada.",
+						"description" : "Define um ingresso como do tipo inteira (Inteira) ou meia (Meia) entrada. Opções: Inteira, Meia.",
 						"type" : "string"
 					},
 					{
@@ -203,7 +203,7 @@
                 "time" : "12:00:00"
               },
               "ticketTypeId" : 1234,
-              "type" : "inteira",
+              "type" : "Inteira",
               "quantity" : 2
             },
             {
@@ -212,7 +212,7 @@
                 "time" : "12:00:00"
               },
               "ticketTypeId" : 1234,
-              "type" : "inteira",
+              "type" : "Inteira",
               "quantity" : 2
             }
           ],
