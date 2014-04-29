@@ -44,9 +44,6 @@ angular.module('ingresse-devApp', ['ngResource', 'ngDisqus'])
 			})
 
       // ERROR DICTIONARY
-      .when('/errors/', {
-        templateUrl: 'views/errors/main.html'
-      })
       .when('/errors/:category', {
         templateUrl: 'views/errors/errors.html'
       })
