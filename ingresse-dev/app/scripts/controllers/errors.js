@@ -8,20 +8,7 @@ angular.module('ingresse-devApp')
 
     $scope.setItem = function (selectedCategory) {
       $scope.category = References.get({categoryId: selectedCategory});
-
-      // Defines which template will be loaded
-      if(selectedMethod === undefined) {
-        $scope.referenceTemplate = 'category';
-
-        // Refresh url
-        $location.path("/references/" + selectedCategory);
-      }
-      else {
-        $scope.referenceTemplate = 'method';
-
-        // Refresh url
-        $location.path("/references/" + selectedCategory + "/" + selectedMethod);
-      }
+      $location.path("/references/" + selectedCategory);
     };
 
   });
