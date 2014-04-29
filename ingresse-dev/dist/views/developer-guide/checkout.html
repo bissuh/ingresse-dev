@@ -81,9 +81,9 @@
 		<p><strong>Exemplo de resposta positiva:</strong>
 <pre class="prettyprint">
 {
-  "transactionStatus": {
-    "transactionId": "12345-1234-000046751B8EC09A34D16DD07BA6A0762081E719",
-    "status": "pending"
+  transactionStatus : {
+    transactionId : "12345-1234-000046751B8EC09A34D16DD07BA6A0762081E719",
+    status : "pending"
   }
 }
 </pre>
@@ -92,9 +92,9 @@
 		<p><strong>Exemplo de resposta negativa</strong>
 <pre class="prettyprint">
 {
-  "transactionStatus": {
-    "status": "declined",
-    "message" : "Sorry baby, seems that you are late!"
+  transactionStatus : {
+    status : "declined",
+    message : "Sorry baby, seems that you are late!"
   }
 }
 </pre>
@@ -135,7 +135,7 @@
   ],
   paymentMethod: "CartaoCredito",
   creditcard : {
-    cpf : "89222644444"
+    cpf : "89222644444",
     cardHash : "FFtwikzg/FC1mH7XLFU5fjcRy[...]DcsxPtVB+Fgq7SDuB4tHWBT8j6wihOO7ww=="
   }
 }
@@ -168,9 +168,9 @@
 		<p><strong>Exemplo de resposta positiva</strong>
 <pre class="prettyprint">
 {
-  "transactionStatus": {
-    "transactionId": "12345-1234-000046751B8EC09A34D16DD07BA6A0762081E719",
-    "status": "approved"
+  transactionStatus : {
+    transactionId : "12345-1234-000046751B8EC09A34D16DD07BA6A0762081E719",
+    status : "approved"
   }
 }
 </pre>
@@ -179,8 +179,8 @@
 		<p><strong>Exemplo de resposta negativa:</strong>
 <pre class="prettyprint">
 {
-  "transactionStatus": {
-    "status": "declined",
+  transactionStatus : {
+    status : "declined",
     message : "Sorry baby, seems that your card information is wrong!"
   }
 }

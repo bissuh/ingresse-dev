@@ -31,12 +31,18 @@
 						"description" : "Objeto array de ingressos selecionados para o evento especificado.",
 						"type" : "array"
 					},
-					{
-						"name" : "session",
-						"default" : "none",
-						"description" : "Data (dd/mm/yyyy) e hora (hh:mm:ss) da lista do evento para quando se deseja comprar os ingressos.",
-						"type" : "integer"
-					},
+          {
+            "name" : "date",
+            "default" : "none",
+            "description" : "Data (dd/mm/yyyy) da lista do evento para quando se deseja comprar os ingressos.",
+            "type" : "integer"
+          },
+          {
+            "name" : "time",
+            "default" : "none",
+            "description" : "Hora (hh:mm:ss) da lista do evento para quando se deseja comprar os ingressos.",
+            "type" : "integer"
+          },
 					{
 						"name" : "ticketTypeId",
 						"default" : "none",
@@ -67,17 +73,23 @@
 				  "userId" : 123,
 				  "tickets" : [
 				    {
-				      "session" : "2013-10-12 22:00",
+              "session" : {
+                "date" : "31/12/2014",
+                "time" : "12:00:00"
+              },
 				      "ticketTypeId" : 1234,
 				      "type" : "inteira",
 				      "quantity" : 2
 				    },
-				    {
-				      "session" : "2013-10-13 22:00",
-				      "ticketTypeId" : 1234,
-				      "type" : "Inteira",
-				      "quantity" : 5
-				    }
+            {
+              "session" : {
+                "date" : "31/12/2014",
+                "time" : "12:00:00"
+              },
+              "ticketTypeId" : 1234,
+              "type" : "inteira",
+              "quantity" : 2
+            }
 				  ]
 				}
 			},
@@ -120,11 +132,17 @@
 						"type" : "array"
 					},
 					{
-						"name" : "session",
+						"name" : "date",
 						"default" : "none",
-						"description" : "Data (dd/mm/yyyy) e hora (hh:mm:ss) da lista do evento para quando se deseja comprar os ingressos.",
+						"description" : "Data (dd/mm/yyyy) da lista do evento para quando se deseja comprar os ingressos.",
 						"type" : "integer"
 					},
+          {
+            "name" : "time",
+            "default" : "none",
+            "description" : "Hora (hh:mm:ss) da lista do evento para quando se deseja comprar os ingressos.",
+            "type" : "integer"
+          },
 					{
 						"name" : "ticketTypeId",
 						"default" : "none",
@@ -156,33 +174,53 @@
 						"type" : "string"
 					},
 					{
-						"name" : "cardHash",
+						"name" : "paymentMethod",
 						"default" : "none",
-						"description" : "O cardhash possui as informações de pagamento codificadas para uma segunda camada de segurança. Para saber mais sobre como criar um cardhash, consultar Guia do desenvolvedor > Fluxo de compra",
+						"description" : "Define qual formato de pagamento selecionado para a compra. Opções: CartaoCredito",
 						"type" : "string"
-					}
+					},
+          {
+            "name" : "cpf",
+            "default" : "none",
+            "description" : "Número de CPF do portador do cartão de crédito.",
+            "type" : "string"
+          },
+          {
+            "name" : "cardHash",
+            "default" : "none",
+            "description" : "O cardhash possui as informações de pagamento codificadas para uma segunda camada de segurança. Para saber mais sobre como criar um cardhash, consultar Guia do desenvolvedor > Fluxo de compra",
+            "type" : "string"
+          }
 				],
 				"example" : {
 					"transactioId" : "12345-1234-000046751B8EC09A34D16DD07BA6A0762081E719",
 					"eventId" : 12345,
 					"userId" : 123,
-					"tickets" :[
-						{
-							"session" : "2013-10-12 22:00",
-							"ticketTypeId" : 1234,
-							"type" : "inteira",
-							"quantity" : 2
-						},
-						{
-							"session" : "2013-10-12 22:00",
-							"ticketTypeId" : 1234,
-							"type" : "inteira",
-							"quantity" : 2
-						}
-					],
-					"creditcard" : {
-						"cardHash" : "FFtwikzg/FC1mH7XLFU5fjcRy[...]DcsxPtVB+Fgq7SDuB4tHWBT8j6wihOO7ww=="
-					}
+          "tickets" : [
+            {
+              "session" : {
+                "date" : "31/12/2014",
+                "time" : "12:00:00"
+              },
+              "ticketTypeId" : 1234,
+              "type" : "inteira",
+              "quantity" : 2
+            },
+            {
+              "session" : {
+                "date" : "31/12/2014",
+                "time" : "12:00:00"
+              },
+              "ticketTypeId" : 1234,
+              "type" : "inteira",
+              "quantity" : 2
+            }
+          ],
+          "paymentMethod" : "CartaoCredito",
+          "creditcard" : {
+            "cpf" : "89222644444",
+            "cardHash" : "FFtwikzg/FC1mH7XLFU5fjcRy[...]DcsxPtVB+Fgq7SDuB4tHWBT8j6wihOO7ww=="
+          }
 				}
 			},
 			"filters" : [],
