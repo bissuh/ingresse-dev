@@ -129,7 +129,7 @@
 			"type" : "get",
 			"private" : true,
 			"url" : "user/:id/tickets",
-			"action" : "Retorna a lista de ingressos do usuário especificado. Válido somente caso a sessão aberta seja do mesmo usuário.",
+			"action" : "Retorna a lista de ingressos do usuário especificado. Válido somente caso a sessão aberta seja do mesmo usuário. Compras pendentes, reembolsadas e não aprovadas não são retornadas na lista.",
 			"params" : [],
 			"filters" : [
 				{
@@ -141,26 +141,26 @@
 				}
 			],
 			"answer" : {
-				"id" : "público",
-				"name" : "público",
-				"description" : "público",
-				"quantity" : "público",
-				"quantitySold" : "público",
-				"price" : "público",
-				"free" : "público",
-				"tax" : "público",
-				"percentTax" : "público",
-				"sessionAvailables" : "público",
-				"beginSalesDate" : "público",
-				"beginSalesTime" : "público",
-				"endSalesDate" : "público",
-				"endSalesTime" : "público",
-				"studentTicketAvailable" : "público",
-				"paidBy" : "private",
-				"moipPaidBy" : "private",
-				"creationDate" : "private",
-				"modificationDate" : "private"
-			},
+        "checked" : false,
+        "guestName" : "Marcello Henrique",
+        "guestEmail" : "lollo@gmail.com",
+        "guestCellphone" : "(11) 98109-1971",
+        "eventDate" : {
+          "date" : "10/05/2014",
+          "time" : "04:00:00"
+        },
+        "eventTitle" : "Clubinho Open Air",
+        "eventId" : 9491,
+        "ticketType" : "1o LOTE MASCULINO",
+        "type" : "Inteira",
+        "code" : "25.9491.B001581N.558262.10",
+        "saleStatus" : "approved",
+        "price" : 100,
+        "tax" : 0,
+        "transactionId" : "118-9491-3EA5EGGCB3635D7E23BA9DC7DEC2560987C16A6F",
+        "free" : false,
+        "saleTicketId" : 825623
+      },
 			"examples" : [
 				{
 					"request" : "user/963/tickets",
