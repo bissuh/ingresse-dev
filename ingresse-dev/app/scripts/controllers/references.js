@@ -3,7 +3,7 @@
 angular.module('ingresse-devApp')
 
 	/**
-	 * References main Controlller
+	 * References main Controller
 	 */
 	.controller('ReferencesCtrl', function($scope, $http, $routeParams, $location, $filter, $timeout, References) {
 
