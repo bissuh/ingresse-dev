@@ -2,7 +2,7 @@
 
 angular.module('ingresse-devApp', ['ngResource', 'ngDisqus'])
 
-	.config(function ($disqusProvider, $routeProvider, $locationProvider, $httpProvider) {
+	.config(function ($disqusProvider, $routeProvider) {
 
 		$disqusProvider.setShortname('ingresse');
 		//$locationProvider.html5Mode(true).hashPrefix('!');

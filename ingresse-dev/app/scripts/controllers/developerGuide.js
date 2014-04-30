@@ -5,7 +5,7 @@ angular.module('ingresse-devApp')
 	/**
 	 * Developer Guide main Controlller
 	 */
-	.controller('DeveloperGuideCtrl', function($scope, $http, $routeParams, $location, $filter) {
+	.controller('DeveloperGuideCtrl', ['$scope', function($scope) {
 		$scope.disqusIdentifier = 'developer-guide.auth';
 		prettyPrint();
-	});
+	}]);

@@ -5,7 +5,7 @@ angular.module('ingresse-devApp')
 	/**
 	 * References main Controller
 	 */
-	.controller('ReferencesCtrl', function($scope, $http, $routeParams, $location, $filter, $timeout, References) {
+	.controller('ReferencesCtrl', ['$scope', '$http', '$routeParams', '$location', '$filter', '$timeout', 'References', function($scope, $http, $routeParams, $location, $filter, $timeout, References) {
 
 		// At the beggning, were darkness...
 		$scope.referenceTemplate = null;
@@ -16,7 +16,7 @@ angular.module('ingresse-devApp')
 
 			// ... then comes the light
 			$scope.category = References.get({categoryId: $routeParams.category}, function(){
-				$timeout(function() {prettyPrint()},100);
+				$timeout(function() {prettyPrint();},100);
 			});
 			$scope.methodId = $routeParams.method;
 
@@ -27,7 +27,7 @@ angular.module('ingresse-devApp')
 			}
 			else {
 				$scope.referenceTemplate = 'method';
-				$scope.disqusIdentifier = 'references.' + $routeParams.category + "." + $routeParams.method;
+				$scope.disqusIdentifier = 'references.' + $routeParams.category + '.' + $routeParams.method;
 			}
 		}
 
@@ -50,19 +50,19 @@ angular.module('ingresse-devApp')
 				$scope.referenceTemplate = 'method';
 
 				// Refresh url
-				$location.path("/references/" + selectedCategory + "/" + selectedMethod);
-				$scope.disqusIdentifier = 'references.' + selectedCategory + "." + selectedMethod;
+				$location.path('/references/' + selectedCategory + '/' + selectedMethod);
+				$scope.disqusIdentifier = 'references.' + selectedCategory + '.' + selectedMethod;
 			}
 
-			$timeout(function() {prettyPrint()},100);
+			$timeout(function() {prettyPrint();},100);
 		};
 
-	})
+	}])
 
 	/**
 	 * List of references Controller
 	 */
-	.controller('ReferencesMenuCtrl', function($scope, $http, References) {
+	.controller('ReferencesMenuCtrl', ['$scope', '$http', 'References', function($scope, $http, References) {
 
 		// Get list of categories in API and ...
 		References.query({}, function(data){
@@ -85,4 +85,4 @@ angular.module('ingresse-devApp')
 			}
 		});
 
-	});
+	}]);

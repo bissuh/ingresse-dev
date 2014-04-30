@@ -2,6 +2,4 @@
 
 angular.module('ingresse-devApp')
 
-	.controller('MainCtrl', function($scope, $http) {
-
-	});
+	.controller('MainCtrl', function() {});
