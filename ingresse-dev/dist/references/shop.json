@@ -31,18 +31,18 @@
 						"description" : "Objeto array de ingressos selecionados para o evento especificado.",
 						"type" : "array"
 					},
-          {
-            "name" : "date",
-            "default" : "none",
-            "description" : "Data (dd/mm/yyyy) da lista do evento para quando se deseja comprar os ingressos.",
-            "type" : "integer"
-          },
-          {
-            "name" : "time",
-            "default" : "none",
-            "description" : "Hora (hh:mm:ss) da lista do evento para quando se deseja comprar os ingressos.",
-            "type" : "integer"
-          },
+					{
+						"name" : "date",
+						"default" : "none",
+						"description" : "Data (dd/mm/yyyy) da lista do evento para quando se deseja comprar os ingressos.",
+						"type" : "integer"
+					},
+					{
+						"name" : "time",
+						"default" : "none",
+						"description" : "Hora (hh:mm:ss) da lista do evento para quando se deseja comprar os ingressos.",
+						"type" : "integer"
+					},
 					{
 						"name" : "ticketTypeId",
 						"default" : "none",

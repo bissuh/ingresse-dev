@@ -1,0 +1,177 @@
+{
+	"title" : "Gerenciamento",
+	"id" : "dashboard",
+	"description" : "Os organizadores de evento possuem uma quantidade de métodos para se manter informado ou trablhar integradamente com seus eventos na Ingresse. As API de gerenciamento são todas fechadas para terem acesso a sua conta, ou as contas com permissão concedidas pelo dono do evento.",
+	"methods" : [
+		{
+			"id" : "get-guest-list",
+			"name" : "Pedir lista de convidados",
+			"type" : "get",
+			"url" : "event/:id/guestlist",
+			"action" : "Retorna a lista de ingressos vendidos do evento especificado.",
+			"params" : [],
+			"filters" : [
+				{
+					"name" : "status",
+					"default" : "all",
+					"description" : "Filtra os ingressos vendidos pelo status. Opções: all, checked, unchecked.",
+					"type" : "string",
+					"example" : "checked"
+				},
+				{
+					"name" : "tickettypeid",
+					"default" : "none",
+					"description" : "Retorna os ingresos vendidos apenas do tipo especificado.",
+					"type" : "number",
+					"example" : "12345"
+				},
+				{
+					"name" : "sessionid",
+					"default" : "none",
+					"description" : "Retorna a lista de ingressos vendidos para apenas a sessão especificada.",
+					"type" : "number",
+					"example": "20134"
+				}
+			],
+			"answer" : {
+				"paginationInfo" : {
+					"currentPage" : 1,
+					"lastPage" : 1,
+					"totalResults" : 1,
+					"pageSize" : 25
+				},
+				"data": [
+					{
+					   "code" : "123",
+					   "name" : "Thony Maromba",
+					   "email" : "mar***@ingresse.com",
+					   "id" : 1234,
+					   "name" : "Camarote",
+					   "type" : "Inteira",
+					   "checked" : true
+					},
+					{
+					   "code" : "12314",
+					   "name" : "Thony Maromba",
+					   "email" : "mar***@ingresse.com",
+					   "id" : 1234,
+					   "name" : "Camarote",
+					   "type" : "Inteira",
+					   "checked" : false
+					}
+				]
+			},
+			"examples" : [
+				{
+					"request" : "event/8000/guestlist",
+					"description" : "Retorna a lista completa de ingressos vendidos."
+				},
+				{
+					"request" : "event/8000/guestlist?status=checked",
+					"description" : "Retorna a lista de ingressos vendidos que já estão utilizados."
+				},
+				{
+					"request" : "event/8000/guestlist?status=checked&tickettypeid=69",
+					"description" : "Retorna todos os ingressos vendidos, já usados e do tipo especificado."
+				},
+				{
+					"request" : "event/8000/guestlist?status=checked&tickettypeid=69&sessionid=123",
+					"description" : "Retorna todos os ingressos vendidos, já utilizados, do tipo especificado e que são da sessão especificada."
+				}
+			]
+		},
+		{
+			"id" : "get-guest-list-report",
+			"name" : "Relatório de entrada",
+			"type" : "get",
+			"url" : "event/:id/guestlist?method=report",
+			"action" : "Retorna o relatório de entrada do evento especificado.",
+			"params" : [],
+			"filters" : [],
+			"answer" : {
+			    "stats" : [
+				    {
+				        "id" : 123,
+				        "name" : "Camarote",
+				        "type" : "Inteira",
+				        "checkedTickets" : 123,
+				        "uncheckedTickets" : 234
+				    },
+				    {
+				        "id" : 234,
+				        "name" : "Camarote",
+				        "type" : "Meia",
+				        "checkedTickets" : 789,
+				        "uncheckedTickets" : 231234
+				    }
+				]
+			},
+			"examples" : [
+				{
+					"request" : "event/8000/guestlist?method=report",
+					"description" : "Retorna o relatório de entrada para o evento."
+				}
+			]
+		},
+		{
+			"id" : "update-ticket-status",
+			"name" : "Atualizar status de ingressos.",
+			"type" : "post",
+			"url" : "event/:id/guestlist?method=updatestatus",
+			"action" : "Atualizar status dos ingressos e retornar o status mais atual do ingresso.",
+			"params" : {
+				"specs" : [
+					{
+						"name" : "ticketCode",
+						"default" : "none",
+						"description" : "ID do ingresso vendido.",
+						"type" : "integer"
+					},
+					{
+						"name" : "ticketStatus",
+						"default" : "none",
+						"description" : "Status do ingresso: se já utilizado ou não.",
+						"type" : "boolean"
+					},
+					{
+						"name" : "ticketTimeStamp",
+						"default" : "none",
+						"description" : "Horário de atualização do status do código.",
+						"type" : "timestamp"
+					}
+				],
+				"example" : {
+				    "tickets" : [
+				    {
+				        "code" : "6789-098765456789334567890",
+				        "checked" : false,
+				        "timestamp" : 123456789
+				    },
+				    {
+				        "code" : "6789-098765456789334567890",
+				        "checked" : false,
+				        "timestamp" : 123456789
+				    }]
+				}
+			},
+			"filters" : [],
+			"answer" : {
+				"data" : [
+				{
+					"code" : "6789-098765456789334567890",
+					"checked" : false
+				},
+				{
+					"code" : "6789-098765456789334567890",
+					"checked" : false
+				}]
+			},
+			"examples" : [
+				{
+					"request" : "event/8000/guestlist?method=updatestatus",
+					"description" : "Atualiza o status dos ingressos enviados como parâmetros."
+				}
+			]
+		}
+	]
+}

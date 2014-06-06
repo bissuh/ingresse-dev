@@ -18,5 +18,9 @@
 {
 	"name" : "Venda de ingressos",
 	"id" : "shop"
+},
+{
+	"name" : "Gerenciamento",
+	"id" : "dashboard"
 }
 ]
