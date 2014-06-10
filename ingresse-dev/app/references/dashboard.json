@@ -118,7 +118,7 @@
 			"name" : "Atualizar status de ingressos.",
 			"type" : "post",
 			"url" : "event/:id/guestlist?method=updatestatus",
-			"action" : "Atualizar status dos ingressos e retornar o status mais atual do ingresso.",
+			"action" : "Atualizar status dos ingressos e retornar o status mais atual do ingresso (0 = Erro ao atualizar, 1 = Atualização realizada, 2 = Não encontrado, 3 = Status enviado antigo).",
 			"params" : {
 				"specs" : [
 					{
@@ -159,11 +159,13 @@
 				"data" : [
 				{
 					"code" : "6789-098765456789334567890",
-					"checked" : false
+					"checked" : false,
+					"status" : 0
 				},
 				{
 					"code" : "6789-098765456789334567890",
-					"checked" : false
+					"checked" : false,
+					"status" : 1
 				}]
 			},
 			"examples" : [
