@@ -85,7 +85,7 @@
 			]
 		},
 		{
-			"id" : "get-guest-list-report",
+			"id" : "guest-list-report",
 			"name" : "Relatório de entrada",
 			"type" : "get",
 			"url" : "event/:id/guestlist?method=report",
