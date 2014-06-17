@@ -128,17 +128,17 @@
 					{
 						"name" : "ticketCode",
 						"default" : "none",
-						"description" : "ID do ingresso vendido.",
-						"type" : "integer"
+						"description" : "Código do ingresso vendido.",
+						"type" : "string"
 					},
 					{
 						"name" : "ticketStatus",
 						"default" : "none",
 						"description" : "Status do ingresso: se já utilizado ou não.",
-						"type" : "boolean"
+						"type" : "number"
 					},
 					{
-						"name" : "ticketTimeStamp",
+						"name" : "ticketTimestamp",
 						"default" : "none",
 						"description" : "Horário de atualização do status do código.",
 						"type" : "timestamp"
@@ -147,14 +147,14 @@
 				"example" : {
 				    "tickets" : [
 				    {
-				        "code" : "6789-098765456789334567890",
-				        "checked" : false,
-				        "timestamp" : 123456789
+				        "ticketCode" : "6789-098765456789334567890",
+				        "ticketStatus" : false,
+				        "ticketTimestamp" : 123456789
 				    },
 				    {
-				        "code" : "6789-098765456789334567890",
-				        "checked" : false,
-				        "timestamp" : 123456789
+				        "ticketCode" : "6789-098765456789334567890",
+				        "ticketStatus" : false,
+				        "ticketTimestamp" : 123456789
 				    }]
 				}
 			},
