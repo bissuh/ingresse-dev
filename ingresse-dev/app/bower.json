@@ -1,0 +1,12 @@
+{
+  "name": "ingresse-dev",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "~1.*",
+    "angular-resource": "~1.*",
+    "angular-cookies": "~1.*",
+    "angular-sanitize": "~1.*",
+    "venus": "~1.9.10",
+    "ingresse-websdk": "~4.0.1"
+  }
+}

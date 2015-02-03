@@ -10,3 +10,5 @@ ingresse-dev/.tmp
 .AppleDouble
 .LSOverride
 .vagrant
+*.sublime-project
+*.sublime-workspace
