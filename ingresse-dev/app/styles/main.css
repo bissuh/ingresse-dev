@@ -10,12 +10,31 @@ By: Bissuh
 
 /* =GENERAL */
 
-.sidebar {
-	padding: 30px 20px;
+.venus.logo img{
+	padding: 15px;
 }
 
-.row {
-	max-width: 80rem !important;
+.sidebar ul{
+	list-style: none;
+	padding: 0px;
+}
+
+.sidebar li {
+	padding: 10px;
+}
+
+.sidebar a {
+	cursor: pointer;
+	width: 100%;
+	display: block;
+}
+
+.sidebar li.active, .sidebar li:hover {
+	background: #00A5DB;
+}
+
+.sidebar li.active a, .sidebar li:hover a{
+	color: #FFF;
 }
 
 h1 {

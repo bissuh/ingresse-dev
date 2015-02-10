@@ -34,28 +34,29 @@
 
     <!-- Top Bar -->
     <header>
-
-        <nav class="top-bar" data-topbar>
-          <ul class="title-area">
-            <!-- Title Area -->
-            <li class="name">
-              <a href="#/home"><img class="home-developers" src="/img/ingresse-dev.png" alt="Ingresse developers"></a>
-            </li>
-          </ul>
-
-          <section class="top-bar-section">
-            <!-- Right Nav Section -->
-            <ul class="right">
-              <li><a href="#/developer-guide/auth">Guia do Desenvolvedor</a></li>
-              <li><a href="#/references">API</a></li>
-              <li><a href="#/errors/usage-exception">Dicionário de Erros</a></li>
-              <li><a href="https://muut.com/ingresse-api">Fórum</a></li>
-            </ul>
-        </nav>
+        <div class="venus header">
+          <div class="venus container">
+            <div class="venus row">
+              <div class="venus column left three">
+                <a class="venus logo" href="#/home"><img src="/img/ingresse-dev.png" alt="Ingresse developers"></a>
+              </div>
+              <div class="venus column right seven">
+                <nav class="menu">
+                  <ul>
+                    <li><a class="venus" href="#/developer-guide/auth">Guia do Desenvolvedor</a></li>
+                    <li><a class="venus" href="#/references">API</a></li>
+                    <li><a class="venus" href="#/errors/usage-exception">Dicionário de Erros</a></li>
+                    <li><a class="venus" href="https://muut.com/ingresse-api">Fórum</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
     </header>
 
     <!-- Add your site or application content here -->
-    <section role="main" ng-view=""></section>
+    <section role="main" class="venus container" ng-view=""></section>
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
